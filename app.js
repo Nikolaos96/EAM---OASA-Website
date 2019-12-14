@@ -115,12 +115,12 @@ app.get("/register", function(req, res) {
 });
 
 app.post("/register", function(req, res) {
-	/*
+	
 	if(req.body.password !== req.body.password_again){
 		//console.log("Ta password me to password_again einai diaforetika");
-		return res.render("user_exists.ejs");
+		res.render("register.ejs");
 	}
-	*/
+	
 
 
 	var newUser = new User({username: req.body.username,
@@ -223,5 +223,5 @@ app.post("/account", isLoggedIn, function(req, res) {
 
 
 app.listen(3000, function() {
-	console.log("auctions app server has started!!!");
+	console.log("Oasa server has started!!!");
 });
