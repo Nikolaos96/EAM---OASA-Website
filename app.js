@@ -114,11 +114,16 @@ app.get("/register", function(req, res) {
 	res.render("register.ejs");
 });
 
+
+const url = require('url');
+
+
 app.post("/register", function(req, res) {
 	
 	if(req.body.password !== req.body.password_again){
 		//console.log("Ta password me to password_again einai diaforetika");
-		res.render("register.ejs");
+		res.render("register.ejs", { error: "Password and Password_again is differenet" });
+		return;
 	}
 	
 
@@ -136,11 +141,11 @@ app.post("/register", function(req, res) {
 
 	User.register(newUser, req.body.password, function(err, user) {
 		if(err) {
-			console.log("error is: " + err);
-			res.render("register.ejs");
+			//console.log("error is: " + err);
+			return res.render("register.ejs", { error: "Username exist.Please change your username" });
 		}
 		passport.authenticate("local")(req, res , function() { 	
-			res.redirect("/");												
+			res.redirect("/");				
 		});
 	});
 });
@@ -159,7 +164,7 @@ app.get("/login", function(req, res) {
 
 
 app.post("/login", passport.authenticate("local", {
-	failureRedirect:"/login",
+	failureRedirect: "/login",
 	successRedirect: "/"
 	
 }), function(req, res, next) {
@@ -215,7 +220,7 @@ app.post("/account", isLoggedIn, function(req, res) {
 		image: req.body.image
 		
 	} ,function(error, updatedUser) {
-		res.redirect("/");
+		res.redirect("my_account.ejs");
 	});
 
 });
