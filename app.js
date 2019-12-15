@@ -224,7 +224,7 @@ app.post("/account", isLoggedIn, function(req, res) {
 		image: req.body.image
 		
 	} ,function(error, updatedUser) {
-		res.redirect("my_account.ejs");
+		res.redirect("/my_account");
 	});
 
 });
