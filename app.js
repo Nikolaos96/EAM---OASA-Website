@@ -92,6 +92,10 @@ app.get("/index", function(req, res) {
 });
 
 
+app.get("/error_page", function(req, res){
+	res.render("error_page.ejs");
+});
+
 
 app.get("/", function(req, res) {
 	res.render("home.ejs", {currentUser : req.user});
