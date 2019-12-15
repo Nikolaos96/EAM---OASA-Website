@@ -97,6 +97,7 @@ app.get("/error_page", function(req, res){
 });
 
 
+
 app.get("/", function(req, res) {
 	res.render("home.ejs", {currentUser : req.user});
 });
@@ -109,7 +110,25 @@ app.get("/back", function(req, res) {
 
 
 
+app.get("/24wra_leoforeia", function(req, res){
+	
+	var leoforeia = [
+		{arithmos_gram: "040", afetiria: "Πειραιάς", terma: "Σύνταγμα", meres: "Δευτέρα - Πέμπτη"},
+		{arithmos_gram: "500", afetiria: "Πειραιάς", terma: "Κηφισιά", meres: "Δευτέρα - Παρασκευή"},
+		{arithmos_gram: "790", afetiria: "Γλυφάδα", terma: "Περιστέρι", meres: "Δευτέρα - Κυριακή"},
+		{arithmos_gram: "x14", afetiria: "Σύνταγμα", terma: "Κηφισιά", meres: "Τετάρτη - Σάββατο"},
+		{arithmos_gram: "x95 (Αεροδρομίου)", afetiria: "Σύνταγμα", terma: "Αεροδρόμιο", meres: "Δευτέρα - Κυριακή"},
+		{arithmos_gram: "11", afetiria: "Πατήσια", terma: "Παγκράτι", meres: "Τρίτη - Παρασκευή"},
+		{arithmos_gram: "T4", afetiria: "Ανθούπολη", terma: "Ελληνικό", meres: "Πέμπτη - Σάββατο"},
+		{arithmos_gram: "T5", afetiria: "Ζωγράφου", terma: "Ομόνοια", meres: "Παρασκευή - Σάββατο"},
+		{arithmos_gram: "T3", afetiria: "Νέο Φάληρο", terma: "Βούλα", meres: "Σάββατο - Κυριακή"},
+		{arithmos_gram: "040", afetiria: "Άγιος Αντώνιος", terma: "Καισαριανή", meres: "Δευτέρα - Πέμπτη"}
+	]
+	
 
+
+	res.render("24wra_leoforeia.ejs", {leoforeia: leoforeia});
+});
 
 
 
@@ -117,10 +136,6 @@ app.get("/back", function(req, res) {
 app.get("/register", function(req, res) {
 	res.render("register.ejs");
 });
-
-
-const url = require('url');
-
 
 app.post("/register", function(req, res) {
 	
@@ -153,9 +168,6 @@ app.post("/register", function(req, res) {
 		});
 	});
 });
-
-
-
 
 
 
