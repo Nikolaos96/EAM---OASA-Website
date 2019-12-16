@@ -8,19 +8,18 @@ var app = express();
 mongoose.connect("mongodb://localhost/auctions_db", { useNewUrlParser: true } );
 
 
+var seedDB		= require("./seeds");
+//seedDB();
+
 
 
 
 var User = require("./models/user.js");
+var Dromologia = require("./models/dromologia.js");
 
 
 
 
-
-
-//var ChatStuff = require("./models/chat.js");
-//var Auction = require("./models/auction.js");
-//var Bid = require("./models/bid.js");
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var passportLocalMongoose = require("passport-local-mongoose");
@@ -85,21 +84,14 @@ app.use(function(req, res, next) {
 
 
 
-
-// ROUTES
-app.get("/index", function(req, res) {
-	res.render("index.ejs");
+app.get("/", function(req, res) {
+	res.render("home.ejs", {currentUser : req.user});
 });
+
 
 
 app.get("/error_page", function(req, res){
 	res.render("error_page.ejs");
-});
-
-
-
-app.get("/", function(req, res) {
-	res.render("home.ejs", {currentUser : req.user});
 });
 
 
@@ -132,7 +124,82 @@ app.get("/24wra_leoforeia", function(req, res){
 
 
 
-// sign up routes
+// anazitisi diadromis
+/////////////////////////////////////////////////////////////////
+app.get("/anazitisi_diadromis", function(req, res) {
+	res.render("anazitisi_diadromis.ejs");
+});
+
+app.post("/anazitisi_diadromis", function(req, res){
+	
+    var dromologio = {};
+	if(req.body.dromologio.afetiria !== undefined && req.body.dromologio.afetiria.length !== 0){
+			dromologio.afetiria = req.body.dromologio.afetiria;
+	}
+	if(req.body.dromologio.terma !== undefined && req.body.dromologio.terma.length !== 0){
+			dromologio.terma = req.body.dromologio.terma;
+	}
+	
+	
+	Dromologia.find(
+		dromologio
+	, function(err, found_dromologio){
+		if(found_dromologio.length === 0){
+			//console.log("Den yparxei to dromologio \n");
+			res.render("anazitisi_diadromis.ejs", { error: "Tο Δρομολόγιο δεν υπάρχει.Εισάγεται νεα στοιχεία." });
+		}else{
+			//console.log("yparxei tetoio dromologio \n");
+			//console.log(found_dromologio);
+			
+			//res.render("", {});
+			res.redirect("/");
+		}
+	});
+});
+///////////////////////////////////////////////////////////////////
+
+
+
+// plirofories stasis
+//////////////////////////////////////////////////////////////////////
+app.post("/plirofories_stasis", function(req, res){
+	
+	Dromologia.find({
+		
+		$or:[
+			{ stasi1: req.body.dromologio.stasi },
+			{ stasi2: req.body.dromologio.stasi },
+			{ stasi3: req.body.dromologio.stasi },
+			{ stasi4: req.body.dromologio.stasi },
+			{ stasi5: req.body.dromologio.stasi },
+			{ stasi6: req.body.dromologio.stasi },
+			{ stasi7: req.body.dromologio.stasi },
+			{ stasi8: req.body.dromologio.stasi },
+			{ stasi9: req.body.dromologio.stasi },
+			{ stasi10: req.body.dromologio.stasi }
+		]
+		
+	}, function(err, found_dromologio){
+		if(found_dromologio.length === 0){
+			//console.log("Den yparxei to dromologio \n");
+			res.render("anazitisi_diadromis.ejs", { error: "Η στάση δεν υπάρχει.Εισάγεται νεα στοιχεία." });
+		}else{
+			//console.log("yparxei tetoio dromologio \n");
+			//console.log(found_dromologio);
+			
+			//res.render("", {});
+			res.redirect("/");
+		}
+	});
+});
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// register routes
+/////////////////////////////////////////////////////////////////////////////////////////
 app.get("/register", function(req, res) {
 	res.render("register.ejs");
 });
@@ -141,7 +208,7 @@ app.post("/register", function(req, res) {
 	
 	if(req.body.password !== req.body.password_again){
 		//console.log("Ta password me to password_again einai diaforetika");
-		res.render("register.ejs", { error: "Password and Password_again is differenet" });
+		res.render("register.ejs", { error: "Οι δύο κωδικοί δεν τεριάζουν.Εισάγεται ξανά τα στοιχεία σας." });
 		return;
 	}
 	
@@ -161,18 +228,19 @@ app.post("/register", function(req, res) {
 	User.register(newUser, req.body.password, function(err, user) {
 		if(err) {
 			//console.log("error is: " + err);
-			return res.render("register.ejs", { error: "Username exist.Please change your username" });
+			return res.render("register.ejs", { error: "Το Όνομα Χρήστη υπάρχει.Εισάγεται ένα διαφορετικό Όνομα Χρήστη." });
 		}
 		passport.authenticate("local")(req, res , function() { 	
 			res.redirect("/");				
 		});
 	});
 });
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 // login routes
+////////////////////////////////////////////////////////////////////////
 app.get("/login", function(req, res) {
 	res.render("login.ejs", { currentUser: req.user });
 });
@@ -186,7 +254,7 @@ app.post("/login", passport.authenticate("local", {
 }), function(req, res, next) {
 	
 });
-
+/////////////////////////////////////////////////////////////////////////////
 
 
 // logout route
@@ -196,9 +264,6 @@ app.get("/logout", function(req ,res) {
 });
 
 
-
-
-
 //MIDDLEWARES
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()) {
@@ -206,16 +271,15 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect("/login");
 }
+///////////////////////////////////////////////////////////////////////////////////////
 
 
 
-
+// acount routes
+/////////////////////////////////////////////////////////////////////////////////
 app.get("/my_account", isLoggedIn, function(req, res) {
 	res.render("my_account.ejs", { currentUser:req.user });
 });
-
-
-
 
 
 app.get("/account", isLoggedIn, function(req, res) {
@@ -240,6 +304,9 @@ app.post("/account", isLoggedIn, function(req, res) {
 	});
 
 });
+///////////////////////////////////////////////////////////////////////////////
+
+
 
 
 
