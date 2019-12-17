@@ -6,10 +6,18 @@ var User = require("./models/user.js");
 var data = [
 	{leoforeio: "250", 
 	 afetiria: "Πανεπιστημιουπολη",
+	 af_lat: 37.971829,		ter_lng: 23.759213,
+	 
 	 
 	 stasi1: "2η Σχολειο",
-	 stasi2: "Βρυσακι",
-	 stasi3: "Εφρονιου",
+	 s1_lat: 37.971960, 	s1_lng: 23.757105,
+	 
+	 
+	 stasi2: "Εφρονιου",
+	 s2_lat: 37.972219, 	s2_lng: 23.754686,
+	 
+	 
+	 stasi3: "Βρυσακι",
 	 stasi4: "2η Ριζαρη",
 	 stasi5: "Ευαγγελισμος",
 	 stasi6: "Χιλτον",
@@ -26,11 +34,51 @@ var data = [
 	 epomeno:	"20 λεπτά"
 	},
 	
+	{leoforeio: "E90", 
+	 afetiria: "Πανεπιστημιουπολη",
+	 af_lat: 37.971829,		ter_lng: 23.759213,
+	 
+	 
+	 stasi1: "2η Σχολειο",
+	 s1_lat: 37.971960, 	s1_lng: 23.757105,
+	 
+	 
+	 stasi2: "Εφρονιου",
+	 s2_lat: 37.972219, 	s2_lng: 23.754686,
+	 
+	 
+	 stasi3: "Βρυσακι",
+	 stasi4: "2η Ριζαρη",
+	 stasi5: "Ευαγγελισμος",
+	 stasi6: "Χιλτον",
+	 stasi7: "Καραβελ",
+	 stasi8: "Πυλη",
+	 stasi9: "1η Πανεπιστημιουπολη",
+	 stasi10: "2η Πανεπιστημιουπολη",
+	 
+	 
+	 terma: "Πειραιας",
+	 
+	 arxizei: "10:00",
+     teleiwnei: "23:00",
+	 epomeno:	"20 λεπτά"
+	}
+	
+	
+	
+/*
 	{leoforeio: "026", 
 	 afetiria: "Ιπποκρατους",
+	 af_lat: ,		ter_lng: ,
 	 
 	 stasi1: "Τσιμισκη",
+	 s1_lat: Double , 	s1_lng: Double,
+	 
+	 
 	 stasi2: "Διδοτου",
+	 s2_lat: Double , 	s2_lng: Double,
+	 
+	 
 	 stasi3: "Ακαδημιας",
 	 stasi4: "Ομηρου",
 	 stasi5: "Συνταγμα",
@@ -50,9 +98,16 @@ var data = [
 	
 	{leoforeio: "032", 
 	 afetiria: "Γουδη",
+	 af_lat: ,		ter_lng: ,
 	 
 	 stasi1: "Γραμμου",
+	 s1_lat: Double , 	s1_lng: Double,
+	 
+	 
 	 stasi2: "Νοσοκομειο παιδων",
+	 s2_lat: Double , 	s2_lng: Double,
+	 
+	 
 	 stasi3: "Λαικο",
 	 stasi4: "Οτε",
 	 stasi5: "Αλεξ",
@@ -73,9 +128,16 @@ var data = [
 	{
     leoforeio: "550",
     afetiria: "Π.Φαλιρο",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Φορος",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "Ωνασειο",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Σκρα",
     stasi4: "Στροφη Ν.Σμυρνης",
     stasi5: "Ολυμπιακη",
@@ -95,9 +157,16 @@ var data = [
 	{
     leoforeio: "608",
     afetiria: "Γαλατσι",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Πυθιας",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "Συκια",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Βορειος Πολος",
     stasi4: "Πλατεια Κολατσιου",
     stasi5: "Λυσσιατρειο",
@@ -117,9 +186,16 @@ var data = [
 	{
     leoforeio: "Ε14",
     afetiria: "Ζαππειο",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Συνταγμα",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "Σταθμος Ευαγγελισμος",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Ιλισια",
     stasi4: "Αμπελοκηποι",
     stasi5: "Ερυθρος Σταυρος",
@@ -139,9 +215,16 @@ var data = [
 	{
     leoforeio: "Α7",
     afetiria: "Στουρναρη",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Πολυτεχνειο",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "Ναυαρινου",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Τσιμισκη",
     stasi4: "Ιπποκρατους",
     stasi5: "Ικα",
@@ -161,9 +244,16 @@ var data = [
 	{
     leoforeio: "221",
     afetiria: "Ζωγραφου",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Παλαιο Τερμα",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "7η Ιλισιων",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Φοιτητ.Εστια",
     stasi4: "Νοσοκ.Συγγρου",
     stasi5: "Χιλτον",
@@ -183,9 +273,16 @@ var data = [
 	{
     leoforeio: "224",
     afetiria: "Καισαριανης",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Παλ.Τερμα",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "10η Καισαριανης",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Παναγιτσα",
     stasi4: "Αστυνομια",
     stasi5: "Χιλτον",
@@ -205,9 +302,16 @@ var data = [
 	{
     leoforeio: "305",
     afetiria: "Στ.Νομισματοκοπειου",
+	af_lat: ,		ter_lng: ,
 
     stasi1: "Τομπρα",
+	s1_lat: Double , 	s1_lng: Double,
+	
+	
     stasi2: "Ερτ",
+	s2_lat: Double , 	s2_lng: Double,
+	
+	
     stasi3: "Σταυρος",
     stasi4: "Β.Ρωτα",
     stasi5: "Πυργος",
@@ -222,8 +326,19 @@ var data = [
     arxizei: "7:00",
     teleiwnei: "24:00",
     epomeno: "50 λεπτά"
-	},
+	}
 
+
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+/*
 	{
     leoforeio: "402",
     afetiria: "Στ.Κατεχακη",
@@ -399,6 +514,7 @@ var data = [
     teleiwnei: "6:00",
     epomeno: "35 λεπτά"
 	}
+*/
 ]
 
 

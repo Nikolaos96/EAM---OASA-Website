@@ -152,7 +152,7 @@ app.post("/anazitisi_diadromis", function(req, res){
 			//console.log(found_dromologio);
 			
 			//res.render("", {});
-			res.redirect("/");
+			res.render("apotelesmata_anaz_diadromis.ejs");
 		}
 	});
 });
@@ -184,11 +184,19 @@ app.post("/plirofories_stasis", function(req, res){
 			//console.log("Den yparxei to dromologio \n");
 			res.render("anazitisi_diadromis.ejs", { error: "Η στάση δεν υπάρχει.Εισάγεται νεα στοιχεία." });
 		}else{
-			//console.log("yparxei tetoio dromologio \n");
-			//console.log(found_dromologio);
 			
-			//res.render("", {});
-			res.redirect("/");
+			
+			var lat;
+			var lng;
+			if(found_dromologio[0].stasi1 === req.body.dromologio.stasi){ 
+				lat = found_dromologio[0].s1_lat;
+				lng = found_dromologio[0].s1_lng;
+			}else{
+				lat = found_dromologio[0].s2_lat;
+				lng = found_dromologio[0].s2_lng;
+			}
+			
+			res.render("apotelesmata_plir_stasis.ejs", { dromologia: found_dromologio , stasi: req.body.dromologio.stasi, lat: lat, lng:lng });
 		}
 	});
 });
