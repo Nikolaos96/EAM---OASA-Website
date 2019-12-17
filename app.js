@@ -133,12 +133,9 @@ app.get("/anazitisi_diadromis", function(req, res) {
 app.post("/anazitisi_diadromis", function(req, res){
 	
     var dromologio = {};
-	if(req.body.dromologio.afetiria !== undefined && req.body.dromologio.afetiria.length !== 0){
-			dromologio.afetiria = req.body.dromologio.afetiria;
-	}
-	if(req.body.dromologio.terma !== undefined && req.body.dromologio.terma.length !== 0){
-			dromologio.terma = req.body.dromologio.terma;
-	}
+	
+	dromologio.afetiria = req.body.dromologio.afetiria;
+	dromologio.terma = req.body.dromologio.terma;
 	
 	
 	Dromologia.find(
@@ -151,8 +148,7 @@ app.post("/anazitisi_diadromis", function(req, res){
 			//console.log("yparxei tetoio dromologio \n");
 			//console.log(found_dromologio);
 			
-			//res.render("", {});
-			res.render("apotelesmata_anaz_diadromis.ejs");
+			res.render("apotelesmata_anaz_diadromis.ejs", { dromologia: found_dromologio, arxi: req.body.dromologio.afetiria, telos: req.body.dromologio.terma});
 		}
 	});
 });
@@ -199,6 +195,18 @@ app.post("/plirofories_stasis", function(req, res){
 			res.render("apotelesmata_plir_stasis.ejs", { dromologia: found_dromologio , stasi: req.body.dromologio.stasi, lat: lat, lng:lng });
 		}
 	});
+});
+
+
+app.get("/plirofories_stasis/:id", function(req, res){
+	
+	Dromologia.findById({
+		_id: req.params.id
+	}, function(err, found_dromologio){
+		
+		res.render("xartis.ejs", {lat: found_dromologio.af_lat, lng: found_dromologio.af_lng ,afetiria: found_dromologio.afetiria ,leof: found_dromologio.leoforeio });
+	});
+	
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -6,7 +6,7 @@ var User = require("./models/user.js");
 var data = [
 	{leoforeio: "250", 
 	 afetiria: "Πανεπιστημιουπολη",
-	 af_lat: 37.971829,		ter_lng: 23.759213,
+	 af_lat: 37.971829,		af_lng: 23.759213,
 	 
 	 
 	 stasi1: "2η Σχολειο",
@@ -36,7 +36,7 @@ var data = [
 	
 	{leoforeio: "E90", 
 	 afetiria: "Πανεπιστημιουπολη",
-	 af_lat: 37.971829,		ter_lng: 23.759213,
+	 af_lat: 37.971829,		af_lng: 23.759213,
 	 
 	 
 	 stasi1: "2η Σχολειο",
@@ -69,7 +69,7 @@ var data = [
 /*
 	{leoforeio: "026", 
 	 afetiria: "Ιπποκρατους",
-	 af_lat: ,		ter_lng: ,
+	 af_lat: ,		af_lng: ,
 	 
 	 stasi1: "Τσιμισκη",
 	 s1_lat: Double , 	s1_lng: Double,
@@ -98,7 +98,7 @@ var data = [
 	
 	{leoforeio: "032", 
 	 afetiria: "Γουδη",
-	 af_lat: ,		ter_lng: ,
+	 af_lat: ,		af_lng: ,
 	 
 	 stasi1: "Γραμμου",
 	 s1_lat: Double , 	s1_lng: Double,
@@ -128,7 +128,7 @@ var data = [
 	{
     leoforeio: "550",
     afetiria: "Π.Φαλιρο",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Φορος",
 	s1_lat: Double , 	s1_lng: Double,
@@ -157,7 +157,7 @@ var data = [
 	{
     leoforeio: "608",
     afetiria: "Γαλατσι",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Πυθιας",
 	s1_lat: Double , 	s1_lng: Double,
@@ -186,7 +186,7 @@ var data = [
 	{
     leoforeio: "Ε14",
     afetiria: "Ζαππειο",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Συνταγμα",
 	s1_lat: Double , 	s1_lng: Double,
@@ -215,7 +215,7 @@ var data = [
 	{
     leoforeio: "Α7",
     afetiria: "Στουρναρη",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Πολυτεχνειο",
 	s1_lat: Double , 	s1_lng: Double,
@@ -244,7 +244,7 @@ var data = [
 	{
     leoforeio: "221",
     afetiria: "Ζωγραφου",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Παλαιο Τερμα",
 	s1_lat: Double , 	s1_lng: Double,
@@ -273,7 +273,7 @@ var data = [
 	{
     leoforeio: "224",
     afetiria: "Καισαριανης",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Παλ.Τερμα",
 	s1_lat: Double , 	s1_lng: Double,
@@ -302,7 +302,7 @@ var data = [
 	{
     leoforeio: "305",
     afetiria: "Στ.Νομισματοκοπειου",
-	af_lat: ,		ter_lng: ,
+	af_lat: ,		af_lng: ,
 
     stasi1: "Τομπρα",
 	s1_lat: Double , 	s1_lng: Double,

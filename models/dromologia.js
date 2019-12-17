@@ -5,7 +5,7 @@ var dromologiaSchema = new mongoose.Schema({
 	leoforeio: String,
 
 	afetiria: String,
-	af_lat: Number,		ter_lng: Number,
+	af_lat: Number,		af_lng: Number,
 	
 	stasi1:  String,
 	s1_lat: Number , 	s1_lng: Number,
