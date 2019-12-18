@@ -158,6 +158,10 @@ app.post("/anazitisi_diadromis", function(req, res){
 
 // plirofories stasis
 //////////////////////////////////////////////////////////////////////
+app.get("/plirofories_stasis", function(req, res) {
+	res.render("anazitisi_diadromis.ejs");
+});
+
 app.post("/plirofories_stasis", function(req, res){
 	
 	Dromologia.find({
@@ -196,6 +200,7 @@ app.post("/plirofories_stasis", function(req, res){
 		}
 	});
 });
+
 
 
 app.get("/plirofories_stasis/:id", function(req, res){

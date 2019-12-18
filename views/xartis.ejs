@@ -6,8 +6,10 @@
 <div class="container">
 		
 	<h4>Χάρτης της αφετηρίας (<b><%= afetiria %></b>) του δρομολογίου <b><%= leof %></b> </h4>
-		
+	<br>
 	
+	
+	<div id="mapdiv" style="height:400px;"></div>
 	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 		
 	<script>
@@ -26,6 +28,10 @@
 		markers.addMarker(new OpenLayers.Marker(lonLat));
 		map.setCenter (lonLat, zoom);
 	</script>
+	
+	
+	<br>
+	<a href="javascript:history.back()">Back</a>
 		
 </div>
 

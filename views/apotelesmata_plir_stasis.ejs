@@ -30,25 +30,23 @@
 				 <% })  %>
 			</tbody>
 		</table>
-		
+		<a href="javascript:history.back()">Επιστροφή στην αναζήτηση στάσης</a>
+		<br>
+		<br>
 		<br>
 		
 		
-		<%= lng %>
-		
-		<%= lat %>
-		Εδω επρεπε να εμφανιζει τον χαρτη
-		
+		<div id="mapdiv" style="height:400px;"></div>
 		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 		
 		<script>
 			map = new OpenLayers.Map("mapdiv");
 			map.addLayer(new OpenLayers.Layer.OSM());
 			
-				var lonLat = new OpenLayers.LonLat( <%= lng %>,<%= lat %>)				// -0.1279688 ,51.5077286
+				var lonLat = new OpenLayers.LonLat( <%= lng %>,<%= lat %>)
 					.transform(
-						new OpenLayers.Projection("EPSG:4326"), 						// transform from WGS 1984
-						map.getProjectionObject() 										// to Spherical Mercator Projection
+						new OpenLayers.Projection("EPSG:4326"),
+						map.getProjectionObject()
 					);
 					  
 			var zoom=15;
@@ -58,17 +56,9 @@
 			map.setCenter (lonLat, zoom);
 		</script>
 		
-		
-
 </div>
 
 
-
-	<br><br>
-
-
-
-
-
+<br><br><br>
 
 <% include partials/footer.ejs %>
