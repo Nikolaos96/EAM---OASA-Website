@@ -520,13 +520,13 @@ var data = [
 
 
 
-
+/*
 var data2 = [
 	{username: "Nick", password: "1234", password_again: "1234", firstname: "Νικόλας", lastname: "Μακ", email: "sdi1500238@di.uoa.gr", phone: "123", AFM: "321", image: ""},
 	{username: "John", password: "1234", password_again: "1234", firstname: "Γιάννης", lastname: "Ιωα", email: "sdi1600216@di.uoa.gr", phone: "456", AFM: "654", image: ""},
 	{username: "Greg", password: "1234", password_again: "1234", firstname: "Γρηγόρης", lastname: "Γαλ", email: "sdi1600026@di.uoa.gr", phone: "789", AFM: "987", image: ""}
 ]
-
+*/
 
 
 
@@ -550,6 +550,7 @@ function seedDB(){
 		});
 	});
 	
+	/*
 	User.remove({}, function(err){
 		if(err){
 			console.log(err);
@@ -566,6 +567,7 @@ function seedDB(){
 			});
 		});
 	});
+	*/
 }
 
 module.exports = seedDB;
