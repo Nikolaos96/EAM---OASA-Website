@@ -1,6 +1,7 @@
 var mongoose   = require("mongoose");
 var Dromologia = require("./models/dromologia.js");
 var User = require("./models/user.js");
+var Anakoinoseis = require("./models/anakoinoseis.js");
 
 
 var data = [
@@ -528,6 +529,25 @@ var data2 = [
 ]
 */
 
+var data3 = [
+	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής των Λεωφορειακών Γραμμών 725, 726 και Α10"},
+	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής της Λεωφορειακής Γραμμής 891, λόγω διεξαγωγής αγώνα στο Δημοτικό Στάδιο Περιστεριού"},
+	{ anakoinosi: "Λειτουργία ΜΜΜ λόγω της διεξαγωγής του 6ου αγώνα δρόμου «SANTA RUN ATHENS» στο Δήμο Αθηναίων"},
+	{ anakoinosi: "Μερική τροποποίηση των λεωφορειακών γραμμών Α1,218,915,500 (νυχτερινή) λόγω εργασιών στο Δήμο Πειραιά"}
+]
+
+
+
+function date(){
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = mm + '/' + dd + '/' + yyyy;
+	
+	return today;
+}
 
 
 
@@ -550,6 +570,33 @@ function seedDB(){
 		});
 	});
 	
+	
+	Anakoinoseis.remove({}, function(err){
+		if(err){
+			console.log(err);
+		}
+		console.log("removed Anakoinoseis");
+		
+		data3.forEach(function(data){
+			
+			Anakoinoseis.create({
+				anakoinosi: data.anakoinosi,
+				date: date()
+			
+			}, function(err, data3){
+				if(err){
+					console.log(err);
+				}else{
+					console.log("add anakoinosi");
+				}
+			});
+			
+		});
+	});
+	
+	
+	
+	
 	/*
 	User.remove({}, function(err){
 		if(err){
@@ -557,8 +604,8 @@ function seedDB(){
 		}
 		console.log("removed Users");
 		
-		data2.forEach(function(seed){
-			User.create(seed, function(err, data2){
+		data2.forEach(function(data){
+			User.create(data, function(err, data2){
 				if(err){
 					console.log(err);
 				}else{

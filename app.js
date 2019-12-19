@@ -8,7 +8,7 @@ var app = express();
 mongoose.connect("mongodb://localhost/auctions_db", { useNewUrlParser: true } );
 
 
-var seedDB		= require("./seeds");
+var seedDB = require("./seeds");
 seedDB();
 
 
@@ -16,7 +16,7 @@ seedDB();
 
 var User = require("./models/user.js");
 var Dromologia = require("./models/dromologia.js");
-
+var Anakoinoseis = require("./models/anakoinoseis.js");
 
 
 
@@ -85,7 +85,15 @@ app.use(function(req, res, next) {
 
 
 app.get("/", function(req, res) {
-	res.render("home.ejs", {currentUser : req.user});
+	
+	
+	Anakoinoseis.find({}, function(err, anakoinoseis){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("home.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+		}
+	});
 });
 
 
@@ -260,6 +268,29 @@ app.post("/register", function(req, res) {
 
 
 
+// epanafortisi_kartas
+app.get("/epanafortisi_kartas", function(req, res) {
+	res.render("epanafortisi_kartas.ejs");
+});
+
+
+app.post("/epanafortisi_kartas", function(req, res) {
+	
+	res.send("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
 // login routes
 ////////////////////////////////////////////////////////////////////////
 app.get("/login", function(req, res) {
@@ -326,9 +357,6 @@ app.post("/account", isLoggedIn, function(req, res) {
 
 });
 ///////////////////////////////////////////////////////////////////////////////
-
-
-
 
 
 app.listen(3000, function() {
