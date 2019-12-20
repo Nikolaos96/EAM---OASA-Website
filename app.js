@@ -280,10 +280,18 @@ app.post("/epanafortisi_kartas", function(req, res) {
 	
 });
 
+////////////////////////////////////////////////////////////////////
 
+///////  agora_eisitirion
+app.get("/agora_eisitirion", function(req, res){
+	res.render("agora_eisitirion.ejs");
+});
 
-
-
+app.post("/agora_eisitirion", function(req, res) {
+	
+	res.send("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
+	
+});
 
 
 
