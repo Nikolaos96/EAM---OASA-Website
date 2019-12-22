@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<h5>24ωρα λεωφορεία που εξηπερετούν βασικά σημεία της Αττικής. </h5>
+	<h5><b>Το λεωφορείο x95 είναι 24ωρο με αφετηρία το Σύνταγμα προς το αεροδρόμιο.</b></h5>
+	<br>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
+					<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+					<th scope="col">ΤΕΡΜΑ</th>
+					<th scope="col">ΜΕΡΕΣ</th>
+				</tr>
+			</thead>
+			<tbody style="background-color: #F5F5DC;">
+				<% leoforeia.forEach(function(leof){ %>
+					<tr>
+						<td><%= leof.arithmos_gram %></td>
+						<td><%= leof.afetiria %></td>
+						<td><%= leof.terma %></td>
+						<td><%= leof.meres %></td>
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+		
+		<br>
+		
+		<p>
+		Για την διαδρομή, τις στάσεις και τους ισχύοντες πίνακες δρομολογίων μπορείτε να ενημερώνεστε και απο την τηλεφωνική γραμμή 185.
+		</p>
+
+</div>
+
+
+
+<% include partials/footer.ejs %>

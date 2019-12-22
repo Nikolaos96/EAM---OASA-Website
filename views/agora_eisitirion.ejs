@@ -1,0 +1,236 @@
+<% include partials/header.ejs %>
+
+
+<div class="container">
+
+	<h3 align="center" ><b> Αγορά εισητηρίων </b></h3>
+	<br><br>
+
+	<% if(typeof currentUser !== "undefined") {   %>
+	
+		<form action="/agora_eisitirion" method="POST">
+			
+			<div class="container">
+				<div class="row">
+				
+					<div class="col">
+						<div style="width: 55%; margin-top: 5%;">
+		
+							<h4><b>Κόμιστρο </b><h4>
+							<br>
+							
+							<div class="form-group">
+							  <select class="form-control" name="stoixeia[komistro]">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							  </select>
+							</div>
+							  
+							  
+							<br>
+							<h4><b>Ποσότητα</b><h4>
+							<br>
+							
+							<div class="form-group">
+								<input type="text" class="form-control" name = "stoixeia[posotita]" id="exampleInputEmail1" placeholder="ποσότητα (π.χ. 5)">
+							</div>
+								
+
+						</div>
+						
+						<br> <br><br><br>
+						<a href="/">Ακύρωση</a>
+					</div>
+					
+					
+					<div class="col">
+						<div style="width: 55%; margin-top: 5%;">
+							
+								<h4><b>Τρόπος πληρωμής </b><h4>
+								<br>
+								
+								
+								<div class="form-group">
+								  <select class="form-control" name="stoixeia[pliromi]">
+									<option value="karta" >Πιστωτική - Χρεωστική κάρτα</option>
+									<option value="paypal" >Paypal</option>
+								  </select>
+								</div>
+								
+								<br>
+								<h4><b>Παραλαβή </b><h4>
+								<br>
+							
+						
+								<div class="form-group">
+								  <select class="form-control" name="stoixeia[paralavi]">
+									<option value="karta" >Αποστολή στην παραπάνω διεύθυνση (+5.00 ευρώ)</option>
+									<option value="paypal">Παραλαβή απο σταθμό Σύνταγμα</option>
+									<option value="paypal">Παραλαβή απο σταθμό Αττική</option>
+									<option value="paypal">Παραλαβή απο σταθμό Ομόνοια</option>
+									<option value="paypal">Παραλαβή απο σταθμό Μοναστηράκι</option>
+									<option value="paypal">Παραλαβή απο σταθμό Αιγάλεο</option>
+								  </select>
+								</div>
+							
+								<br><br><br>
+
+							
+							
+							<br>
+							<div class="form-group">
+								<button class="btn btn-sm btn-success btn-default btn-block" >Συνέχεια</button>
+							</div>
+							
+							
+						</div>				
+						
+					</div>
+					
+					
+				</div>
+			</div>
+			
+		</form>
+		
+	<% }else{ %>
+	
+	
+	
+	
+	
+		<form action="/agora_eisitirion" method="POST">
+			
+			<div class="container">
+				<div class="row">
+
+					<div class="col">
+						<div style="width: 55%; margin-top: 5%;">
+						
+						
+								<h4><b>Στοιχεία απόδειξης </b><h4>
+								<br>
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name = "stoixeia[onoma]" id="exampleInputEmail1" placeholder="Όνομα">
+								</div>
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name = "stoixeia[eponimo]" id="exampleInputEmail1" placeholder="Επώνυμο">
+								</div>
+								
+								<div class="form-group">
+									<input type="email" class="form-control" name = "stoixeia[email]" id="exampleInputEmail1" placeholder="email">
+								</div>
+								
+								
+								
+								<div class="form-group">
+									<input type="email" class="form-control" name = "stoixeia[dieuthinsi]" id="exampleInputEmail1" placeholder="Διεύθυνση">
+								</div>
+								
+								<div class="form-group">
+									<input type="email" class="form-control" name = "stoixeia[tx]" id="exampleInputEmail1" placeholder="Ταχυδρομικός κώδικας">
+								</div>
+								
+								
+							
+						</div>
+						
+						<br> <br><br>
+						<a href="/">Ακύρωση</a>
+						
+					</div>
+					
+					
+					<div class="col">
+						<div style="width: 55%; margin-top: 5%;">
+		
+								<h4><b>Κόμιστρο </b><h4>
+								<br>
+
+								<div class="form-group">
+								  <select class="form-control" name="stoixeia[komistro]">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								  </select>
+								</div>
+							  
+							  
+								<br>
+								<h4><b>Ποσότητα</b><h4>
+								<br>
+								
+								<div class="form-group">
+									<input type="text" class="form-control" name = "stoixeia[posotita]" id="exampleInputEmail1" placeholder="ποσότητα (π.χ. 5)">
+								</div>
+								
+
+						</div>
+					</div>
+					
+					
+					<div class="col">
+						<div style="width: 55%; margin-top: 5%;">
+							
+								<h4><b>Τρόπος πληρωμής </b><h4>
+								<br>
+								
+								
+								<div class="form-group">
+								  <select class="form-control" name="stoixeia[pliromi]">
+									<option value="karta" >Πιστωτική - Χρεωστική κάρτα</option>
+									<option value="paypal" >Paypal</option>
+								  </select>
+								</div>
+								
+								<br>
+								<h4><b>Παραλαβή </b><h4>
+								<br>
+							
+						
+								<div class="form-group">
+								  <select class="form-control" name="stoixeia[paralavi]">
+									<option value="karta" >Αποστολή στην παραπάνω διεύθυνση (+5.00 ευρώ)</option>
+									<option value="paypal">Παραλαβή απο σταθμό Σύνταγμα</option>
+									<option value="paypal">Παραλαβή απο σταθμό Αττική</option>
+									<option value="paypal">Παραλαβή απο σταθμό Ομόνοια</option>
+									<option value="paypal">Παραλαβή απο σταθμό Μοναστηράκι</option>
+									<option value="paypal">Παραλαβή απο σταθμό Αιγάλεο</option>
+								  </select>
+								</div>
+							
+								<br><br><br><br><br><br>
+
+							
+							
+							<br>
+							<div class="form-group">
+								<button class="btn btn-sm btn-success btn-default btn-block" >Συνέχεια</button>
+							</div>
+							
+							
+						</div>				
+						
+					</div>
+					
+					
+				</div>
+			</div>
+			
+		</form>
+	
+	<% } %>
+
+</div>
+
+
+
+
+
+
+<% include partials/footer.ejs %>

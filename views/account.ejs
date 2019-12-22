@@ -1,0 +1,61 @@
+<% include partials/header.ejs %>
+<link rel="stylesheet" type="text/css" href="/login.css">
+
+
+<div class="container">
+		<h2 style="text-align: center; color: black; margin-top: 2%;"><strong> Change Your Profile Settings </strong></h2>
+		
+		<div style="width: 30%; margin: 20px auto;">
+			<form action = "/account" method = "POST">
+
+
+			<div class="form-group">
+				<input class="form-control" type="text" name="username" placeholder = "Username" value = "<%= currentUser.username %>">
+			</div>
+			
+			<div class="form-group">
+				<input class="form-control" type="text" name="firstName" placeholder="firstName" value = "<%= currentUser.firstName %>" >
+			</div>
+
+			
+			<div class="form-group">
+				<input class="form-control" type="text" name="lastName" placeholder="LastName" value = "<%= currentUser.lastName %>">
+			</div>
+			
+			<div class="form-group">
+				<input class="form-control" type="email" name="email" placeholder="Email" value = "<%= currentUser.email %>">
+			</div>
+			
+			<div class="form-group">
+				<input class="form-control" type="number" name="phone" placeholder="Phone" value = "<%= currentUser.phone %>">
+			</div>
+			
+			<div class="form-group">
+				<input class="form-control" type="number" name="AFM" placeholder="Afm" value = "<%= currentUser.AFM %>">
+			</div>
+			
+			
+			
+			
+			
+			<div class="form-group">
+				<input class="form-control" type="text" name="image" placeholder="image url" value = "<%= currentUser.image %>">
+			</div>
+			
+
+
+
+
+
+			<div class="form-group">
+				<button class="btn btn-sm btn-success btn-default btn-block" >Submit</button>
+			</div>
+
+			</form>
+			
+			<a href="javascript:history.back()">Back</a>
+		</div>
+</div>
+
+
+<% include partials/footer.ejs %>

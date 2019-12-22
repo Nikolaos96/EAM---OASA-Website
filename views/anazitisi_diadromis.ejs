@@ -1,0 +1,67 @@
+<% include partials/header.ejs %>
+
+
+
+
+<div class="container">
+	<div class="row">
+
+		<div class="col">
+			<div style="width: 40%; margin-top: 5%;">
+			
+				<h4><b>Αναζήτηση Δρομολογίου</b></h4>
+				<br>
+				
+				<form action="/anazitisi_diadromis" method="POST">
+						
+					<div class="form-group">
+						<label for="">Απο:</label>
+						<input type="text" class="form-control" name = "dromologio[afetiria]" id="exampleInputEmail1" placeholder="Ζωγραφου">
+						<p><small>Το πρώτο γράμμα <font color= "red">ΚΕΦΑΛΑΙΟ</font> και χωρίς <font color= "red">ΤΟΝΟΥΣ</font>.</small></p>
+					</div>
+						  
+					<br>
+					
+					<div class="form-group">
+						<label for="">Προς:</label>
+						<input type="text" class="form-control" name = "dromologio[terma]" id="exampleInputPassword1" placeholder="Συνταγμα">
+						<p><small>Το πρώτο γράμμα <font color= "red">ΚΕΦΑΛΑΙΟ</font> και χωρίς <font color= "red">ΤΟΝΟΥΣ</font>.</small></p>
+					</div>
+
+					<br>
+					<button type="submit" class="btn btn-success">Αναζήτηση δρομολογίου</button>
+				</form>
+				
+			</div>
+		</div>
+		
+		
+		<div class="col">
+			<div style="width: 40%; margin-top: 5%;">
+			
+				<h4><b>Πληροφορίες στάσης</b></h4>
+				<br>
+				
+				<form action="/plirofories_stasis" method="POST">
+						
+					<div class="form-group">
+						<label for="">Στάση:</label>
+						<input type="text" class="form-control" name = "dromologio[stasi]" id="exampleInputEmail1" placeholder="Παλατακι">
+						<p><small>Το πρώτο γράμμα <font color= "red">ΚΕΦΑΛΑΙΟ</font> και χωρίς <font color= "red">ΤΟΝΟΥΣ</font>.</small></p>
+					</div>
+
+					<br>
+					<button type="submit" class="btn btn-success">Πληροφορίες στάσης</button>
+				</form>
+				
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<br><br>
+
+
+<% include partials/footer.ejs %>

@@ -1,0 +1,176 @@
+<% include partials/header.ejs %>
+
+
+<div class="container">
+	<% if(typeof currentUser !== "undefined") {   %>
+		<form action="/parapona/<%= currentUser._id %>" method="POST">
+		
+		
+			<div class="container">
+				<div class="row">
+					
+					
+						<div class="col">
+							<div style="width: 40%; margin-top: 5%;">
+							
+								<h4><b> Ημερομηνία </b></h4>
+								<div class="form-group">
+									<input type="date" class="form-control" name = "imerominia" id="exampleInputEmail1" placeholder="">
+								</div>
+								<br>
+								
+								
+								<h4><b> Μέσο </b></h4>
+								<div class="form-group">
+									<select class="form-control" name="meso">
+										<option>ΟΣΥ</option>
+										<option>ΣΤΑΣΥ</option>
+										<option>ΟΑΣΑ</option>
+									</select>
+								</div>
+								<br>
+								
+								
+								<h4><b> Γραμμή </b></h4>
+								<div class="form-group">
+									<input type="number" class="form-control" name = "grammi" id="exampleInputEmail1" placeholder="">
+								</div>
+								<br>
+								
+								
+								<br>
+								<a href="/">Ακύρωση</a>
+								
+							</div>
+						
+						</div>
+
+
+						<div class="col">
+							<div style="width: 40%; margin-top: 5%;">
+							
+								<h4><b> Σχόλια </b></h4>
+								<textarea name = "sxolia" rows="6" cols="40">
+							
+								</textarea>
+
+								<br><br><br><br><br><br><br><br><br>
+								<div class="form-group">
+								
+									<button class="btn btn-sm btn-success btn-default btn-block" >Αποστολή Παραπόνων</button>
+									
+								</div>
+
+							</div>
+							
+						</div>
+					
+
+				</div>
+			</div>
+
+		</form>
+	<% }else{ %>
+	
+		<form action="/parapona/111" method="POST">
+		
+		
+			<div class="container">
+				<div class="row">
+				
+						<div class="col">
+							<div style="width: 45%; margin-top: 5%;">
+							
+								<h4><b> Όνομα </b></h4>
+								<div class="form-group">
+									<input type="text" class="form-control" name = "onoma" id="exampleInputEmail1" placeholder="Όνομα">
+								</div>
+								<br>
+								
+								
+								<h4><b> Επώνυμο </b></h4>
+								<div class="form-group">
+									<input type="text" class="form-control" name = "eponimo" id="exampleInputEmail1" placeholder="Επώνυμο">
+								</div>
+								<br>
+								
+								<h4><b> Email </b></h4>
+								<div class="form-group">
+									<input type="email" class="form-control" name = "email" id="exampleInputEmail1" placeholder="email">
+								</div>
+								<br>
+								
+								
+								<br>
+								<a href="/">Ακύρωση</a>
+								
+							</div>
+						
+						</div>
+					
+					
+						<div class="col">
+							<div style="width: 45%; margin-top: 5%;">
+							
+								<h4><b> Ημερομηνία </b></h4>
+								<div class="form-group">
+									<input type="date" class="form-control" name = "imerominia" id="exampleInputEmail1" placeholder="">
+								</div>
+								<br>
+								
+								
+								<h4><b> Μέσο </b></h4>
+								<div class="form-group">
+									<select class="form-control" name="meso">
+										<option>ΟΣΥ</option>
+										<option>ΣΤΑΣΥ</option>
+										<option>ΟΑΣΑ</option>
+									</select>
+								</div>
+								<br>
+								
+								
+								<h4><b> Γραμμή </b></h4>
+								<div class="form-group">
+									<input type="number" class="form-control" name = "grammi" id="exampleInputEmail1" placeholder="">
+								</div>
+								<br>
+								
+							</div>
+						
+						</div>
+
+
+						<div class="col">
+							<div style="width: 45%; margin-top: 5%;">
+							
+								<h4><b> Σχόλια </b></h4>
+								<textarea name = "sxolia" rows="6" cols="35">
+							
+								</textarea>
+
+								<br><br><br><br><br><br><br><br><br>
+								<div class="form-group">
+								
+									<button class="btn btn-sm btn-success btn-default btn-block" >Αποστολή Παραπόνων</button>
+									
+								</div>
+
+							</div>
+							
+						</div>
+					
+
+				</div>
+			</div>
+
+		</form>
+	
+	<% } %>
+</div>
+
+
+
+
+
+<% include partials/footer.ejs %>

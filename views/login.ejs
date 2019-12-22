@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+
+<link rel="stylesheet" type="text/css" href="/login.css">
+
+
+<div class="container">
+	<h3 style="text-align: center; margin-top: 2%; color: black;"><strong> Σύνδεση </strong></h3>
+
+	<div style="width: 25%; margin: auto; margin-top: 5%;">
+		<form action = "/login" method = "POST">
+
+
+			<div class="form-group">
+				<input class="form-control" type="text" name="username" placeholder = "username">
+			</div>
+
+
+			<div class="form-group">
+				<input class="form-control" type="password" name="password" placeholder = "password">
+			</div>
+
+
+			<div class="form-group">
+				<button class="btn btn-sm btn-success btn-default btn-block" >Σύνδεση</button>
+			</div>
+
+
+		</form>
+		
+		<a href="/register">Εγγραφή</a>
+		<br>
+		<a href="javascript:history.back()">Πίσω</a>
+
+	</div>
+</div>
+
+<br><br><br><br><br><br>
+
+
+<% include partials/footer.ejs %>
+
+

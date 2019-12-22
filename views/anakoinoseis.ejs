@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<% anakoinoseis.forEach(function( an ){ %>
+		<h5><font color="blue"> <%= an.date %> </font> <%= an.anakoinosi %>	</h5>
+		<br>		
+	<% }) %>
+	<br>
+	<br>
+	<br>
+	<br><br><br><br><br><br>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/footer.ejs %>
