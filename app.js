@@ -295,6 +295,31 @@ app.post("/agora_eisitirion", function(req, res) {
 
 
 
+// anakoinwseis
+//////////////////////////////////////////////////////////////////////////////
+app.get("/anakoinoseis", function(req, res) {
+	Anakoinoseis.find({}, function(err, anakoinoseis){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("anakoinoseis.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+		}
+	});
+});
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

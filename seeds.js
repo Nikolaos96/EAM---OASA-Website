@@ -530,19 +530,26 @@ var data2 = [
 */
 
 var data3 = [
-	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής των Λεωφορειακών Γραμμών 725, 726 και Α10"},
-	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής της Λεωφορειακής Γραμμής 891, λόγω διεξαγωγής αγώνα στο Δημοτικό Στάδιο Περιστεριού"},
-	{ anakoinosi: "Λειτουργία ΜΜΜ λόγω της διεξαγωγής του 6ου αγώνα δρόμου «SANTA RUN ATHENS» στο Δήμο Αθηναίων"},
+	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής των Λεωφορειακών Γραμμών 725, 726 και Α10."},
+	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής της Λεωφορειακής Γραμμής 891, λόγω διεξαγωγής αγώνα στο Δημοτικό Στάδιο Περιστεριού."},
+	{ anakoinosi: "Λειτουργία ΜΜΜ λόγω της διεξαγωγής του 6ου αγώνα δρόμου «SANTA RUN ATHENS» στο Δήμο Αθηναίων."},
+	{ anakoinosi: "Μερική τροποποίηση των λεωφορειακών γραμμών Α1,218,915,500 (νυχτερινή) λόγω εργασιών στο Δήμο Πειραιά."},
+	
+	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής των Λεωφορειακών Γραμμών 402, 411, 447, 450 και 460, καθώς και των Γραμμών Τρόλλεϋ 10, 18 και 19."},
+	{ anakoinosi: "Μερική προσωρινή τροποποίηση της γραμμής τρόλεϊ 17 λόγω εργασιών στην οδό Ελ. Βενιζέλου του Δήμου Δραπετσώνας-Κερατσινίου."},
+	{ anakoinosi: "Παράταση Προσωρινής Τροποποίησης της Λεωφορειακής Γραμμής 704."},
 	{ anakoinosi: "Μερική τροποποίηση των λεωφορειακών γραμμών Α1,218,915,500 (νυχτερινή) λόγω εργασιών στο Δήμο Πειραιά"}
 ]
 
 
 
-function date(){
+function date(a){
 	var today = new Date();
 	var dd = String(today.getDate()).padStart(2, '0');
 	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 	var yyyy = today.getFullYear();
+
+	dd = dd - a;
 
 	today = mm + '/' + dd + '/' + yyyy;
 	
@@ -577,20 +584,51 @@ function seedDB(){
 		}
 		console.log("removed Anakoinoseis");
 		
+		var count = 0;
+		
 		data3.forEach(function(data){
+			if (count < 4){
+				
+				Anakoinoseis.create({
+					anakoinosi: data.anakoinosi,
+					date: date(0)
+				
+				}, function(err, data3){
+					if(err){
+						console.log(err);
+					}else{
+						console.log("add anakoinosi");
+					}
+				});
+			}else if(count < 6){
+				
+				Anakoinoseis.create({
+					anakoinosi: data.anakoinosi,
+					date: date(1)
+				
+				}, function(err, data3){
+					if(err){
+						console.log(err);
+					}else{
+						console.log("add anakoinosi");
+					}
+				});
+			}else {
+				
+				Anakoinoseis.create({
+					anakoinosi: data.anakoinosi,
+					date: date(2)
+				
+				}, function(err, data3){
+					if(err){
+						console.log(err);
+					}else{
+						console.log("add anakoinosi");
+					}
+				});
+			}
 			
-			Anakoinoseis.create({
-				anakoinosi: data.anakoinosi,
-				date: date()
-			
-			}, function(err, data3){
-				if(err){
-					console.log(err);
-				}else{
-					console.log("add anakoinosi");
-				}
-			});
-			
+			count++;
 		});
 	});
 	
