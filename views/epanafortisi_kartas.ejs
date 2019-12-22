@@ -9,7 +9,7 @@
 
 	<% if(typeof currentUser !== "undefined") {   %>
 	
-		<form action="/epanafortisi_kartas" method="POST">
+		<form action="/epanafortisi_kartas/<%= currentUser._id %>" method="POST">
 			
 			<div class="container">
 				<div class="row">					
@@ -22,10 +22,10 @@
 
 								<div class="form-group">
 								  <select class="form-control" name="stoixeia[komistro]">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option>Ενιαίο εισιτήριο 90 λεπτών</option>
+									<option>Μειωμένο εισιτήριο 90 λεπτών</option>
+									<option>Ημερήσιο εισιτήριο</option>
+									<option>Εισιτήριο πέντε ημερών</option>
 								  </select>
 								</div>
 							  
@@ -89,7 +89,7 @@
 		
 	<% }else{ %>
 	
-		<form action="/epanafortisi_kartas" method="POST">
+		<form action="/epanafortisi_kartas/112" method="POST">
 			
 			<div class="container">
 				<div class="row">
@@ -138,10 +138,10 @@
 
 								<div class="form-group">
 								  <select class="form-control" name="stoixeia[komistro]">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option>Ενιαίο εισιτήριο 90 λεπτών</option>
+									<option>Μειωμένο εισιτήριο 90 λεπτών</option>
+									<option>Ημερήσιο εισιτήριο</option>
+									<option>Εισιτήριο πέντε ημερών</option>
 								  </select>
 								</div>
 							  

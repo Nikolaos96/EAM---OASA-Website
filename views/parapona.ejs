@@ -2,6 +2,11 @@
 
 
 <div class="container">
+
+	<h3 align="center"><b> ΦΟΡΜΑ ΠΑΡΑΠΟΝΩΝ </b></h3>
+	<br>
+	<br>
+	
 	<% if(typeof currentUser !== "undefined") {   %>
 		<form action="/parapona/<%= currentUser._id %>" method="POST">
 		
@@ -33,7 +38,7 @@
 								
 								<h4><b> Γραμμή </b></h4>
 								<div class="form-group">
-									<input type="number" class="form-control" name = "grammi" id="exampleInputEmail1" placeholder="">
+									<input type="number" class="form-control" name = "grammi" id="exampleInputEmail1" placeholder="250">
 								</div>
 								<br>
 								

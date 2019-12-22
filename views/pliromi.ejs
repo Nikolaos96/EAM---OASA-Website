@@ -3,6 +3,10 @@
 
 
 
+<div class="container">
+	<h3 align="center"><b> ΣΕΛΙΔΑ ΠΛΗΡΩΜΗΣ </b></h3>
+	<br>
+	<% if(typeof currentUser !== "undefined") {   %>
 
 
 
@@ -14,8 +18,51 @@
 
 
 
+	<% }else{ %>
+		<% if( p === "1"){ %>
+		
+		
+			<% if(  stoixeia.pliromi === "paypal"){ %>
+				<h4><b> Πληρωμή με  <%= stoixeia.pliromi %></b></h4>
+				
+				<div style="width: 40%; margin-top: 5%;">
+					<h4><b>Όνομα χρήστη </b><h4>
+					<br>
+				
+					<div class="form-group">
+						<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Nikos123">
+					</div>
+				
+					<br>
+					<h4><b>Κωδικός </b><h4>
+					<br>
+					
+					<div class="form-group">
+						<input type="password" class="form-control" name = "kwdikos" id="exampleInputEmail1" placeholder="*******">
+					</div>
+
+				</div>
+
+				
+				
+			<% } else{ %>
+				<h4><b> Πληρωμή με  <%= stoixeia.pliromi %></b></h4>
+			
+			
+				<p> sasssssssssdasd </p>
+				
+			<% } %>
+		<% }else{%>							
+	
+		<% } %>
 
 
+
+
+
+
+	<% } %>
+</div>
 
 
 

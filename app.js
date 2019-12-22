@@ -276,13 +276,71 @@ app.get("/epanafortisi_kartas", function(req, res) {
 });
 
 
-app.post("/epanafortisi_kartas", function(req, res) {
+
+app.post("/epanafortisi_kartas/:id", function(req, res) {
 	
-	res.send("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
 	
+	User.find({
+		
+		_id: req.params.id
+		
+	}, function(err, found_user){
+		
+		
+		var stoixeia = {};
+		var cost;
+		console.log("ssssssssssssssssssssssssssssssss");
+		if(err){
+			stoixeia.onoma    = req.body.stoixeia.onoma;
+			stoixeia.eponimo  = req.body.stoixeia.eponimo;
+			stoixeia.email    = req.body.stoixeia.email;
+			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;  /////
+			stoixeia.komistro = req.body.stoixeia.komistro;	////
+			stoixeia.posotita = req.body.stoixeia.posotita; /////
+			stoixeia.pliromi  = req.body.stoixeia.pliromi; //////
+			
+			console.log("11111111111111111111111111111111");
+
+		}else{
+			stoixeia.komistro = req.body.stoixeia.komistro;
+			stoixeia.posotita = req.body.stoixeia.posotita;
+			stoixeia.pliromi  = req.body.stoixeia.pliromi;
+			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;
+			
+			
+			stoixeia.onoma    = found_user.firstName;
+			stoixeia.eponimo  = found_user.lastName;
+			stoixeia.email    = found_user.email;
+			
+			console.log("222222222222222222222222222222");
+			
+		}
+		
+		
+		if(stoixeia.komistro === "Ενιαίο εισιτήριο 90 λεπτών"){
+			cost = 1.40;
+		}else if(stoixeia.komistro === "Μειωμένο εισιτήριο 90 λεπτών"){
+			cost = 0.60;
+		}else if(stoixeia.komistro === "Ημερήσιο εισιτήριο"){
+			cost = 4.50;
+		}else{
+			cost = 9.00;
+		}
+		cost = cost * stoixeia.posotita;
+		
+		console.log(stoixeia.pliromi);
+		
+		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost });
+	});
 });
 
 ////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 ///////  agora_eisitirion
 app.get("/agora_eisitirion", function(req, res){
@@ -291,9 +349,23 @@ app.get("/agora_eisitirion", function(req, res){
 
 app.post("/agora_eisitirion", function(req, res) {
 	
-	res.send("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
+	res.render("pliromi.ejs", { p: "2", currentUser:req.user });
 	
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -325,7 +397,7 @@ var transporter = nodemailer.createTransport({
 	service: "gmail",
 	auth: {
 		user:   "nikmak867@gmail.com",
-		pass:	""
+		pass:	""								// thelei ton kwdikou tou mail gia nak anei sindesi
 	}
 });
 var email_from = "nikmak867@gmail.com";
@@ -403,12 +475,12 @@ app.post("/parapona/:id", function(req, res){
 		
 		//res.render("parapona.ejs", { success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης." });
 		Anakoinoseis.find({}, function(err, anakoinoseis){
-		if(err){
-			console.log(err);
-		}else{
-			res.render("home.ejs", { success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
-		}
-	});
+			if(err){
+				console.log(err);
+			}else{
+				res.render("home.ejs", { success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
+			}
+		});
 	});
 });
 
