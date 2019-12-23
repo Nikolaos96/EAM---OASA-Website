@@ -5,31 +5,38 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h2 style="text-align: center; color: black;"> My Account </h2>
-		    <br>
-			<br>
-		
-			<img src= "<%= currentUser.image %>" align="right">
-			
-			<h4><b>Username:</b>  <%= currentUser.username %> </h4>
-			<h4><b>Firstname:</b>  <%= currentUser.firstName %> </h4>
-			<h4><b>Lastname:</b>  <%= currentUser.lastName %> </h4>
-			
-			<h4><b>Email:</b>  <%= currentUser.email %> </h4>
-			<h4><b>Phone:</b>  <%= currentUser.phone %> </h4>
-			<h4><b>Afm:</b>  <%= currentUser.AFM %> </h4>
-			
-			
-			
-		
-			
-			
-			<a class="btn btn-sm btn-primary btn-danger back" href="/account">Edit account</a>
 			<br>
 			<br>
-			<br>
-			
-			<a href="javascript:history.back()">Back</a>
-			
+					
+					
+			<div class="row">
+				<div class="col">
+				
+				
+					<h4><b>Username:</b>  <%= currentUser.username %> </h4>
+					<h4><b>Firstname:</b>  <%= currentUser.firstName %> </h4>
+					<h4><b>Lastname:</b>  <%= currentUser.lastName %> </h4>
+					
+					<h4><b>Email:</b>  <%= currentUser.email %> </h4>
+					<h4><b>Phone:</b>  <%= currentUser.phone %> </h4>
+					<h4><b>Afm:</b>  <%= currentUser.AFM %> </h4>
+					<br>
+					<a class="btn btn-sm btn-primary btn-danger back" href="/account">Επεξεργασία στοιχείων</a>
+					
+					
+					<br>
+					<br><br>
+					<br><br>
+					
+					<a href="javascript:history.back()">Πίσω</a>
+					
+				</div>
+				
+				<div class="col">
+					<img height="300" width="300" src= "<%= currentUser.image %>" align="right">
+				</div>
+					
+			</div>
 		</div>
 	</div>
 </div>
