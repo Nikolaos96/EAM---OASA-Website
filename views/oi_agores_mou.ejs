@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<h3>Οι αγορές μου </h3>
+	<br>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Κόμιστρο</th>
+					<th scope="col">Ποσότητα</th>
+					<th scope="col">Συνολικό κόστος (ευρώ)</th>
+					<th scope="col">Ημερομηνία</th>
+				</tr>
+			</thead>
+			<tbody style="background-color: #F5F5DC;">
+				<% agores.forEach(function(agora){ %>
+					<tr>
+						<td><%= agora.ticket %></td>
+						<td><%= agora.posotita %></td>
+						<td><%= agora.cost %></td>
+						<td><%= agora.date %></td>
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+		
+		<br><br><br>
+
+</div>
+
+
+
+
+
+
+
+<% include partials/footer.ejs %>

@@ -551,7 +551,7 @@ function date(a){
 
 	dd = dd - a;
 
-	today = mm + '/' + dd + '/' + yyyy;
+	today = dd + '/' + mm + '/' + yyyy;
 	
 	return today;
 }

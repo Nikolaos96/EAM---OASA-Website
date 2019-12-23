@@ -388,7 +388,7 @@ app.post("/parapona/:id", function(req, res){
 		mailOptions.subject = "Oasa "+date+" "+meso+" "+grammi;
 		mailOptions.text = sxolia;
 		////////
-		SendMail(mailOptions);
+		//SendMail(mailOptions);
 		/////////
 		
 		
@@ -429,7 +429,7 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 		
 		var stoixeia = {};
 		var cost;
-		console.log("ssssssssssssssssssssssssssssssss");
+
 		if(err){
 			stoixeia.onoma    = req.body.stoixeia.onoma;
 			stoixeia.eponimo  = req.body.stoixeia.eponimo;
@@ -446,9 +446,9 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;
 			
 			
-			stoixeia.onoma    = found_user.firstName;
-			stoixeia.eponimo  = found_user.lastName;
-			stoixeia.email    = found_user.email;
+			stoixeia.onoma    = found_user[0].firstName;
+			stoixeia.eponimo  = found_user[0].lastName;
+			stoixeia.email    = found_user[0].email;
 			
 		}
 		
@@ -464,13 +464,25 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 		}
 		cost = cost * stoixeia.posotita;
 		
-		console.log(stoixeia.pliromi);
-		
-		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost });
+		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost ,currentUser: req.user });
 	});
 });
 
 ////////////////////////////////////////////////////////////////////
+
+
+
+
+function date(){
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = dd + '/' + mm + '/' + yyyy;
+	
+	return today;
+}
 
 app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	
@@ -483,8 +495,43 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	var komisto = 			str.split('+')[4];
 	var posotita =  		str.split('+')[5];
 	var cost = 				str.split('+')[6];
+	var id = 				str.split('+')[7];
 	
 	
+	console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+	
+	
+	
+	User.findOne({
+		
+		_id: id
+		
+	}, function(err, found_user){
+		if(err){
+			console.log("den yparxei autos o xristis, den exei ftiaksei logariasmo");
+		}else{
+			var ticket = found_user.tickets;
+			
+			var a = {};
+			a.ticket	= komisto;
+			a.posotita	= posotita;
+			a.cost		= cost;
+			a.date		= date();
+			
+
+			console.log("ΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟ");
+
+			ticket.push(a);
+			
+			User.findOneAndUpdate({
+				_id: id
+			},{
+				tickets: ticket
+			} ,function(error, updatedUser) {
+				// tipota
+			});
+		}
+	});
 	
 	
 	mailOptions = {};
@@ -495,8 +542,6 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	"Κόμιστρο: "+komisto+"\n"+"Ποσότητα :"+posotita+"\n\n"+"Συνολικό κόστος"+cost+"\n";
 	////////
 	//SendMail(mailOptions);
-	
-	
 	
 	res.render("epiveveosi_pliromis.ejs");
 });
@@ -518,6 +563,31 @@ app.post("/agora_eisitirion", function(req, res) {
 	
 	res.render("pliromi.ejs", { p: "2", currentUser:req.user });
 	
+});
+
+
+
+
+// oi agores mou
+////////////////////////////////////////////////////////////
+app.get("/oi_agores_mou", function(req, res){
+	
+	User.find({
+		_id: req.user
+	}, function(err, found_user){
+		if(err){
+			// tipota
+		}else{
+			
+			var ticks = [];
+			var i;
+			for(i = 0 ; i < found_user[0].tickets.length ; i +=2 ){
+				ticks.push( found_user[0].tickets[i] );
+			}
+			
+			res.render("oi_agores_mou.ejs", { agores: ticks });
+		}
+	});
 });
 
 
@@ -619,7 +689,7 @@ app.get("/account", isLoggedIn, function(req, res) {
 });
 
 app.post("/account", isLoggedIn, function(req, res) {
-	console.log(req.body);
+	
 	User.findByIdAndUpdate({
 		_id: req.user._id
 	}, {

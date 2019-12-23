@@ -10,8 +10,11 @@ var userSchema = new mongoose.Schema({
 	email: String,
 	phone: Number,
 	AFM:	Number,
-	image: String
+	image: String,
 	
+	tickets :[
+		{ ticket: String, posotita: Number, cost: Number, date: String }
+	]
 	
 });
 
