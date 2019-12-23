@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<h5>Στάσεις με προεξοχές για τη βοήθεια ανθρώπων με κινητικές δυσκολίες. </h5>
+	<br>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ΣΤΑΣΗ</th>
+					<th scope="col">ΟΔΟΣ</th>
+					<th scope="col">ΔΗΜΟΣ</th>
+					<th scope="col">ΛΕΩΦΟΡΕΙΑ</th>
+				</tr>
+			</thead>
+			<tbody style="background-color: #F5F5DC;">
+				<% staseis.forEach(function(stasi){ %>
+					<tr>
+						<td><%= stasi.stasi %></td>
+						<td><%= stasi.odos %></td>
+						<td><%= stasi.dimos %></td>
+						<td><%= stasi.lewforeia %></td>
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+		
+		<br>
+		
+		<p>
+		Για τις στάσεις και τους ισχύοντες πίνακες δρομολογίων μπορείτε να ενημερώνεστε και απο την τηλεφωνική γραμμή 185.
+		</p>
+
+</div>
+
+
+
+<% include partials/footer.ejs %>

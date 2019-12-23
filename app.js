@@ -527,9 +527,39 @@ app.post("/agora_eisitirion", function(req, res) {
 
 
 
+/////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+app.get("/nyxterina_dromologia", function(req, res){
+	
+	var leoforeia = [
+		{arithmos_gram: "500", afetiria: "Πειραιάς", terma: "Κηφισιά", meres: "Δευτέρα - Κυριακή", wres: "00:55 - 05:00"},
+		{arithmos_gram: "790", afetiria: "Γλυφάδα", terma: "Περιστέρι", meres: "Δευτέρα - Κυριακή", wres: "00:55 - 05:00"},
+		{arithmos_gram: "x14", afetiria: "Σύνταγμα", terma: "Κηφισιά", meres: "Δευτέρα - Κυριακή", wres: "00:55 - 05:00"}
+	]
+	
 
 
+	res.render("nyxterina_dromologia.ejs", {leoforeia: leoforeia});
+});
 
+app.get("/staseis_amea", function(req, res){
+	
+	var staseis = [
+		{stasi: "Αγ.Λουκάς", odos: "Πατησίων", dimos: "Αθηναίων", lewforeia: "3, 5, 11, 14, 608, Α8"},
+        {stasi: "Αγ.Μαρκέλλα", odos: "Σπύρου Πάτση", dimos: "Αθηναίων", lewforeia: "026, 027, 813"},
+        {stasi: "1η Ριζάρη", odos: "Ριζάρη", dimos: "Αθηναίων", lewforeia: "054, 203, 204"},
+        {stasi: "2η Ριζάρη", odos: "Ριζάρη", dimos: "Αθηναίων", lewforeia: "203, 204, 250, 211, 214"},
+        {stasi: "2η Σχολείο", odos: "Ευφρονιου", dimos: "Αθηναίων", lewforeia: "250, 221"},
+        {stasi: "Αγ.Δημήτριος", odos: "Πανόρμου", dimos: "Αθηναίων", lewforeia: "046"},
+        {stasi: "Αγ.Ελευθέριος", odos: "Αχαρνών", dimos: "Αθηναίων", lewforeia: "6, 024, 500, Β9, Γ9"}
+	]
+	
+
+
+	res.render("staseis_amea.ejs", {staseis: staseis});
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
