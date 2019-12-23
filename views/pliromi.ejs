@@ -22,27 +22,69 @@
 		<% if( p === "1"){ %>
 		
 		
+		
+		
 			<% if(  stoixeia.pliromi === "paypal"){ %>
-				<h4><b> Πληρωμή με  <%= stoixeia.pliromi %></b></h4>
+				<div class="row">
+					<div class="col">
 				
-				<div style="width: 40%; margin-top: 5%;">
-					<h4><b>Όνομα χρήστη </b><h4>
-					<br>
-				
-					<div class="form-group">
-						<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Nikos123">
+						<h3><b> Πληρωμή με  <%= stoixeia.pliromi %></b></h3>
+						
+						<div style="width: 40%; margin-top: 5%;">
+							<h4><b>Όνομα χρήστη </b><h4>
+						
+							<div class="form-group">
+								<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Nikos123">
+							</div>
+						
+							<br>
+							<h4><b>Κωδικός </b><h4>
+							
+							<div class="form-group">
+								<input type="password" class="form-control" name = "kwdikos" id="exampleInputEmail1" placeholder="*******">
+							</div>
+
+						</div>
+
+						
+						<br><br><br><br><br>
+						<a href="javascript:history.back()">Ακύρωση</a>
 					</div>
-				
-					<br>
-					<h4><b>Κωδικός </b><h4>
-					<br>
 					
-					<div class="form-group">
-						<input type="password" class="form-control" name = "kwdikos" id="exampleInputEmail1" placeholder="*******">
+					<div class="col">
+						<h3><b> Απόδειξη χρήστη</b></h3>
+						<br>
+						
+						<h5><b>Όνομα: </b> <%= stoixeia.onoma %> <h5>
+						<h5><b>Επώνυμο: </b> <%= stoixeia.eponimo %> <h5>
+						<h5><b>Email: </b> <%= stoixeia.email %> <h5>
+						<h5><b>Κωδικός κάρτας: </b> <%= stoixeia.kwdikos %> <h5>
+					
+						<br>
+						<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
+						<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
+						<br>
+						<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
+					
+					
+						<br>
+						<div style="width: 40%; margin-top: 5%;">
+							<div class="form-group">
+
+								
+								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= stoixeia.onoma+"+"+stoixeia.eponimo
+								+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost %>">Πληρωμή</a>
+								
+								
+							</div>
+						</div>
 					</div>
-
 				</div>
-
+				
+				
+				
+				
+				
 				
 				
 			<% } else{ %>

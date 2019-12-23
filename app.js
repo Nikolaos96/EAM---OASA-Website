@@ -270,88 +270,7 @@ app.post("/register", function(req, res) {
 
 
 
-// epanafortisi_kartas
-app.get("/epanafortisi_kartas", function(req, res) {
-	res.render("epanafortisi_kartas.ejs");
-});
 
-
-
-app.post("/epanafortisi_kartas/:id", function(req, res) {
-	
-	
-	User.find({
-		
-		_id: req.params.id
-		
-	}, function(err, found_user){
-		
-		
-		var stoixeia = {};
-		var cost;
-		console.log("ssssssssssssssssssssssssssssssss");
-		if(err){
-			stoixeia.onoma    = req.body.stoixeia.onoma;
-			stoixeia.eponimo  = req.body.stoixeia.eponimo;
-			stoixeia.email    = req.body.stoixeia.email;
-			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;  /////
-			stoixeia.komistro = req.body.stoixeia.komistro;	////
-			stoixeia.posotita = req.body.stoixeia.posotita; /////
-			stoixeia.pliromi  = req.body.stoixeia.pliromi; //////
-			
-			console.log("11111111111111111111111111111111");
-
-		}else{
-			stoixeia.komistro = req.body.stoixeia.komistro;
-			stoixeia.posotita = req.body.stoixeia.posotita;
-			stoixeia.pliromi  = req.body.stoixeia.pliromi;
-			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;
-			
-			
-			stoixeia.onoma    = found_user.firstName;
-			stoixeia.eponimo  = found_user.lastName;
-			stoixeia.email    = found_user.email;
-			
-			console.log("222222222222222222222222222222");
-			
-		}
-		
-		
-		if(stoixeia.komistro === "Ενιαίο εισιτήριο 90 λεπτών"){
-			cost = 1.40;
-		}else if(stoixeia.komistro === "Μειωμένο εισιτήριο 90 λεπτών"){
-			cost = 0.60;
-		}else if(stoixeia.komistro === "Ημερήσιο εισιτήριο"){
-			cost = 4.50;
-		}else{
-			cost = 9.00;
-		}
-		cost = cost * stoixeia.posotita;
-		
-		console.log(stoixeia.pliromi);
-		
-		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost });
-	});
-});
-
-////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-///////  agora_eisitirion
-app.get("/agora_eisitirion", function(req, res){
-	res.render("agora_eisitirion.ejs");
-});
-
-app.post("/agora_eisitirion", function(req, res) {
-	
-	res.render("pliromi.ejs", { p: "2", currentUser:req.user });
-	
-});
 
 
 
@@ -487,11 +406,142 @@ app.post("/parapona/:id", function(req, res){
 
 
 
+// epanafortisi_kartas
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+app.get("/epanafortisi_kartas", function(req, res) {
+	res.render("epanafortisi_kartas.ejs");
+});
+
+
+
+app.post("/epanafortisi_kartas/:id", function(req, res) {
+	
+	
+	User.find({
+		
+		_id: req.params.id
+		
+	}, function(err, found_user){
+		
+		
+		var stoixeia = {};
+		var cost;
+		console.log("ssssssssssssssssssssssssssssssss");
+		if(err){
+			stoixeia.onoma    = req.body.stoixeia.onoma;
+			stoixeia.eponimo  = req.body.stoixeia.eponimo;
+			stoixeia.email    = req.body.stoixeia.email;
+			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;
+			stoixeia.komistro = req.body.stoixeia.komistro;
+			stoixeia.posotita = req.body.stoixeia.posotita;
+			stoixeia.pliromi  = req.body.stoixeia.pliromi;
+			
+		}else{
+			stoixeia.komistro = req.body.stoixeia.komistro;
+			stoixeia.posotita = req.body.stoixeia.posotita;
+			stoixeia.pliromi  = req.body.stoixeia.pliromi;
+			stoixeia.kwdikos  = req.body.stoixeia.kwdikos;
+			
+			
+			stoixeia.onoma    = found_user.firstName;
+			stoixeia.eponimo  = found_user.lastName;
+			stoixeia.email    = found_user.email;
+			
+		}
+		
+		
+		if(stoixeia.komistro === "Ενιαίο εισιτήριο 90 λεπτών"){
+			cost = 1.40;
+		}else if(stoixeia.komistro === "Μειωμένο εισιτήριο 90 λεπτών"){
+			cost = 0.60;
+		}else if(stoixeia.komistro === "Ημερήσιο εισιτήριο"){
+			cost = 4.50;
+		}else{
+			cost = 9.00;
+		}
+		cost = cost * stoixeia.posotita;
+		
+		console.log(stoixeia.pliromi);
+		
+		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost });
+	});
+});
+
+////////////////////////////////////////////////////////////////////
+
+app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
+	
+	var str = req.params.stoixeia;
+	
+	var onoma = 			str.split('+')[0];
+	var eponimo = 			str.split('+')[1];
+	var email = 			str.split('+')[2];
+	var kwdikos_kartas = 	str.split('+')[3];
+	var komisto = 			str.split('+')[4];
+	var posotita =  		str.split('+')[5];
+	var cost = 				str.split('+')[6];
+	
+	
+	
+	
+	mailOptions = {};
+	mailOptions.from = email_from;
+	mailOptions.to = email;
+	mailOptions.subject = "Oasa - "+"Απόδειξη αγοράς.";
+	mailOptions.text = "Όνομα: "+onoma+"\n"+"Επώνυμο: "+eponimo+"\n"+"Κωδικός κάρτας: "+kwdikos_kartas+"\n\n"+
+	"Κόμιστρο: "+komisto+"\n"+"Ποσότητα :"+posotita+"\n\n"+"Συνολικό κόστος"+cost+"\n";
+	////////
+	//SendMail(mailOptions);
+	
+	
+	
+	res.render("epiveveosi_pliromis.ejs");
+});
+
+//////////////////////////////////////////////
+
+
+
+
+
+
+
+///////  agora_eisitirion
+app.get("/agora_eisitirion", function(req, res){
+	res.render("agora_eisitirion.ejs");
+});
+
+app.post("/agora_eisitirion", function(req, res) {
+	
+	res.render("pliromi.ejs", { p: "2", currentUser:req.user });
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 // login routes
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 app.get("/login", function(req, res) {
 	res.render("login.ejs", { currentUser: req.user });
