@@ -8,7 +8,7 @@
 
 	<% if(typeof currentUser !== "undefined") {   %>
 	
-		<form action="/agora_eisitirion" method="POST">
+		<form action="/agora_eisitirion/<%= currentUser._id %>" method="POST">
 			
 			<div class="container">
 				<div class="row">
@@ -21,10 +21,10 @@
 							
 							<div class="form-group">
 							  <select class="form-control" name="stoixeia[komistro]">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+								<option>Ενιαίο εισιτήριο 90 λεπτών</option>
+								<option>Μειωμένο εισιτήριο 90 λεπτών</option>
+								<option>Ημερήσιο εισιτήριο</option>
+								<option>Εισιτήριο πέντε ημερών</option>
 							  </select>
 							</div>
 							  
@@ -101,7 +101,7 @@
 	
 	
 	
-		<form action="/agora_eisitirion" method="POST">
+		<form action="/agora_eisitirion/112" method="POST">
 			
 			<div class="container">
 				<div class="row">
@@ -128,11 +128,11 @@
 								
 								
 								<div class="form-group">
-									<input type="email" class="form-control" name = "stoixeia[dieuthinsi]" id="exampleInputEmail1" placeholder="Διεύθυνση">
+									<input type="text" class="form-control" name = "stoixeia[dieuthinsi]" id="exampleInputEmail1" placeholder="Διεύθυνση">
 								</div>
 								
 								<div class="form-group">
-									<input type="email" class="form-control" name = "stoixeia[tx]" id="exampleInputEmail1" placeholder="Ταχυδρομικός κώδικας">
+									<input type="number" class="form-control" name = "stoixeia[tx]" id="exampleInputEmail1" placeholder="Ταχυδρομικός κώδικας">
 								</div>
 								
 								
@@ -153,10 +153,10 @@
 
 								<div class="form-group">
 								  <select class="form-control" name="stoixeia[komistro]">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option>Ενιαίο εισιτήριο 90 λεπτών</option>
+									<option>Μειωμένο εισιτήριο 90 λεπτών</option>
+									<option>Ημερήσιο εισιτήριο</option>
+									<option>Εισιτήριο πέντε ημερών</option>
 								  </select>
 								</div>
 							  

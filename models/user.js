@@ -8,12 +8,20 @@ var userSchema = new mongoose.Schema({
 	firstName: String,
 	lastName: String,
 	email: String,
+	
+	address: 	 String,
+	postal_code: String,
+	
 	phone: Number,
 	AFM:	Number,
 	image: String,
 	
-	tickets :[
+	tickets :[	// edw einai oi epanafortiseis kartas
 		{ ticket: String, posotita: Number, cost: Number, date: String }
+	],
+	
+	tickets2:[	// edw oi agores eisitiriwn
+		{ticket: String, posotita: Number, cost: Number, date: String, paralavi: String}
 	]
 	
 });

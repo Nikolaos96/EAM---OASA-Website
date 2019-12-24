@@ -3,16 +3,15 @@
 
 
 
-<div class="container">
-	<h3 align="center"><b> ΣΕΛΙΔΑ ΠΛΗΡΩΜΗΣ </b></h3>
-	<br>
+	<div class="container">
+		<h3 align="center"><b> ΣΕΛΙΔΑ ΠΛΗΡΩΜΗΣ </b></h3>
+		<br>
 
 		<% if( p === "1"){ %>
-		
-			<% if(  stoixeia.pliromi === "paypal"){ %>
-				<div class="row">
-					<div class="col">
+			<div class="row">
+				<div class="col">
 				
+					<% if(  stoixeia.pliromi === "paypal"){ %>
 						<h4><b> Πληρωμή με Paypal</b></h4>
 						
 						<div style="width: 40%; margin-top: 5%;">
@@ -34,45 +33,8 @@
 						
 						<br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
-					</div>
-					
-					<div class="col">
-						<h4><b> Απόδειξη χρήστη</b></h4>
-						<br>
-						
-						<h5><b>Όνομα: </b> <%= stoixeia.onoma %> <h5>
-						<h5><b>Επώνυμο: </b> <%= stoixeia.eponimo %> <h5>
-						<h5><b>Email: </b> <%= stoixeia.email %> <h5>
-						<h5><b>Κωδικός κάρτας: </b> <%= stoixeia.kwdikos %> <h5>
-					
-						<br>
-						<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
-						<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
-						<br>
-						<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
-					
-					
-						<br>
-						<div style="width: 40%; margin-top: 5%;">
-							<div class="form-group">
-
-								<% if(typeof currentUser !== "undefined"){ %>
-									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= stoixeia.onoma+"+"+stoixeia.eponimo
-									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id %>">Πληρωμή</a>
-								<% }else{ %>
-									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= stoixeia.onoma+"+"+stoixeia.eponimo
-									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111 %>">Πληρωμή</a>
-								<% } %>	
-								
-							</div>
-						</div>
-					</div>
-				</div>
 				
-				
-			<% } else{ %>
-				<div class="row">
-					<div class="col">
+					<% }else{ %>
 						<h4><b> Πληρωμή με  Πιστωτική/Χρεωστική κάρτα</b></h4>
 						
 						
@@ -97,57 +59,148 @@
 						
 						<br><br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
+					<% } %>
+				</div>
+				
+				<div class="col">
+					<h4><b> Απόδειξη χρήστη</b></h4>
+					<br>
 						
-					</div>
+					<h5><b>Όνομα: </b> <%= stoixeia.onoma %> <h5>
+					<h5><b>Επώνυμο: </b> <%= stoixeia.eponimo %> <h5>
+					<h5><b>Email: </b> <%= stoixeia.email %> <h5>
+					<h5><b>Κωδικός κάρτας: </b> <%= stoixeia.kwdikos %> <h5>
 					
-					<div class="col">
-						<h4><b> Απόδειξη χρήστη</b></h4>
-						<br>
-						
-						<h5><b>Όνομα: </b> <%= stoixeia.onoma %> <h5>
-						<h5><b>Επώνυμο: </b> <%= stoixeia.eponimo %> <h5>
-						<h5><b>Email: </b> <%= stoixeia.email %> <h5>
-						<h5><b>Κωδικός κάρτας: </b> <%= stoixeia.kwdikos %> <h5>
-					
-						<br>
-						<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
-						<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
-						<br>
-						<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
+					<br>
+					<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
+					<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
+					<br>
+					<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
 					
 					
-						<br>
-						<div style="width: 40%; margin-top: 5%;">
-							<div class="form-group">
+					<br>
+					<div style="width: 40%; margin-top: 5%;">
+						<div class="form-group">
 
-								<% if(typeof currentUser !== "undefined"){ %>
-									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= stoixeia.onoma+"+"+stoixeia.eponimo
-									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id %>">Πληρωμή</a>
-								<% }else{ %>
-									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= stoixeia.onoma+"+"+stoixeia.eponimo
-									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111 %>">Πληρωμή</a>
-								<% } %>
+							<% if(typeof currentUser !== "undefined"){ %>
+								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+								+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id %>">Πληρωμή</a>
+							<% }else{ %>
+								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+								+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111 %>">Πληρωμή</a>
+							<% } %>	
 								
-							</div>
 						</div>
 					</div>
 				</div>
-			<% } %>
+			</div>
 			
-		<% }else{%>		
+				
+		<% }else{ %>		
 
 
+			<div class="row">
+				<div class="col">
+					
+					<% if(  stoixeia.pliromi === "paypal"){ %>
+						<h4><b> Πληρωμή με Paypal</b></h4>
+						
+						<div style="width: 40%; margin-top: 5%;">
+							<h5><b>Όνομα χρήστη </b><h5>
+						
+							<div class="form-group">
+								<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Nikos123">
+							</div>
+						
+							<br>
+							<h5><b>Κωδικός </b><h5>
+							
+							<div class="form-group">
+								<input type="password" class="form-control" name = "kwdikos" id="exampleInputEmail1" placeholder="*******">
+							</div>
 
+						</div>
 
+						
+						<br><br><br><br><br>
+						<a href="javascript:history.back()">Ακύρωση</a>
+						
+						
+					<% } else{ %>
+					
+					
+						<h4><b> Πληρωμή με  Πιστωτική/Χρεωστική κάρτα</b></h4>
+						
+						<div style="width: 40%; margin-top: 5%;">
+							<h5><b>Κωδικός κάρτας </b><h5>
+						
+							<div class="form-group">
+								<input type="number" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="121213131">
+								<p><small>Όπως εμφανίζεται στην κάρτα.</small></p>
+							</div>
+						
+							<br>
+							<h5><b>Όνομα δικαιούχου</b><h5>
+							
+							<div class="form-group">
+								<input type="text" class="form-control" name = "kwdikos" id="exampleInputEmail1" placeholder="Nikolaos Makrygeorgos">
+								<p><small>Όπως εμφανίζεται στην κάρτα.</small></p>
+							</div>
 
+						</div>
 
-		
-	
+						
+						<br><br><br><br><br><br>
+						<a href="javascript:history.back()">Ακύρωση</a>
+					<% } %>
+				</div>
+				
+				
+				<div class="col">
+					<h4><b> Απόδειξη χρήστη</b></h4>
+					<br>
+						
+					<h5><b>Όνομα: </b> <%= stoixeia.onoma %> <h5>
+					<h5><b>Επώνυμο: </b> <%= stoixeia.eponimo %> <h5>
+					<h5><b>Email: </b> <%= stoixeia.email %> <h5>
+					<h5><b>Διεύθυνση: </b> <%= stoixeia.dieuthinsi %> <h5>
+					<h5><b>Ταχυδρομικός Κώδικας: </b> <%= stoixeia.tx %> <h5>
+					
+					<br>
+					<h5><b>Παραλαβή: </b> <%= stoixeia.paralavi %> <h5>
+					<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
+					<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
+					<br>
+					<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
+					
+					
+					<br>
+					<div style="width: 40%; margin-top: 5%;">
+						<div class="form-group">
+
+							<% if(typeof currentUser !== "undefined"){ %>
+								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+								+"+"+stoixeia.email+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id+"+"+
+								stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
+							<% }else{ %>
+								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+								+"+"+stoixeia.email+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111+"+"+
+								stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
+							<% } %>	
+								
+						</div>
+					</div>
+				</div>
+				
+			</div>
 		<% } %>
-</div>
-
-
-
+	</div>
+	
+	
+	
+	
 
 
 <% include partials/footer.ejs %>
+
+

@@ -4,31 +4,73 @@
 
 <div class="container">
 
-	<h3>Οι αγορές μου </h3>
-	<br>
-
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">Κόμιστρο</th>
-					<th scope="col">Ποσότητα</th>
-					<th scope="col">Συνολικό κόστος (ευρώ)</th>
-					<th scope="col">Ημερομηνία</th>
-				</tr>
-			</thead>
-			<tbody style="background-color: #F5F5DC;">
-				<% agores.forEach(function(agora){ %>
+		<% if(t1 === 1){ %>
+			<h3>Επαναφορτίσεις κάρτας. </h3>
+			<br>
+			
+			<table class="table">
+				<thead class="thead-dark">
 					<tr>
-						<td><%= agora.ticket %></td>
-						<td><%= agora.posotita %></td>
-						<td><%= agora.cost %></td>
-						<td><%= agora.date %></td>
+						<th scope="col">Κόμιστρο</th>
+						<th scope="col">Ποσότητα</th>
+						<th scope="col">Συνολικό κόστος (ευρώ)</th>
+						<th scope="col">Ημερομηνία</th>
 					</tr>
-				 <% })  %>
-			</tbody>
-		</table>
+				</thead>
+				<tbody style="background-color: #F5F5DC;">
+					<% agores1.forEach(function(agora){ %>
+						<tr>
+							<td><%= agora.ticket %></td>
+							<td><%= agora.posotita %></td>
+							<td><%= agora.cost %></td>
+							<td><%= agora.date %></td>
+						</tr>
+					 <% })  %>
+				</tbody>
+			</table>
+			
 		
-		<br><br><br>
+		<% }else{ %>
+			<h3>Δεν έχουν γίνει επαναφορτίσεις κάρτας. </h3>
+			<br>
+		<% } %>
+		
+		
+		<br>
+		
+		
+		<% if(t2 === 1){ %>
+			<h3>Αγορές Εισιτηρίων. </h3>
+			<br>
+			
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Κόμιστρο</th>
+						<th scope="col">Ποσότητα</th>
+						<th scope="col">Συνολικό κόστος (ευρώ)</th>
+						<th scope="col">Ημερομηνία</th>
+						<th scope="col">Παραλαβή</th>
+					</tr>
+				</thead>
+				<tbody style="background-color: #F5F5DC;">
+					<% agores2.forEach(function(agora){ %>
+						<tr>
+							<td><%= agora.ticket %></td>
+							<td><%= agora.posotita %></td>
+							<td><%= agora.cost %></td>
+							<td><%= agora.date %></td>
+							<td><%= agora.paralavi %></td>
+						</tr>
+					 <% })  %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<h3>Δεν έχουν γίνει αγορές εισιτηρίων. </h3>
+			<br>
+		<% } %>
+		
+		
 
 </div>
 
