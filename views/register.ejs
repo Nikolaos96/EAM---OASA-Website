@@ -1,78 +1,316 @@
 <% include partials/header.ejs %>
 
 
+	<script>
 
-<div class="container">
-		<h3 style="text-align: center; margin-top: 2%; color: black;"><strong> Εγγραφή </strong></h3>
+		function printError(elemId, hintMsg) {
+			document.getElementById(elemId).innerHTML = hintMsg;
+		}
+
+		function validateForm() {
+			var username = 			document.contactForm.username.value;
+			var password = 			document.contactForm.password.value;
+			var password_again = 	document.contactForm.password_again.value;
+			var firstname = 		document.contactForm.firstName.value;
+			var lastname = 			document.contactForm.lastName.value;
+			
+			var address = 			document.contactForm.address.value;
+			var postal_code = 		document.contactForm.postal_code.value;
+			var email = 			document.contactForm.email.value;
+			var phone = 			document.contactForm.phone.value;
+			var afm = 				document.contactForm.AFM.value;
+			
+			
 		
-		<div style="width: 25%; margin: 20px auto; margin-top: 4%;">
-			<form action = "/register" method = "POST">
+			var usernameErr = passErr = pass_againErr = nameErr = lnameErr = addressErr = 1;
+			var postall_codeErr = emailErr = phoneErr = afmErr = 1;
+			var sum = 0;
+			
+			
+			
+			
+			if(username == "") {
+				printError("usernameErr", "Please enter your username.");
+			} else {
+				var regex = /^[a-zA-Z0-9\s]+$/; 
 
+				
+				if(regex.test(username) === false) {
+					printError("usernameErr", "Please enter a valid username.");
+				} else {
+				
+					if(username.length < 4){
+						printError("usernameErr", "The length of the username must be greater than 3.");
+					}else{
+						if(username.length > 12){
+							printError("usernameErr", "The length of the username must be smaller than 13.");
+						}else{
+							printError("usernameErr", "");
+							usernameErr = 0;
+						}
+					}
+					
+				}
+			}
+			
+			
+			
+			if(password == "") {
+				printError("passErr", "Please enter your password");
+			} else {
+				var regex = /^[a-zA-Z0-9\s]+$/;     
 
-			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder = "Όνομα Χρήστη" required>
-			</div>
+				
+				if(regex.test(password) === false) {
+					printError("passErr", "Please enter a valid password");
+				} else {
+				
+					if(password.length < 4){
+						printError("passErr", "The length of the password must be greater than 3.");
+					}else{
+						if(password.length > 12){
+							printError("passErr", "The length of the password must be smaller than 13.");
+						}else{
+							printError("passErr", "");
+							passErr = 0;
+						}
+					}
+					
+				}
+			}
+			
+			
+			if(password_again == "") {
+				printError("pass_againErr", "Please enter your password_again");
+			} else {
+				var regex = /^[a-zA-Z0-9\s]+$/;     
 
-			<div class="form-group">
-				<input class="form-control" type="password" name="password" placeholder = "Κωδικός" required>
-			</div>
-			
-			<div class="form-group">
-				<input class="form-control" type="password" name="password_again" placeholder="Κωδικός Ξανά" required>
-			</div>
-			
-			
-			<div class="form-group">
-				<input class="form-control" type="text" name="firstName" placeholder="Όνομα" required>
-			</div>
-			
-			<div class="form-group">
-				<input class="form-control" type="text" name="lastName" placeholder="Επώνυμο" required>
-			</div>
-			
-			
-			
-			
-			<div class="form-group">
-				<input class="form-control" type="text" name="address" placeholder="Διεύθυνση" required>
-			</div>
-			
-			<div class="form-group">
-				<input class="form-control" type="text" name="postal_code" placeholder="Ταχυδρομικός Κώδικας" required>
-			</div>
+				
+				if(regex.test(password_again) === false) {
+					printError("pass_againErr", "Please enter a valid password_again");
+				} else {
+				
+					if(password_again.length < 4){
+						printError("pass_againErr", "The length of the password_again must be greater than 3.");
+					}else{
+						if(password_again.length > 12){
+							printError("pass_againErr", "The length of the password_again must be smaller than 13.");
+						}else{
+							printError("pass_againErr", "");
+							pass_againErr = 0;
+						}
+					}
+					
+				}
+			}
 			
 			
+			if(firstname == "") {
+				printError("nameErr", "Please enter your firstname.");
+			} else {
+				printError("nameErr", "");
+				nameErr = 0;
+			}
+			
+			if(lastname == "") {
+				printError("lnameErr", "Please enter your lastname.");
+			} else {
+				printError("lnameErr", "");
+				lnameErr = 0;
+			}
 			
 			
 			
-			<div class="form-group">
-				<input class="form-control" type="email" name="email" placeholder="Email">
-			</div>
+			if(address == "") {
+				printError("addressErr", "Please enter your address.");
+			} else {
+				printError("addressErr", "");
+				addressErr = 0;
+			}
+		
+			if(postal_code == "") {
+				printError("postall_codeErr", "Please enter your postal_code.");
+			} else {
+				printError("postall_codeErr", "");
+				postall_codeErr = 0;
+			}
 			
-			<div class="form-group">
-				<input class="form-control" type="number" name="phone" placeholder="Τηλέφωνο">
-			</div>
 			
-			<div class="form-group">
-				<input class="form-control" type="number" name="AFM" placeholder="Αφμ" requireds>
-			</div>
+			if(email == "") {
+				printError("emailErr", "Please enter your email address.");
+			} else {
+				// Regular expression for basic email validation
+				var regex = /^\S+@\S+\.\S+$/;
+				if(regex.test(email) === false) {
+					printError("emailErr", "Please enter a valid email address.");
+				} else{
+					printError("emailErr", "");
+					emailErr = 0;
+				}
+			}
 			
 			
-			<div class="form-group">
-				<input class="form-control" type="text" name="image" placeholder="Εικόνα Χρήστη (url)" requireds>
-			</div>
+			if(phone == "") {
+				printError("phoneErr", "Please enter your phone number.");
+			} else {
+				var regex = /^[0-9]\d{9}$/;
+				if(regex.test(phone) === false) {
+					printError("phoneErr", "Please enter a valid 10 digit phone number.");
+				} else{
+					printError("phoneErr", "");
+					phoneErr = 0;
+				}
+			}
+			
+			
+			if(afm == "") {
+				printError("afmErr", "Please enter your αφμ.");
+			} else {
+				var regex = /^[0-9]\d{8}$/;
+				if(regex.test(afm) === false) {
+					printError("afmErr", "Please enter a valid 9 digit αφμ number.");
+				} else{
+					printError("afmErr", "");
+					afmErr = 0;
+				}
+			}
+			
+			
+			sum = usernameErr + passErr + pass_againErr + nameErr + lnameErr + addressErr
+			+ postall_codeErr + emailErr + phoneErr + afmErr;
 			
 
-			<div class="form-group">
-				<button class="btn btn-sm btn-success btn-default btn-block" >Εγγραφή</button>
-			</div>
+			if(sum !== 0){
+				return false;
+			}
+		};
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="container">
+		<h3 style="text-align: center; margin-top: 2%; color: black;"><strong> Εγγραφή </strong></h3>
+		<br><br>
+		
+		<form name="contactForm" onsubmit="return validateForm()" action = "/register" method = "POST">
+			<div class="container">
+				<div class="row">
+		
+	
+		
+			
+					<div class="col">
+						<div style="width: 45%;">
+						
+						
+						
+							<div class="form-group">
+								<label>Όνομα Χρήστη</label>
+								<input class="form-control" type="text" name="username" placeholder = "nikolakis123">
+								<font color= "red"><div class="error" id="usernameErr"></div></font>
+							</div>
 
-			</form>
-			
-			<a href="javascript:history.back()">Πίσω</a>
-			
-		</div>
-</div>
+							<div class="form-group">
+								<label>Κωδικός</label>
+								<input class="form-control" type="password" name="password" placeholder = "******">
+								<font color= "red"><div class="error" id="passErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Κωδικός Ξανά</label>
+								<input class="form-control" type="password" name="password_again" placeholder="******">
+								<font color= "red"><div class="error" id="pass_againErr"></div></font>
+							</div>
+							
+							
+							<div class="form-group">
+								<label>Όνομα</label>
+								<input class="form-control" type="text" name="firstName" placeholder="Νίκος">
+								<font color= "red"><div class="error" id="nameErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Επώνυμο</label>
+								<input class="form-control" type="text" name="lastName" placeholder="Παπαδόπουλος">
+								<font color= "red"><div class="error" id="lnameErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Διεύθυνση</label>
+								<input class="form-control" type="text" name="address" placeholder="Λόρδου Βύρωνα 2">
+								<font color= "red"><div class="error" id="addressErr"></div></font>
+							</div>
+							
+							
+							
+							
+							<br>
+							<a href="javascript:history.back()">Πίσω</a>
+						
+						</div>
+					</div>
+					
+					
+					
+					<div class="col">
+						<div style="width: 45%;">
+						
+						
+							<div class="form-group">
+								<label>Ταχυδρομικός Κώδικας</label>
+								<input class="form-control" type="text" name="postal_code" placeholder="31100">
+								<font color= "red"><div class="error" id="postall_codeErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Email</label>
+								<input class="form-control" type="email" name="email" placeholder="nikpap@gmail.com">
+								<font color= "red"><div class="error" id="emailErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Τηλέφωνο</label>
+								<input class="form-control" type="number" name="phone" placeholder="697 9984448">
+								<font color= "red"><div class="error" id="phoneErr"></div></font>
+							</div>
+							
+							<div class="form-group">
+								<label>Αφμ</label>
+								<input class="form-control" type="number" name="AFM" placeholder="212393847">
+								<font color= "red"><div class="error" id="afmErr"></div></font>
+							</div>
+							
+							
+							<div class="form-group">
+								<label>Εικόνα Χρήστη</label>
+								<input class="form-control" type="text" name="image" placeholder="Εικόνα Χρήστη (url)">
+							</div>
+						
+						
+						
+						
+							<br><br><br><br>
+							<div class="form-group">
+								<button class="btn btn-sm btn-success btn-default btn-block" >Εγγραφή</button>
+							</div>
+							
+						</div>
+					</div>
+				
+				
+				
+				
+				
+				</div>
+			</div>
+		</form>
+	
+	</div>
 
 
 <% include partials/footer.ejs %>

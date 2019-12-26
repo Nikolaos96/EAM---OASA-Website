@@ -10,44 +10,66 @@
 			document.getElementById(elemId).innerHTML = hintMsg;
 		}
 
-		// Defining a function to validate form 
+
 		function validateForm() {
-			// Retrieving the values of form elements 
-			
 			
 			var name = document.contactForm.username.value;
 			var password = document.contactForm.password.value;
 		
-		
 			
-			
-			// Defining error variables with a default value
 			var nameErr = passErr = true;
 			
 			
-			// Validate name
 			if(name == "") {
 				printError("nameErr", "Please enter your username");
 			} else {
-				var regex = /^[a-zA-Z0-9\s]+$/;                
+				var regex = /^[a-zA-Z0-9\s]+$/; 
+
+				
 				if(regex.test(name) === false) {
-					printError("nameErr", "Please enter a valid username");
+					printError("nameErr", "Please enter a valid username.");
 				} else {
-					printError("nameErr", "");
-					nameErr = false;
+				
+					if(name.length < 4){
+						printError("nameErr", "The length of the username must be greater than 3.");
+					}else{
+						if(name.length > 12){
+							printError("nameErr", "The length of the username must be smaller than 13.");
+						}else{
+							printError("nameErr", "");
+							nameErr = false;
+						}
+					}
+					
 				}
+				
+				
 			}
 			
 			if(password == "") {
 				printError("passErr", "Please enter your password");
 			} else {
-				var regex = /^[a-zA-Z0-9\s]+$/;                
+				var regex = /^[a-zA-Z0-9\s]+$/;     
+
+				
 				if(regex.test(password) === false) {
 					printError("passErr", "Please enter a valid password");
 				} else {
-					printError("passErr", "");
-					passErr = false;
+				
+					if(password.length < 4){
+						printError("passErr", "The length of the password must be greater than 3.");
+					}else{
+						if(password.length > 12){
+							printError("passErr", "The length of the password must be smaller than 13.");
+						}else{
+							printError("passErr", "");
+							passErr = false;
+						}
+					}
+					
 				}
+				
+				
 			}
 			
 
