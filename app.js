@@ -153,7 +153,7 @@ app.post("/anazitisi_diadromis", function(req, res){
 	, function(err, found_dromologio){
 		if(found_dromologio.length === 0){
 			//console.log("Den yparxei to dromologio \n");
-			res.render("anazitisi_diadromis.ejs", { error: "Tο Δρομολόγιο δεν υπάρχει.Εισάγεται νεα στοιχεία." });
+			res.render("anazitisi_diadromis.ejs", { error: "Tο Δρομολόγιο δεν υπάρχει.Εισάγετε νεα στοιχεία." });
 		}else{
 			//console.log("yparxei tetoio dromologio \n");
 			//console.log(found_dromologio);
@@ -239,7 +239,7 @@ app.post("/register", function(req, res) {
 	
 	if(req.body.password !== req.body.password_again){
 		//console.log("Ta password me to password_again einai diaforetika");
-		res.render("register.ejs", { error: "Οι δύο κωδικοί δεν τεριάζουν.Εισάγεται ξανά τα στοιχεία σας." });
+		res.render("register.ejs", { error: "Οι δύο κωδικοί δεν ταιριάζουν.Εισάγεται ξανά τα στοιχεία σας." });
 		return;
 	}
 	
@@ -270,21 +270,6 @@ app.post("/register", function(req, res) {
 	});
 });
 //////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -470,6 +455,9 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost ,currentUser: req.user });
 	});
 });
+
+
+
 
 ////////////////////////////////////////////////////////////////////
 ///////  agora_eisitirion
