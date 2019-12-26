@@ -670,7 +670,7 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 
 // oi agores mou
 ////////////////////////////////////////////////////////////
-app.get("/oi_agores_mou", function(req, res){
+app.get("/oi_agores_mou", isLoggedIn ,function(req, res){
 	
 	User.find({
 		_id: req.user
