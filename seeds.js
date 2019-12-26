@@ -73,11 +73,11 @@ var data = [
 	 af_lat: ,		af_lng: ,
 	 
 	 stasi1: "Τσιμισκη",
-	 s1_lat: Double , 	s1_lng: Double,
+	 s1_lat:  , 	s1_lng: ,
 	 
 	 
 	 stasi2: "Διδοτου",
-	 s2_lat: Double , 	s2_lng: Double,
+	 s2_lat:  , 	s2_lng: ,
 	 
 	 
 	 stasi3: "Ακαδημιας",
@@ -102,11 +102,11 @@ var data = [
 	 af_lat: ,		af_lng: ,
 	 
 	 stasi1: "Γραμμου",
-	 s1_lat: Double , 	s1_lng: Double,
+	 s1_lat:  , 	s1_lng: ,
 	 
 	 
 	 stasi2: "Νοσοκομειο παιδων",
-	 s2_lat: Double , 	s2_lng: Double,
+	 s2_lat:  , 	s2_lng: ,
 	 
 	 
 	 stasi3: "Λαικο",
@@ -132,11 +132,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Φορος",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "Ωνασειο",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Σκρα",
@@ -161,11 +161,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Πυθιας",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "Συκια",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Βορειος Πολος",
@@ -190,11 +190,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Συνταγμα",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "Σταθμος Ευαγγελισμος",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Ιλισια",
@@ -219,11 +219,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Πολυτεχνειο",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "Ναυαρινου",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Τσιμισκη",
@@ -248,11 +248,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Παλαιο Τερμα",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "7η Ιλισιων",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Φοιτητ.Εστια",
@@ -277,11 +277,11 @@ var data = [
 	af_lat: ,		af_lng: ,
 
     stasi1: "Παλ.Τερμα",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat:  , 	s1_lng: ,
 	
 	
     stasi2: "10η Καισαριανης",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat:  , 	s2_lng: ,
 	
 	
     stasi3: "Παναγιτσα",
@@ -332,190 +332,6 @@ var data = [
 
 */
 
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-/*
-	{
-    leoforeio: "402",
-    afetiria: "Στ.Κατεχακη",
-
-    stasi1: "Γενικο Κρατικο",
-    stasi2: "Παλαμα",
-    stasi3: "Σιδερα",
-    stasi4: "Χαιμαντα",
-    stasi5: "Πλ.Δουρου",
-    stasi6: "Ριζαρειος",
-    stasi7: "1η Πολυδροσου",
-    stasi8: "Γιασεμιων",
-    stasi9: "Κρινων",
-    stasi10: "4η Πολυδροσου",
-
-    terma: "Πολυδροσο",
-
-    arxizei: "6:00",
-    teleiwnei: "26:00",
-    epomeno: "30 λεπτά"
-	},
-
-	{
-    leoforeio: "447",
-    afetiria: "Χαλανδρι",
-
-    stasi1: "Χαιμαντα",
-    stasi2: "Αγιος Παντελεημονας",
-    stasi3: "Ιωαννινων",
-    stasi4: "Ταυγετου",
-    stasi5: "Σκρα",
-    stasi6: "Πρωτεως",
-    stasi7: "Μακεδονιας",
-    stasi8: "Ολυμπου",
-    stasi9: "Ερμου",
-    stasi10: "Ναυτικη Βαση",
-
-    terma: "Ανω Βριλησσια",
-
-    arxizei: "6:00",
-    teleiwnei: "23:00",
-    epomeno: "20 λεπτά"
-	},
-
-	{
-    leoforeio: "530",
-    afetiria: "Στ.Κηφισιας",
-
-    stasi1: "Ζηρνειο",
-    stasi2: "Καρπαθου",
-    stasi3: "Αγ.Νεκταριος",
-    stasi4: "Φουρνος",
-    stasi5: "Γουναρη",
-    stasi6: "Νιεν",
-    stasi7: "Καπη",
-    stasi8: "Σχολειο",
-    stasi9: "Πλ.Ν.Πεντελης",
-    stasi10: "Πλατεια Αγ.Σιλα",
-
-    terma: "Ν.Πεντελη",
-
-    arxizei: "6:00",
-    teleiwnei: "23:00",
-    epomeno: "15 λεπτά"
-	},
-
-	{
-    leoforeio: "801",
-    afetiria: "Πειραιας Πλ.Καραισκακη",
-
-    stasi1: "Αλων",
-    stasi2: "Λευκα",
-    stasi3: "Ζερβου",
-    stasi4: "Σινεμα",
-    stasi5: "Μελισσα",
-    stasi6: "Κερανης",
-    stasi7: "Τ.Ε.Ι. Πειραια",
-    stasi8: "Γεφυρακι",
-    stasi9: "Οτε",
-    stasi10: "Κουνελια",
-
-    terma: "Παλασκα",
-
-    arxizei: "6:00",
-    teleiwnei: "23:00",
-    epomeno: "20 λεπτά"
-	},
-
-	{
-    leoforeio: "855",
-    afetiria: "Ψαρι",
-
-    stasi1: "5η Ψαρι",
-    stasi2: "Γεφυρα",
-    stasi3: "6η Κορυτσας",
-    stasi4: "Μιαουλη",
-    stasi5: "Πλατεια Φουσας",
-    stasi6: "Προαστιακος",
-    stasi7: "Οσε",
-    stasi8: "3η Φουσας",
-    stasi9: "Κεμ",
-    stasi10: "Αγ.Παρασκευη",
-
-    terma: "Λοφος Κυριλλου",
-
-    arxizei: "6:00",
-    teleiwnei: "23:00",
-    epomeno: "25 λεπτά",
-	},
-
-	{
-    leoforeio: "Α10",
-    afetiria: "Στ.Λαρισης",
-
-    stasi1: "Λιοσιων",
-    stasi2: "Παιωνιου",
-    stasi3: "Θυμαρακια",
-    stasi4: "Βρεττου",
-    stasi5: "Μητερα",
-    stasi6: "Μουσικο Σχολειο Ιλιου",
-    stasi7: "Κυκλαδων",
-    stasi8: "Αττικη Οδος",
-    stasi9: "Σοφ.Πεππα",
-    stasi10: "Τζαβελλα",
-
-    terma: "Αχαρναι",
-
-    arxizei: "10:00",
-    teleiwnei: "22:00",
-    epomeno: "20 λεπτά"
-	},
-
-	{
-    leoforeio: "Β5",
-    afetiria: "Στ.Λαρισης",
-
-    stasi1: "Μιχ.Βοδα",
-    stasi2: "Παιδιον Αρεως",
-    stasi3: "Βραιλα",
-    stasi4: "Παναθηναια",
-    stasi5: "Ιπποκρατους",
-    stasi6: "Στ.Αμπελοκηποι",
-    stasi7: "Γαλαξιας",
-    stasi8: "Σχολη Αστυνομιας",
-    stasi9: "Στ.Κατεχακη",
-    stasi10: "Τομπρα",
-
-    terma: "Αγ.Παρασκευη",
-
-    arxizei: "7:00",
-    teleiwnei: "23:00",
-    epomeno: "40 λεπτά"
-	},
-
-	{
-    leoforeio: "Χ95",
-    afetiria: "Συνταγμα",
-
-    stasi1: "Χιλτον",
-    stasi2: "Ιλισια",
-    stasi3: "Γαλαξιας",
-    stasi4: "Ζαγορα",
-    stasi5: "Σχολη Αστυνομιας",
-    stasi6: "Στ.Νομισματοκοπειο",
-    stasi7: "Πυργος",
-    stasi8: "Σεα",
-    stasi9: "Αττικες Διαδρομες",
-    stasi10: "Τελωνειο",
-
-    terma: "Κτηριο Αναχωρησεων",
-
-    arxizei: "6:00",
-    teleiwnei: "6:00",
-    epomeno: "35 λεπτά"
-	}
-*/
 ]
 
 
