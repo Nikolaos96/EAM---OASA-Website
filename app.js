@@ -70,6 +70,7 @@ app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
+
 	next();
 });
 
@@ -765,11 +766,11 @@ app.get("/login", function(req, res) {
 
 
 app.post("/login", passport.authenticate("local", {
-	failureRedirect: "/login",
-	successRedirect: "/"
-	
-}), function(req, res, next) {
-	
+		failureRedirect: "/login",
+		successRedirect: "/"
+		
+	}), function(req, res, next) {
+
 });
 /////////////////////////////////////////////////////////////////////////////
 

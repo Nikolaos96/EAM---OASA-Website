@@ -3,20 +3,79 @@
 <link rel="stylesheet" type="text/css" href="/login.css">
 
 
+
+	<script>
+		// Defining a function to display error message
+		function printError(elemId, hintMsg) {
+			document.getElementById(elemId).innerHTML = hintMsg;
+		}
+
+		// Defining a function to validate form 
+		function validateForm() {
+			// Retrieving the values of form elements 
+			
+			
+			var name = document.contactForm.username.value;
+			var password = document.contactForm.password.value;
+		
+		
+			
+			
+			// Defining error variables with a default value
+			var nameErr = passErr = true;
+			
+			
+			// Validate name
+			if(name == "") {
+				printError("nameErr", "Please enter your username");
+			} else {
+				var regex = /^[a-zA-Z0-9\s]+$/;                
+				if(regex.test(name) === false) {
+					printError("nameErr", "Please enter a valid username");
+				} else {
+					printError("nameErr", "");
+					nameErr = false;
+				}
+			}
+			
+			if(password == "") {
+				printError("passErr", "Please enter your password");
+			} else {
+				var regex = /^[a-zA-Z0-9\s]+$/;                
+				if(regex.test(password) === false) {
+					printError("passErr", "Please enter a valid password");
+				} else {
+					printError("passErr", "");
+					passErr = false;
+				}
+			}
+			
+
+			if((nameErr || passErr) == true) {
+			   return false;
+			}
+		};
+	</script>
+
+
+
+
 <div class="container">
 	<h3 style="text-align: center; margin-top: 2%; color: black;"><strong> Σύνδεση </strong></h3>
 
 	<div style="width: 25%; margin: auto; margin-top: 5%;">
-		<form action = "/login" method = "POST">
+		<form name="contactForm" onsubmit="return validateForm()" action = "/login" method = "POST">
 
 
 			<div class="form-group">
 				<input class="form-control" type="text" name="username" placeholder = "username">
+				<font color= "red"><div class="error" id="nameErr"></div></font>
 			</div>
 
 
 			<div class="form-group">
 				<input class="form-control" type="password" name="password" placeholder = "password">
+				<font color= "red"><div class="error" id="passErr"></div></font>
 			</div>
 
 
