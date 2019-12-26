@@ -515,8 +515,14 @@ app.post("/agora_eisitirion/:id", function(req, res) {
 		}else{
 			cost = 9.00;
 		}
+		
+		
 		cost = cost * stoixeia.posotita;
 		
+		
+		if(stoixeia.paralavi === "Αποστολή στην παραπάνω διεύθυνση (+5.00 ευρώ)"){
+			cost = cost + 5.00;
+		}
 		
 		res.render("pliromi.ejs", { p: "2", currentUser:req.user, stoixeia: stoixeia, cost: cost });
 	});
