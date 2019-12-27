@@ -1,24 +1,45 @@
 <% include partials/header.ejs %>
 
 
+<script>
+	var sec = 16;
+    function pad ( val ) { return val > 9 ? val : "0" + val; }
+    setInterval( function(){
+        $("#seconds").html(pad(--sec%60));
+        $("#minutes").html(pad(parseInt(sec/60,10)));
+    }, 1000);
+
+</script>
+
+
+
 <div class="container">
-	<header class="jumbotron">
+
 		<div class="container">
+			<div class="row">
+				<div class="col">
+					<br><br>
+					
+					<h2><font color="black">Η σελίδα δεν ανταποκρίνεται.</font></h2>
+					<h3><font color="black">Προσπαθήστε ξανά αργότερα.</font></h3>
 		
-			<h2><font color="black">Η σελίδα δεν ανταποκρίνεται.</font></h2>
-			<h3><font color="black">Προσπαθήστε ξανά αργότερα.</font></h3>
-			
-			<br><br>
-			
-			<script>
-				setTimeout(function(){ window.location.href="/"; }, 15000);
-			</script>
-		<div>
+					<br><br><br><br><br><br><br><br>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		
-			
-		<p> Θα γίνει αυτόματη επιστροφή στην αρχική σελίδα σε 15 δευτερόλπτα. </p>
+					<p> Θα γίνει αυτόματη επιστροφή στην αρχική σελίδα σε <b><span id="seconds"></span></b> δευτερόλπτα. </p>
 		
-	</header>
+				</div>
+				
+				<div class="col">
+					<img height="350" width="400" src= "error_image.jpg" align="right">
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			setTimeout(function(){ window.location.href="/"; }, 16000);
+		</script>
+		
 </div>
 
 

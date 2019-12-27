@@ -530,11 +530,7 @@ app.post("/agora_eisitirion/:id", function(req, res) {
 });
 
 
-////////////////////////////////////////////////////////////////////
-///////  times_eisitirion
-app.get("/times_eisitirion", function(req, res){
-	res.render("times_eisitirion.ejs");
-});
+
 
 
 
