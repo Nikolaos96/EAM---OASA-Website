@@ -11,8 +11,8 @@ mongoose.connect("mongodb://localhost/auctions_db", { useNewUrlParser: true } );
 
 
 var seedDB = require("./seeds");
-seedDB();
 
+//seedDB();
 
 
 
@@ -88,7 +88,6 @@ app.use(function(req, res, next) {
 
 
 app.get("/", function(req, res) {
-	
 	
 	Anakoinoseis.find({}, function(err, anakoinoseis){
 		if(err){
@@ -707,10 +706,145 @@ app.get("/oi_agores_mou", isLoggedIn ,function(req, res){
 });
 
 
+//////////////////////////////////////////////////////////////////////////////////
+app.get("/oles_oi_grammes", function(req, res){
+	
+	Dromologia.find(
+		{}
+	, function(err, found_dromologio){
+		if(found_dromologio.length === 0 || err){
+			//console.log("Den yparxei to dromologio \n");
+		}else{
+			var a;
+			
+			if(typeof req.user !== "undefined"){
+				a = req.user._id;
+			}else{
+				a = 1;
+			}
+			
+			
+			User.find({
+				_id: a
+			},function(error, found_user) {
+				if(error){
+					res.render("oles_oi_grammes.ejs", { currentUser: req.user , dromologia: found_dromologio });
+				}else{
+					var grammes = found_user[0].grammes;
+					
+					var i, j;
+					for(i = 0 ; i < found_dromologio.length ; i++){
+						var f = 0;
+						for(j = 0 ; j < grammes.length ; j++){
+							if(found_dromologio[i].leoforeio === grammes[j].leoforeio){
+								f = 1;
+								break;
+							}
+						}
+						
+						
+						if(f == 0){
+							found_dromologio[i].ss = 0;
+						}else{
+							found_dromologio[i].ss = 1;
+						}
+					}
+					
+					
+					res.render("oles_oi_grammes.ejs", { currentUser: req.user , dromologia: found_dromologio });
+				}
+			});
+			
+			
+		}
+	});
+});
 
 
 
 
+
+
+
+app.get("/oles_oi_grammes/:id", function(req, res){
+	var str = req.params.id;
+	
+	var user_id = str.split('+')[0];
+	var leof 	= str.split('+')[1];
+	var ss		= str.split('+')[2];
+	
+	
+	
+	if(ss === "I"){	// apothikeusi	dromologiou
+		
+			User.find({
+				_id: user_id
+			},function(error, found_user) {
+				
+				var arr = found_user[0].grammes;
+				
+				Dromologia.find({
+					leoforeio: leof
+				}, function(err, found){
+					arr.push(found[0]);
+					
+					
+					User.findOneAndUpdate({
+						_id: user_id
+					},{
+						grammes: arr
+					} ,function(error, updatedUser) {
+						// tipota
+					});
+					
+				});
+			});
+			
+			res.redirect('back');
+			
+	}else{		// diagrafi dromologiou
+		
+		User.find({
+				_id: user_id
+			},function(error, found_user) {
+				
+				var arr = found_user[0].grammes;
+				var i;
+				
+				for(i = 0 ; i < arr.length ; i++){
+					if(arr[i].leoforeio == leof){
+						arr.splice(i,1);
+					}
+				}
+				
+			
+				User.findOneAndUpdate({
+					_id: user_id
+				},{
+					grammes: arr
+				} ,function(error, updatedUser) {
+					// tipota
+				});
+			});
+			
+			res.redirect('back');
+			
+	}
+});
+
+
+app.get("/dromologia_mou", function(req, res){
+	
+	User.find({
+		_id: req.user
+	}, function(err, found_user){
+		var grammes = found_user[0].grammes;
+		var a = grammes.length;
+		
+		res.render("dromologia_mou.ejs", {grammes: grammes, a: a });
+	});
+	
+});
 
 
 /////////////////////////////////////////////////////////

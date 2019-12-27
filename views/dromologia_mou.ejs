@@ -1,0 +1,61 @@
+<% include partials/header.ejs %>
+
+
+
+
+
+<div class="container">
+
+	<% if(a !== 0){ %>
+		<b><h3 class="text-center">Τα δρομολόγια μου. </h3></b>
+		<br>
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
+						<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+						
+						<th scope="col">ΣΤΑΣΗ 1</th>
+						<th scope="col"> ... </th>
+						<th scope="col">ΣΤΑΣΗ 10</th>
+						
+						<th scope="col">ΤΕΡΜΑ</th>
+						
+						<th scope="col">ΔΙΑΓΡΑΦΗ ΔΡΟΜΟΛΟΓΙΟΥ</th>
+					</tr>
+				</thead>
+				<tbody style="background-color: #F5F5DC;">
+					<% grammes.forEach(function(gram){ %>
+						<tr>
+							<td><%= gram.leoforeio %></td>
+							<td><%= gram.afetiria %></td>
+							<td><%= gram.stasi1 %></td>
+							
+							<td> ... </td>
+							<td><%= gram.stasi10 %></td>
+							<td><%= gram.terma %></td>
+							
+							<td class="text-center"><a class="btn btn-danger btn-sm" href="/oles_oi_grammes/<%= currentUser._id+"+"+gram.leoforeio+"+"+"D"%>" role="button">Διαγραφή</a></td>
+						</tr>
+					 <% })  %>
+				</tbody>
+			</table>
+			
+
+		<br><br><br><br><br><br><br><br><br>
+		
+		
+	<% }else{ %>
+		
+		<b><h3>Δεν Υπάρχουν Αποθηκευμένα Δρομολόγια. </h3></b>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+	<% } %>
+</div>
+
+
+
+
+
+<% include partials/footer.ejs %>

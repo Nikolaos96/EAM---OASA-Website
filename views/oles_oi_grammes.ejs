@@ -1,0 +1,74 @@
+<% include partials/header.ejs %>
+
+
+
+
+
+
+<div class="container">
+	<b><h3 class="text-center">Δρομολόγια - Γραμμές.</h3></b>
+	<br><br>
+
+
+	<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
+					<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+					
+					<th scope="col">ΣΤΑΣΗ 1</th>
+					<th scope="col"> ... </th>
+					<th scope="col">ΣΤΑΣΗ 10</th>
+					
+					<th scope="col">ΤΕΡΜΑ</th>
+					<th scope="col">ΕΜΦΑΝΙΣΗ ΑΦΕΤΗΡΙΑΣ ΣΤΟ ΧΑΡΤΗ</th>
+					
+					
+					<% if(typeof currentUser !== "undefined") {   %>
+						<th scope="col">ΑΠΟΘΗΚΕΥΣΗ ΓΡΑΜΜΗΣ</th>
+					<% } %>
+					
+				</tr>
+			</thead>
+			
+			
+			<tbody style="background-color: #F5F5DC;">
+				<% dromologia.forEach(function(drom){ %>
+					<tr>
+						<td><%= drom.leoforeio %></td>
+						<td><%= drom.afetiria %></td>
+						
+						<td><%= drom.stasi1 %></td>
+						<td> ... </td>
+						<td><%= drom.stasi10 %></td>
+						
+						<td><%= drom.terma %></td>
+						<td class="text-center" ><a target="_blank" rel="noopener noreferrer" href="/plirofories_stasis/<%= drom._id %>">Χάρτης</a></td>
+						
+						
+						<td>
+							<% if(typeof currentUser !== "undefined") {   %>
+							
+								<% if( drom.ss === 0){ %>
+									<a class="btn btn-info btn-sm" href="/oles_oi_grammes/<%= currentUser._id+"+"+drom.leoforeio+"+"+"I"%>" role="button">Αποθήκευση</a>
+								<% }else{ %>
+									<a class="btn btn-danger btn-sm" href="/oles_oi_grammes/<%= currentUser._id+"+"+drom.leoforeio+"+"+"D"%>" role="button">Διαγραφή</a>
+								<% } %>
+								
+							<% } %>
+						</td>
+						
+						
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+
+
+</div>
+
+
+
+
+
+<% include partials/footer.ejs %>
