@@ -14,7 +14,7 @@ var data = [
 	 s1_lat: 37.971960, 	s1_lng: 23.757105,
 	 
 	 
-	 stasi2: "Εφρονιου",
+	 stasi2: "Ευφρονιου",
 	 s2_lat: 37.972219, 	s2_lng: 23.754686,
 	 
 	 
@@ -63,21 +63,18 @@ var data = [
 	 arxizei: "10:00",
      teleiwnei: "23:00",
 	 epomeno:	"20 λεπτά"
-	}
-	
-	
-	
-/*
+	},
+
 	{leoforeio: "026", 
 	 afetiria: "Ιπποκρατους",
-	 af_lat: ,		af_lng: ,
+	 af_lat: 37.988452,		af_lng: 23.746837,
 	 
 	 stasi1: "Τσιμισκη",
-	 s1_lat:  , 	s1_lng: ,
+	 s1_lat:  37.986089, 	s1_lng: 23.743565,
 	 
 	 
 	 stasi2: "Διδοτου",
-	 s2_lat:  , 	s2_lng: ,
+	 s2_lat:  37.983459, 	s2_lng: 23.736807,
 	 
 	 
 	 stasi3: "Ακαδημιας",
@@ -98,15 +95,15 @@ var data = [
 	},
 	
 	{leoforeio: "032", 
-	 afetiria: "Γουδη",
-	 af_lat: ,		af_lng: ,
+	 afetiria: "Γουδι",
+	 af_lat: 37.980770,		af_lng: 23.770837,
 	 
 	 stasi1: "Γραμμου",
-	 s1_lat:  , 	s1_lng: ,
+	 s1_lat:  37.982487, 	s1_lng: 23.772563,
 	 
 	 
 	 stasi2: "Νοσοκομειο παιδων",
-	 s2_lat:  , 	s2_lng: ,
+	 s2_lat:  37.983881, 	s2_lng: 23.768527,
 	 
 	 
 	 stasi3: "Λαικο",
@@ -128,15 +125,15 @@ var data = [
 	
 	{
     leoforeio: "550",
-    afetiria: "Π.Φαλιρο",
-	af_lat: ,		af_lng: ,
+    afetiria: "Π.Φαληρο",
+	af_lat: 37.930109,		af_lng: 23.686302,
 
     stasi1: "Φορος",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat:  37.932600, 	s1_lng: 23.690603,
 	
 	
     stasi2: "Ωνασειο",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat:  37.942468, 	s2_lng: 23.697760,
 	
 	
     stasi3: "Σκρα",
@@ -158,14 +155,14 @@ var data = [
 	{
     leoforeio: "608",
     afetiria: "Γαλατσι",
-	af_lat: ,		af_lng: ,
+	af_lat: 38.026306,		af_lng: 23.761203,
 
     stasi1: "Πυθιας",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat: 38.020008, 		s1_lng: 23.756361,
 	
 	
     stasi2: "Συκια",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat: 38.013867, 		s2_lng: 23.749910,
 	
 	
     stasi3: "Βορειος Πολος",
@@ -187,14 +184,14 @@ var data = [
 	{
     leoforeio: "Ε14",
     afetiria: "Ζαππειο",
-	af_lat: ,		af_lng: ,
+	af_lat: 37.974573,		af_lng: 23.735612,
 
     stasi1: "Συνταγμα",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat: 37.973714, 		s1_lng: 23.735461,
 	
 	
     stasi2: "Σταθμος Ευαγγελισμος",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat: 37.976331, 		s2_lng: 23.747933,
 	
 	
     stasi3: "Ιλισια",
@@ -216,14 +213,14 @@ var data = [
 	{
     leoforeio: "Α7",
     afetiria: "Στουρναρη",
-	af_lat: ,		af_lng: ,
+	af_lat: 37.987744,		af_lng: 23.729292,
 
     stasi1: "Πολυτεχνειο",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat:  37.988466, 	s1_lng: 23.730334,
 	
 	
     stasi2: "Ναυαρινου",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat:  37.983554, 	s2_lng: 23.734737,
 	
 	
     stasi3: "Τσιμισκη",
@@ -245,14 +242,14 @@ var data = [
 	{
     leoforeio: "221",
     afetiria: "Ζωγραφου",
-	af_lat: ,		af_lng: ,
+	af_lat: 37.969932,		af_lng: 23.773197,
 
     stasi1: "Παλαιο Τερμα",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat: 37.971882, 		s1_lng: 23.770353,
 	
 	
     stasi2: "7η Ιλισιων",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat: 37.972599, 		s2_lng: 23.767561,
 	
 	
     stasi3: "Φοιτητ.Εστια",
@@ -274,14 +271,14 @@ var data = [
 	{
     leoforeio: "224",
     afetiria: "Καισαριανης",
-	af_lat: ,		af_lng: ,
+	af_lat: 37.964992,		af_lng: 23.776363,
 
     stasi1: "Παλ.Τερμα",
-	s1_lat:  , 	s1_lng: ,
+	s1_lat:  37.966645, 	s1_lng: 23.770049,
 	
 	
     stasi2: "10η Καισαριανης",
-	s2_lat:  , 	s2_lng: ,
+	s2_lat:  37.966992, 	s2_lng: 23.765009,
 	
 	
     stasi3: "Παναγιτσα",
@@ -303,14 +300,14 @@ var data = [
 	{
     leoforeio: "305",
     afetiria: "Στ.Νομισματοκοπειου",
-	af_lat: ,		af_lng: ,
+	af_lat: 38.009549,		af_lng: 23.807233,
 
     stasi1: "Τομπρα",
-	s1_lat: Double , 	s1_lng: Double,
+	s1_lat: 38.011420, 	s1_lng: 23.812616,
 	
 	
     stasi2: "Ερτ",
-	s2_lat: Double , 	s2_lng: Double,
+	s2_lat: 38.013731, 	s2_lng: 23.826283,
 	
 	
     stasi3: "Σταυρος",
@@ -329,8 +326,6 @@ var data = [
     epomeno: "50 λεπτά"
 	}
 
-
-*/
 
 ]
 
