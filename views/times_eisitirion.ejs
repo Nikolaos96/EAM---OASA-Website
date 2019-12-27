@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th style="width: 23%;" scope="col">Όνομα εισιτηρίου</th>
+            <th style="width: 70%;" scope="col">Περιγραφή εισιτηρίου</th>
+            <th style="width: 7%; text-align: center;" scope="col">Τιμή</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Ενιαίο εισιτήριο 90 λεπτών</td>
+            <td>Απλό εισιτήριο με διάρκεια 90 λεπτά από την στιγμή της επικύρωσης</td>
+            <td style="text-align: center;">1.40€</td>
+        </tr>
+        <tr>
+            <td>Μειωμένο εισιτήριο 90 λεπτών</td>
+            <td>Απλό εισιτήριο διάρκειας 90 λεπτών με δικαιούχους τις ειδικές ομάδες (μαθητές, φοιτητές, ΑΜΕΑ, άτομα άνω των 60 ετών)</td>
+            <td style="text-align: center;">0.60€</td>
+        </tr>
+        <tr>
+            <td>Ημερήσιο εισιτήριο</td>
+            <td>Εισιτήριο διάρκειας 24 ωρών από την πρώτη επικύρωση. Μπορεί να επικυρωθεί πολλές φορές εντός του ενεργού χρονικού διαστήματος</td>
+            <td style="text-align: center;">4.50€</td>
+        </tr>
+        <tr>
+            <td>Εισιτήριο πέντε ημερών</td>
+            <td>Εισιτήριο διάρκειας 5 ημερών από την πρώτη επικύρωση. Μπορεί να επικυρωθεί πολλές φορές εντός του ενεργού χρονικού διαστήματος και λήγει στο τέλος της 5ης μέρας (μετά τις 23:59)</td>
+            <td style="text-align: center;">9.00€</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/agora_eisitirion" role="button">Αγόρα εισιτηρίου</a>
+    <a class="btn btn-primary" href="/epanafortisi_kartas" role="button">Επαναφόρτιση κάρτας</a>
+</div>
+
+
+<% include partials/footer.ejs %>
