@@ -99,6 +99,18 @@ app.get("/", function(req, res) {
 });
 
 
+app.get("/home_en", function(req, res) {
+	
+	Anakoinoseis.find({}, function(err, anakoinoseis){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("home_en.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+		}
+	});
+});
+
+
 
 app.get("/error_page", function(req, res){
 	res.render("error_page.ejs");
