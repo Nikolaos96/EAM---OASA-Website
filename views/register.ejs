@@ -1,5 +1,9 @@
 <% include partials/header.ejs %>
 
+<link rel="stylesheet" type="text/css" href="/login.css">
+
+
+
 
 	<script>
 
@@ -205,28 +209,81 @@
 		
 			
 					<div class="col">
-						<div style="width: 45%;">
-						
-						
-						
-							<div class="form-group">
-								<label>Όνομα Χρήστη</label>
-								<input class="form-control" type="text" name="username" placeholder = "nikolakis123">
-								<font color= "red"><div class="error" id="usernameErr"></div></font>
+						<div style="width: 95%;">
+								
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label>Όνομα Χρήστη</label>
+										<input class="form-control" type="text" name="username" placeholder = "nikolakis123"> 
+										<font color= "red"><div class="error" id="usernameErr"></div></font>
+									</div>
+								</div>
+								
+								<div class="col">	
+									<br> 
+									<div align="left">
+										<div class="help-tip">
+											<p>Το όνομα χρήστη πρέπει να αποτελείται απο 4 μέχρι 12 χαρακτήρες.</p>
+										</div>
+									</div>
+								</div>
 							</div>
+							
+						
+							<div class="row">
+								<div class="col">
+								
+									<div class="form-group">
+										<label>Κωδικός</label>
+										<input class="form-control" type="password" name="password" placeholder = "******">
+										<font color= "red"><div class="error" id="passErr"></div></font>
+									</div>
+								</div>
+								
+								
+								<div class="col">
+									<br> 
+									<div align="left">
+										<div class="help-tip">
+											<p>Ο κωδικός θα πρέπει να αποτελείται απο 4 μέχρι 12 χαρακτήρες.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="row">
+								<div class="col">
+								
+									<div class="form-group">
+										<label>Κωδικός Ξανά</label>
+										<input class="form-control" type="password" name="password_again" placeholder="******">
+										<font color= "red"><div class="error" id="pass_againErr"></div></font>
+									</div>
+								
+								</div>
+								
+								
+								<div class="col">
+							
+									<br> 
+									<div align="left">
+										<div class="help-tip">
+											<p>Ο κωδικός θα πρέπει να είναι ίδιος με τον κωδικό_ξανά.</p>
+										</div>
+									</div>
+							
+								</div>
+							</div>
+							
+						</div>	
 
-							<div class="form-group">
-								<label>Κωδικός</label>
-								<input class="form-control" type="password" name="password" placeholder = "******">
-								<font color= "red"><div class="error" id="passErr"></div></font>
-							</div>
-							
-							<div class="form-group">
-								<label>Κωδικός Ξανά</label>
-								<input class="form-control" type="password" name="password_again" placeholder="******">
-								<font color= "red"><div class="error" id="pass_againErr"></div></font>
-							</div>
-							
+
+
+
+
+						<div style="width: 45%;">
 							
 							<div class="form-group">
 								<label>Όνομα</label>
