@@ -31,7 +31,7 @@
 						</div>
 
 						
-						<br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
 				
 					<% }else{ %>
@@ -57,7 +57,7 @@
 						</div>
 
 						
-						<br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
 					<% } %>
 				</div>
@@ -71,9 +71,40 @@
 					<h5><b>Email: </b> <%= stoixeia.email %> <h5>
 					<h5><b>Κωδικός κάρτας: </b> <%= stoixeia.kwdikos %> <h5>
 					
+					
+					
+					
+					
+					
 					<br>
-					<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
-					<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
+					<h5><b>Κόμιστρο/α: </b><h5>
+					<% if(  stoixeia.komistro1  !== " "){ %>
+						<h5> <%= stoixeia.komistro1 %> : <%= stoixeia.posotita1 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					<% if(  stoixeia.komistro2  !== " "){ %>
+						<h5> <%= stoixeia.komistro2 %> : <%= stoixeia.posotita2 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					
+					<% if( stoixeia.komistro3  !== " "){ %>
+						<h5> <%= stoixeia.komistro3 %> : <%= stoixeia.posotita3 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					
+					<% if(  stoixeia.komistro4 !== " "){ %>
+						<h5> <%= stoixeia.komistro4 %> : <%= stoixeia.posotita4 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+				
+				
 					<br>
 					<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
 					
@@ -81,15 +112,19 @@
 					<br>
 					<div style="width: 40%; margin-top: 5%;">
 						<div class="form-group">
-
-							<% if(typeof currentUser !== "undefined"){ %>
-								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
-								+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id %>">Πληρωμή</a>
-							<% }else{ %>
-								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
-								+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111 %>">Πληρωμή</a>
-							<% } %>	
+							<% if( cost > 0 ){ %>
+					
+								<% if(typeof currentUser !== "undefined"){ %>
+									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro1+"+"+stoixeia.komistro2+"+"+stoixeia.komistro3+"+"+stoixeia.komistro4
+									+"+"+stoixeia.posotita1+"+"+stoixeia.posotita2+"+"+stoixeia.posotita3+"+"+stoixeia.posotita4+"+"+cost+"+"+currentUser._id %>">Πληρωμή</a>
+								<% }else{ %>
+									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 1+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+									+"+"+stoixeia.email+"+"+stoixeia.kwdikos+"+"+stoixeia.komistro1+"+"+stoixeia.komistro2+"+"+stoixeia.komistro3+"+"+stoixeia.komistro4
+									+"+"+stoixeia.posotita1+"+"+stoixeia.posotita2+"+"+stoixeia.posotita3+"+"+stoixeia.posotita4+"+"+cost+"+"+111 %>">Πληρωμή</a>
+								<% } %>	
 								
+							<% } %>
 						</div>
 					</div>
 				</div>
@@ -122,7 +157,7 @@
 						</div>
 
 						
-						<br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
 						
 						
@@ -150,7 +185,7 @@
 						</div>
 
 						
-						<br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
 						<a href="javascript:history.back()">Ακύρωση</a>
 					<% } %>
 				</div>
@@ -168,8 +203,40 @@
 					
 					<br>
 					<h5><b>Παραλαβή: </b> <%= stoixeia.paralavi %> <h5>
-					<h5><b>Κόμιστρο: </b> <%= stoixeia.komistro %> <h5>
-					<h5><b>Ποσότητα: </b> <%= stoixeia.posotita %> <h5>
+					
+					
+					
+					<br>
+					<h5><b>Κόμιστρο/α: </b><h5>
+					<% if(  stoixeia.komistro1  !== " "){ %>
+						<h5> <%= stoixeia.komistro1 %> : <%= stoixeia.posotita1 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					<% if(  stoixeia.komistro2  !== " "){ %>
+						<h5> <%= stoixeia.komistro2 %> : <%= stoixeia.posotita2 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					
+					<% if( stoixeia.komistro3  !== " "){ %>
+						<h5> <%= stoixeia.komistro3 %> : <%= stoixeia.posotita3 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+					
+					<% if(  stoixeia.komistro4 !== " "){ %>
+						<h5> <%= stoixeia.komistro4 %> : <%= stoixeia.posotita4 %></h5>
+					<% }else{ %>
+						<br>
+					<% } %>
+					
+				
+					
+					
 					<br>
 					<h5><b>Συνολικό κόστος: </b> <%= cost %> ευρω<h5>
 					
@@ -177,17 +244,21 @@
 					<br>
 					<div style="width: 40%; margin-top: 5%;">
 						<div class="form-group">
+							<% if( stoixeia.posotita1+stoixeia.posotita2+stoixeia.posotita3+stoixeia.posotita2 > 0 ){ %>
 
-							<% if(typeof currentUser !== "undefined"){ %>
-								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
-								+"+"+stoixeia.email+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+currentUser._id+"+"+
-								stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
-							<% }else{ %>
-								<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
-								+"+"+stoixeia.email+"+"+stoixeia.komistro+"+"+stoixeia.posotita+"+"+cost+"+"+111+"+"+
-								stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
-							<% } %>	
-								
+								<% if(typeof currentUser !== "undefined"){ %>
+									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+									+"+"+stoixeia.email+"+"+stoixeia.komistro1+"+"+stoixeia.komistro2+"+"+stoixeia.komistro3+"+"+stoixeia.komistro4
+									+"+"+stoixeia.posotita1+"+"+stoixeia.posotita2+"+"+stoixeia.posotita3+"+"+stoixeia.posotita4+"+"+cost+"+"+currentUser._id+"+"+
+									stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
+								<% }else{ %>
+									<a class="btn btn-sm btn-success btn-default btn-block" href="/epiveveosi_pliromis/<%= 2+"+"+stoixeia.onoma+"+"+stoixeia.eponimo
+									+"+"+stoixeia.email+"+"+stoixeia.komistro1+"+"+stoixeia.komistro2+"+"+stoixeia.komistro3+"+"+stoixeia.komistro4
+									+"+"+stoixeia.posotita1+"+"+stoixeia.posotita2+"+"+stoixeia.posotita3+"+"+stoixeia.posotita4+"+"+cost+"+"+111+"+"+
+									stoixeia.dieuthinsi+"+"+stoixeia.tx+"+"+stoixeia.paralavi%>">Πληρωμή</a>
+								<% } %>	
+							
+							<% } %>
 						</div>
 					</div>
 				</div>

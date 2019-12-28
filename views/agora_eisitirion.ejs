@@ -14,39 +14,80 @@
 				<div class="row">
 				
 					<div class="col">
-						<div style="width: 55%; margin-top: 5%;">
-		
-							<h4><b>Κόμιστρο </b><h4>
-							<br>
-							
-							<div class="form-group">
-							  <select class="form-control" name="stoixeia[komistro]">
-								<option>Ενιαίο εισιτήριο 90 λεπτών (1.40€)</option>
-								<option>Μειωμένο εισιτήριο 90 λεπτών (0.60€)</option>
-								<option>Ημερήσιο εισιτήριο (4.50€)</option>
-								<option>Εισιτήριο πέντε ημερών (9.00€)</option>
-							  </select>
+					
+					
+						<h4><b>Κόμιστο</b></h4>
+						<br>
+	
+						<div class="row">
+							<div class="col">
+								<b>Ενιαίο εισιτήριο 90 λεπτών (1.40€)</b>
 							</div>
-							  
-							  
-							<br>
-							<h4><b>Ποσότητα</b><h4>
-							<br>
+						
 							
-							<div class="form-group">
-								<input type="text" class="form-control" name = "stoixeia[posotita]" id="exampleInputEmail1" placeholder="ποσότητα (π.χ. 5)">
+							<div class="col">
+								<div style="width: 30%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita1]" placeholder="0" value = "0">
+								</div>
 							</div>
-								
-
+							
+						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col">
+								<b>Μειωμένο εισιτήριο 90 λεπτών (0.60€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 30%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita2]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
+						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col">
+								<b>Ημερήσιο εισιτήριο (4.50€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 30%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita3]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
+						</div>
+						<br>
+						
+						
+						<div class="row">
+							<div class="col">
+								<b>Εισιτήριο πέντε ημερών (9.00€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 30%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita4]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
 						</div>
 						
-						<br> <br><br><br>
+						
+						<br> <br><br>
 						<a href="/">Ακύρωση</a>
 					</div>
 					
 					
+					
 					<div class="col">
-						<div style="width: 55%; margin-top: 5%;">
+						<div style="width: 55%">
 							
 								<h4><b>Τρόπος πληρωμής </b><h4>
 								<br>
@@ -75,15 +116,12 @@
 								  </select>
 								</div>
 							
-								<br><br><br>
+								<br><br><br><br>
 
 							
-							
-							<br>
-							<div class="form-group">
-								<button class="btn btn-sm btn-success btn-default btn-block" >Συνέχεια</button>
-							</div>
-							
+								<div class="form-group">
+									<button class="btn btn-sm btn-success btn-default btn-block" >Συνέχεια</button>
+								</div>
 							
 						</div>				
 						
@@ -94,6 +132,10 @@
 			</div>
 			
 		</form>
+		
+		
+		
+		
 		
 	<% }else{ %>
 	
@@ -107,11 +149,11 @@
 				<div class="row">
 
 					<div class="col">
-						<div style="width: 55%; margin-top: 5%;">
+						<div style="width: 50%;">
 						
 						
 								<h4><b>Στοιχεία απόδειξης </b><h4>
-								<br>
+								<br><br>
 								
 								<div class="form-group">
 									<input type="text" class="form-control" name = "stoixeia[onoma]" id="exampleInputEmail1" placeholder="Όνομα">
@@ -134,8 +176,6 @@
 								<div class="form-group">
 									<input type="number" class="form-control" name = "stoixeia[tx]" id="exampleInputEmail1" placeholder="Ταχυδρομικός κώδικας">
 								</div>
-								
-								
 							
 						</div>
 						
@@ -143,42 +183,87 @@
 						<a href="/">Ακύρωση</a>
 						
 					</div>
+
+					
 					
 					
 					<div class="col">
-						<div style="width: 55%; margin-top: 5%;">
-		
-								<h4><b>Κόμιστρο </b><h4>
-								<br>
-
-								<div class="form-group">
-								  <select class="form-control" name="stoixeia[komistro]">
-									<option>Ενιαίο εισιτήριο 90 λεπτών (1.40€)</option>
-									<option>Μειωμένο εισιτήριο 90 λεπτών (0.60€)</option>
-									<option>Ημερήσιο εισιτήριο (4.50€)</option>
-									<option>Εισιτήριο πέντε ημερών (9.00€)</option>
-								  </select>
+						<h4><b>Κόμιστο</b></h4>
+						<br><br>
+	
+						<div class="row">
+							<div class="col">
+								<b>Ενιαίο εισιτήριο 90 λεπτών (1.40€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 45%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita1]" placeholder="0" value = "0">
 								</div>
-							  
-							  
-								<br>
-								<h4><b>Ποσότητα</b><h4>
-								<br>
-								
-								<div class="form-group">
-									<input type="text" class="form-control" name = "stoixeia[posotita]" id="exampleInputEmail1" placeholder="ποσότητα (π.χ. 5)">
-								</div>
-								
-
+							</div>
+							
 						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col">
+								<b>Μειωμένο εισιτήριο 90 λεπτών (0.60€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 45%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita2]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
+						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col">
+								<b>Ημερήσιο εισιτήριο (4.50€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 45%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita3]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
+						</div>
+						<br>
+						
+						
+						<div class="row">
+							<div class="col">
+								<b>Εισιτήριο πέντε ημερών (9.00€)</b>
+							</div>
+						
+							
+							<div class="col">
+								<div style="width: 45%;">
+									<input type="Number" class="form-control" name = "stoixeia[posotita4]" placeholder="0" value = "0">
+								</div>
+							</div>
+							
+						</div>
+						<br>
+						
 					</div>
+
+						
+				
+	
 					
 					
 					<div class="col">
-						<div style="width: 55%; margin-top: 5%;">
+						<div style="width: 55%;">
 							
 								<h4><b>Τρόπος πληρωμής </b><h4>
-								<br>
+								<br><br>
 								
 								
 								<div class="form-group">
