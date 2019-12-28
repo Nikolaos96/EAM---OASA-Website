@@ -896,8 +896,10 @@ app.get("/staseis_amea", function(req, res){
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+//egxeiridio xrisis
+app.get("/egxeiridio", function(req, res){
+	res.render("egxeiridio.ejs");
+});
 
 
 
