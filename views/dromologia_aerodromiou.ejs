@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<h5>Δρομολόγια λεωφορείων που εξυπηρετούν τον Διεθνή Αερολιμένα Αθηνών "Ελευθέριος Βενιζέλος". </h5>
+    <h5>Οι γραμμέσ αυτές είναι όλες EXPRESS και λειτουργούν επί 24ώρου βάσεως.</h5>
+	<br>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
+					<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+					<th scope="col">ΤΕΡΜΑ</th>
+					<th scope="col">ΜΕΡΕΣ</th>
+				</tr>
+			</thead>
+			<tbody style="background-color: #F5F5DC;">
+				<% leoforeia.forEach(function(leof){ %>
+					<tr>
+						<td><%= leof.arithmos_gram %></td>
+						<td><%= leof.afetiria %></td>
+						<td><%= leof.terma %></td>
+						<td><%= leof.meres %></td>
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+		
+		<br>
+		
+		<p>
+		Για τη γραμμή Χ97 τα νυκτερινά δρομολόγια (00:00 - 04:55) ξεκινούν από τον σταθμό της Δάφνης.
+		</p>
+
+</div>
+
+
+
+<% include partials/footer.ejs %>

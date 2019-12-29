@@ -606,9 +606,29 @@ app.get("/times_eisitirion", function(req, res){
 	res.render("times_eisitirion.ejs");
 });
 
+////////////////////////////////////////////////////////////////////
+///////  dikaiologitika
+app.get("/dikaiologitika", function(req, res){
+	res.render("dikaiologitika.ejs");
+});
+
+////////////////////////////////////////////////////////////////////
+///////  stathmoi_ekdosis
+app.get("/stathmoi_ekdosis", function(req, res){
+	
+	var stathmoi = [
+		{stathmos: "Αγ. Παρασκευή(Σταθμός Ο.ΣΥ.)", odos: "Λ.Μεσογείων & Αγ.Ιωάννου 7", meres: "Δευτέρα - Παρασκευή", wres: "06:00-21:00"},
+        {stathmos: "Κηφισια(Σταθμός Ηλεκτρικού)", odos: "Γρηγόριου Λαμπράκη 36", meres: "Δευτέρα - Κυριακή", wres: "06:10-20:20"},
+        {stathmos: "Δάφνη(Σταθμός ΜΕΤΡΟ)", odos: "Αγ.Δημητρίου 5", meres: "Δευτέρα - Σάββατο", wres: "07:00-20:00"},
+        {stathmos: "Σύνταγμα(Σταθμός ΜΕΤΡΟ)", odos: "Πλατεία Συντάγματος", meres: "Δευτέρα - Κυριακή", wres: "06:00-00:00"},
+        {stathmos: "Γραφεία Ο.ΣΥ.", odos: "Παρνασού 6", meres: "Δευτέρα - Παρασκευή", wres: "08:00-14:15"},
+        {stathmos: "Γραφεία Ο.Α.Σ.Α.", odos: "Μετσόβου 15", meres: "Δευτέρα - Παρασκευή", wres: "08:00-14:15"}
+	]
+	
 
 
-
+	res.render("stathmoi_ekdosis.ejs", {stathmoi: stathmoi});
+});
 
 
 
@@ -1107,6 +1127,20 @@ app.get("/nyxterina_dromologia", function(req, res){
 
 
 	res.render("nyxterina_dromologia.ejs", {leoforeia: leoforeia});
+});
+
+app.get("/dromologia_aerodromiou", function(req, res){
+	
+	var leoforeia = [
+		{arithmos_gram: "Χ93", afetiria: "Σταθμός Υπερ.Λεωφ.Κηφισου", terma: "Αεροδρόμιο", meres: "Δευτέρα - Κυριακή"},
+		{arithmos_gram: "Χ95", afetiria: "Σύνταγμα", terma: "Αεροδρόμιο", meres: "Δευτέρα - Κυριακή"},
+		{arithmos_gram: "Χ96", afetiria: "Πειρεάς", terma: "Αεροδρόμιο", meres: "Δευτέρα - Κυριακή"},
+        {arithmos_gram: "Χ97", afetiria: "Σταθμός Ελληνικού", terma: "Αεροδρομιο", meres: "Δευτέρα - Κυριακή"}
+	]
+	
+
+
+	res.render("dromologia_aerodromiou.ejs", {leoforeia: leoforeia});
 });
 
 app.get("/staseis_amea", function(req, res){

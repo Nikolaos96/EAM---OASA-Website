@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+
+
+
+<div class="container">
+
+	<h5>Σταθμοί στους οποίουσ γίνεται έκδοση προσωποιημενης κάρτας.</h5>
+	<br>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ΣΤΑΘΜΟΣ</th>
+					<th scope="col">ΟΔΟΣ/ΠΕΡΙΟΧΗ</th>
+					<th scope="col">ΜΕΡΕΣ</th>
+					<th scope="col">ΩΡΕΣ</th>
+				</tr>
+			</thead>
+			<tbody style="background-color: #F5F5DC;">
+				<% stathmoi.forEach(function(stathmos){ %>
+					<tr>
+						<td><%= stathmos.stathmos %></td>
+						<td><%= stathmos.odos %></td>
+						<td><%= stathmos.meres %></td>
+						<td><%= stathmos.wres %></td>
+					</tr>
+				 <% })  %>
+			</tbody>
+		</table>
+		
+		<br>
+		
+
+</div>
+
+
+
+<% include partials/footer.ejs %>
