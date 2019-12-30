@@ -15,18 +15,18 @@
 					
 					  <div class="form-group">
 						<label for="">Απο:</label>
-						<input type="text" class="form-control" name = "dromologio[afetiria]" id="exampleInputEmail1" placeholder="Ζωγράφου">
+						<input type="text" class="form-control" name = "dromologio[afetiria]" id="exampleInputEmail1" placeholder="Ζωγραφου">
 						<p><small>Το πρώτο γράμμα <font color= "red">ΚΕΦΑΛΑΙΟ</font> και χωρίς <font color= "red">ΤΟΝΟΥΣ</font>.</small></p>
 					  </div>
 					  
 					  
 					  <div class="form-group">
 						<label for="">Προς:</label>
-						<input type="text" class="form-control" name = "dromologio[terma]" id="exampleInputPassword1" placeholder="Σύνταγμα">
+						<input type="text" class="form-control" name = "dromologio[terma]" id="exampleInputPassword1" placeholder="Συνταγμα">
 						<p><small>Το πρώτο γράμμα <font color= "red">ΚΕΦΑΛΑΙΟ</font> και χωρίς <font color= "red">ΤΟΝΟΥΣ</font>.</small></p>
 					  </div>
 					  
-					  <button type="submit" class="btn btn-success btn-sm" style="float: right;">Αναζήτηση</button>
+					  <button type="submit" class="btn btn-primary btn-sm active" style="float: right;">Αναζήτηση</button>
 					</form>
 			  </div>
 			</div>
@@ -129,11 +129,14 @@
 <br>
 <br>
 
+
+
+
 <div class="container">
 	<div class="row">
 	
 		<div class="col">
-			<div class="card bg-light" style="width:140px; height:140px">
+			<div class="card bg-light" style="width:140px; height:150px">
 				
 				<h5 align="center"> <a target="_blank" rel="noopener noreferrer" href="http://www.osy.gr/">ΟΣΥ</a> </h5>
 				<h5 align="center"> <a target="_blank" rel="noopener noreferrer" href="http://www.stasy.gr/">ΣΤΑΣΥ</a> </h5>
@@ -144,16 +147,80 @@
 		</div>
 		
 		
+		<div class="col">
+			<div class="card" style="width:230px; height:150px; background-color: #001a33;">
+				<div align="center">
+					<br>
+					<font color="white"><i class="fas fa-bus-alt fa-2x"></i></font>
+					<br>
+					<div class="counter">
+						
+						<font color="white"><h2 class="counter-count">880 </h2> </font>
+						<font color="white"><b><p>Λεωφορεία</p></b></font>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col">
+			<div class="card" style="width:230px; height:150px; background-color: #001a33;">
+				<div align="center">
+					<br>
+					<font color="white"><i class="fas fa-walking fa-2x"></i></font>
+					<br>
+					<div class="counter">
+						
+						<font color="white"><h2 class="counter-count">600000</h2> </font>
+						<font color="white"><b><p>Eπιβάτες</p></b></font>
+						
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		
 		<div class="col">
-		
-		
+			<div class="card" style="width:230px; height:150px; background-color: #001a33;">
+				<div align="center">
+					<br>
+					<font color="white"><i class="fas fa-route fa-2x"></i></font>
+					<br>
+					<div class="counter">
+						
+						<font color="white"><h2 class="counter-count">220</h2> </font>
+						<font color="white"><b><p>Διαδρομές</p></b></font>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 		
 	</div>
 </div>
 </div>
+
+
+
+<br>
+
+
+
+
+
+<script>
+	$('.counter-count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 5000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+</script>
 
 
 
