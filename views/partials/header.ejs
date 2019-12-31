@@ -96,7 +96,7 @@
 						  <font color="white">Δρομολόγια </font>
 						</a>
 						
-						<div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
+						<div class="dropdown-menu"  style="background-color: #e6e6e6" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="/anazitisi_diadromis">Δρομολόγια/Στάσεις</a>
 						  <a class="dropdown-item" href="/24wra_leoforeia">24ωρα Δρομολόγια</a>
 						  <a class="dropdown-item" href="/nyxterina_dromologia">Νυχτερινά δρομολόγια</a>
@@ -112,7 +112,7 @@
 						  <font color="white">Εισιτήρια/Κάρτες </font>
 						</a>
 						
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<div class="dropdown-menu" style="background-color: #e6e6e6" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="/epanafortisi_kartas">Επαναφόρτιση κάρτας</a>
 						  <a class="dropdown-item" href="/agora_eisitirion">Αγορά εισιτηρίων</a>
 						  <a class="dropdown-item" href="/times_eisitirion">Τιμές εισιτηρίων</a>
@@ -127,7 +127,7 @@
 						  <font color="white">ΑμεΑ </font>
 						</a>
 						
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<div class="dropdown-menu" style="background-color: #e6e6e6" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="/staseis_amea">Στάσεις με προεξοχές</a>
 						  <a class="dropdown-item" href="#">Εισιτήρια/Κάρτες</a>
 						</div>
@@ -144,7 +144,7 @@
 						  <font color="white">Επικοινωνία </font>
 						</a>
 						
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<div class="dropdown-menu" style="background-color: #e6e6e6" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="/epikoinonia">Στοιχεία επικοινωνίας</a>
 						  <a class="dropdown-item" href="/parapona">Παράπονα</a>
 						</div>
@@ -164,12 +164,12 @@
 					
 					<li class="nav-item dropleft active">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        <font color="purple"> <b><%= currentUser.username  %></b> </font>
+					        <i class="fas fa-user-cog fa-md"> </i><font color=#1aff1a> <b><%= currentUser.username  %></b> </font>
 						</a>
 						
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<div class="dropdown-menu" style="background-color: #e6e6e6" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="/my_account">Ο Λογαριασμός μου</a>
-						  <a class="dropdown-item" href="/account">ΡυθμίσειςΛογαριασμού</a>
+						  <a class="dropdown-item" href="/account">Ρυθμίσεις Λογαριασμού</a>
 						  
 						  <a class="dropdown-item" href="/oi_agores_mou">Οι αγορές μου</a>
 						  <a class="dropdown-item" href="/dromologia_mou">Τα δρομολόγια μου</a>
@@ -180,7 +180,7 @@
 
 					
 					<li class="nav-item active">
-						<a class="nav-link" href="/logout"><font color="white"><i class="fa fa-sign-out fa-ms"></i> Αποσύνδεση </font></a>
+						<a class="nav-link" href="/logout"><font color="white"><i class="fa fa-sign-out fa-md"></i> Αποσύνδεση </font></a>
 					</li>
 				</ul>
 		    <% }else{ %>
