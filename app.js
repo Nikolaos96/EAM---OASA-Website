@@ -11,7 +11,6 @@ mongoose.connect("mongodb://localhost/auctions_db", { useNewUrlParser: true } );
 
 
 var seedDB = require("./seeds");
-
 //seedDB();
 
 
@@ -967,10 +966,58 @@ app.get("/oi_agores_mou", isLoggedIn ,function(req, res){
 		
 		
 		
-			res.render("oi_agores_mou.ejs", { agores1: ticks , t1: t1 , agores2:ticks2 , t2: t2 });
+			res.render("oi_agores_mou.ejs", { currentUser:req.user, agores1: ticks , t1: t1 , agores2:ticks2 , t2: t2 });
 		}
 	});
 });
+
+
+
+
+app.get("/diagrafi_agorwn/:id", isLoggedIn , function(req, res){
+	var str = req.params.id;
+	
+	var id = str.split('+')[0];
+	var a  = str.split('+')[1];
+	
+	
+	User.find({
+		_id: id
+	}, function(err, found_user){
+		if(err){
+			// tipota
+		}else{
+			var ticket = [];
+			
+			
+			
+			if(a === "1"){
+				User.findOneAndUpdate({
+					_id: id
+				},{
+					tickets: ticket
+				} ,function(error, updatedUser) {
+					// tipota
+				});
+			}else{
+				User.findOneAndUpdate({
+					_id: id
+				},{
+					tickets2: ticket
+				} ,function(error, updatedUser) {
+					// tipota
+				});
+			}
+			res.redirect('back');
+		}
+	});
+});
+
+
+
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////
