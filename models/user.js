@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
 	postal_code: String,
 	
 	phone: Number,
-	AFM:	Number,
+	AFM:	String,
 	image: String,
 	
 	tickets :[	// edw einai oi epanafortiseis kartas

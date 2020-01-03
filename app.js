@@ -1280,7 +1280,6 @@ app.post("/account", isLoggedIn, function(req, res) {
 		address: 		req.body.address,
 		postal_code:	req.body.postal_code,
 
-		AFM: req.body.AFM,
 		email: req.body.email,
 		phone: req.body.phone,
 		image: req.body.image
