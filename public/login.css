@@ -5,6 +5,19 @@ body {
 }
 
 
+.card{
+	border-radius: 8px;
+}
+
+
+#id1, #id2, #id3{
+	border: 1;
+	border-width: 7px;
+	border-color: #001a33;
+	background-color: #e6e6e6;
+	border-radius: 8px;
+}
+
 
 .help-tip{
     

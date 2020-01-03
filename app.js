@@ -707,7 +707,7 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 		_id: stoixeia.id
 	}, function(err, found_user){
 		if(err){
-			console.log("den yparxei autos o xristis, den exei ftiaksei logariasmo");
+			//console.log("den yparxei autos o xristis, den exei ftiaksei logariasmo");
 		}else{
 			if(t === "1"){
 				var ticket = found_user.tickets;
@@ -911,7 +911,7 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	}
 	
 	
-	console.log(mailOptions.text);
+	//console.log(mailOptions.text);
 	//SendMail(mailOptions);
 	}
 	
