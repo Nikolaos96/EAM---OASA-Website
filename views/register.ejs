@@ -22,12 +22,11 @@
 			var postal_code = 		document.contactForm.postal_code.value;
 			var email = 			document.contactForm.email.value;
 			var phone = 			document.contactForm.phone.value;
-			var afm = 				document.contactForm.AFM.value;
 			
 			
 		
 			var usernameErr = passErr = pass_againErr = nameErr = lnameErr = addressErr = 1;
-			var postall_codeErr = emailErr = phoneErr = afmErr = 1;
+			var postall_codeErr = emailErr = phoneErr = 1;
 			var sum = 0;
 			
 			
@@ -167,21 +166,11 @@
 			}
 			
 			
-			if(afm == "") {
-				printError("afmErr", "Please enter your αφμ.");
-			} else {
-				var regex = /^[0-9]\d{8}$/;
-				if(regex.test(afm) === false) {
-					printError("afmErr", "Please enter a valid 9 digit αφμ number.");
-				} else{
-					printError("afmErr", "");
-					afmErr = 0;
-				}
-			}
+			
 			
 			
 			sum = usernameErr + passErr + pass_againErr + nameErr + lnameErr + addressErr
-			+ postall_codeErr + emailErr + phoneErr + afmErr;
+			+ postall_codeErr + emailErr + phoneErr;
 			
 
 			if(sum !== 0){
@@ -192,7 +181,83 @@
 	
 	
 	
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {  });
+	</script>
 	
+	<script>
+	
+		$(function() {
+		  $.fn.bootstrapPasswordMeter = function(options) {
+			var settings = $.extend({
+			  minPasswordLength: 6,
+			  level0ClassName: 'progress-bar-danger',
+			  level0Description: 'Αδύνατος',
+			  level1ClassName: 'progress-bar-danger',
+			  level1Description: 'Μέτριος',
+			  level2ClassName: 'progress-bar-warning',
+			  level2Description: 'Καλός',
+			  level3ClassName: 'progress-bar-success',
+			  level3Description: 'Πολύ καλός',
+			  level4ClassName: 'progress-bar-success',
+			  level4Description: 'Τέλειος',
+			  parentContainerClass: '.form-group'
+			}, options || {});
+
+			$(this).on("keyup", function() {
+			  var progressBar = $(this).closest(settings.parentContainerClass).find('.progress-bar');
+			  var progressBarWidth = 0;
+			  var progressBarDescription = '';
+			  if ($(this).val().length >= settings.minPasswordLength && $(this).val().length <= 12) {
+				var zxcvbnObj = zxcvbn($(this).val());
+				progressBar.removeClass(settings.level0ClassName)
+				  .removeClass(settings.level1ClassName)
+				  .removeClass(settings.level2ClassName)
+				  .removeClass(settings.level3ClassName)
+				  .removeClass(settings.level4ClassName);
+				switch (zxcvbnObj.score) {
+				  case 0:
+					progressBarWidth = 25;
+					progressBar.addClass(settings.level0ClassName);
+					progressBarDescription = settings.level0Description;
+					break;
+				  case 1:
+					progressBarWidth = 25;
+					progressBar.addClass(settings.level1ClassName);
+					progressBarDescription = settings.level1Description;
+					break;
+				  case 2:
+					progressBarWidth = 50;
+					progressBar.addClass(settings.level2ClassName);
+					progressBarDescription = settings.level2Description;
+					break;
+				  case 3:
+					progressBarWidth = 75;
+					progressBar.addClass(settings.level3ClassName);
+					progressBarDescription = settings.level3Description;
+					break;
+				  case 4:
+					progressBarWidth = 100;
+					progressBar.addClass(settings.level4ClassName);
+					progressBarDescription = settings.level4Description;
+					break;
+				}
+			  } else {
+				progressBarWidth = 0;
+				progressBarDescription = '';
+			  }
+			  progressBar.css('width', progressBarWidth + '%');
+			  progressBar.text(progressBarDescription);
+			});
+		  };
+		  $('#exampleInputPassword1').bootstrapPasswordMeter({minPasswordLength:4});
+		});
+	
+	</script>
+  
+  
 	
 	
 	
@@ -230,13 +295,18 @@
 								</div>
 							</div>
 							
+							<br>
 						
 							<div class="row">
 								<div class="col">
 								
 									<div class="form-group">
-										<label>Κωδικός</label>
-										<input class="form-control" type="password" name="password" placeholder = "******">
+										<div class="row">
+											<div class="col"> <label>Κωδικός </label> </div>
+											<div class="col"><div style="width: 120%; margin-left: -23%;" class="progress"><div class="progress-bar"></div></div> </div>
+										</div>
+										<input class="form-control" id="exampleInputPassword1" type="password" name="password" placeholder = "******">
+										
 										<font color= "red"><div class="error" id="passErr"></div></font>
 									</div>
 								</div>
@@ -252,7 +322,7 @@
 								</div>
 							</div>
 							
-							
+							<br>
 							<div class="row">
 								<div class="col">
 								
@@ -270,7 +340,7 @@
 									<br> 
 									<div align="left">
 										<div class="help-tip">
-											<p>Ο κωδικός θα πρέπει να είναι ίδιος με τον κωδικό_ξανά.</p>
+											<p>Οι δυο κωδικοί θα πρέπει να είναι ίδιοι.</p>
 										</div>
 									</div>
 							
@@ -296,17 +366,9 @@
 								<input class="form-control" type="text" name="lastName" placeholder="Παπαδόπουλος">
 								<font color= "red"><div class="error" id="lnameErr"></div></font>
 							</div>
-							
-							<div class="form-group">
-								<label>Διεύθυνση</label>
-								<input class="form-control" type="text" name="address" placeholder="Λόρδου Βύρωνα 2">
-								<font color= "red"><div class="error" id="addressErr"></div></font>
-							</div>
-							
-							
-							
-							
-							<br>
+				
+				
+							<br><br><br>
 							<a href="javascript:history.back()">Πίσω</a>
 						
 						</div>
@@ -317,7 +379,13 @@
 					<div class="col">
 						<div style="width: 45%;">
 						
-						
+							<div class="form-group">
+								<label>Διεύθυνση</label>
+								<input class="form-control" type="text" name="address" placeholder="Λόρδου Βύρωνα 2">
+								<font color= "red"><div class="error" id="addressErr"></div></font>
+							</div>
+							
+							
 							<div class="form-group">
 								<label>Ταχυδρομικός Κώδικας</label>
 								<input class="form-control" type="text" name="postal_code" placeholder="31100">
@@ -354,7 +422,7 @@
 						
 						
 						
-							<br><br><br><br>
+							<br><br>
 							<div class="form-group">
 								<button class="btn btn-sm btn-success btn-default btn-block" >Εγγραφή</button>
 							</div>
