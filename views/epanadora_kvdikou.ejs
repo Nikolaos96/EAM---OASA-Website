@@ -1,0 +1,36 @@
+<% include partials/header.ejs %>
+
+
+
+
+
+<div class="container">
+	
+	<h4 style="text-align: center; margin-top: 2%; color: black;"><strong> Αποστολή κωδικού στο email.</strong></h4>
+	<h5 style="text-align: center; margin-top: 2%; color: black;"><strong> Παρακαλώ εισάγεται το email σας και θα σας σταλεί ο κωδικός σας.</strong></h5>
+	
+	<div style="width: 25%; margin: auto; margin-top: 5%;">
+		<form action = "/epanadora_kvdikou" method = "POST">
+
+
+			<div class="form-group">
+				<label>Email</label>
+				<input class="form-control" type="email" name="email" placeholder = "john_rambo@gmail.com" required>
+			</div>
+
+
+			<div class="form-group">
+				<button class="btn btn-sm btn-success btn-default btn-block"> OK </button>
+			</div>
+
+
+		</form>
+	</div>
+	
+</div>
+
+
+
+
+
+<% include partials/footer.ejs %>

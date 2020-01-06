@@ -1294,6 +1294,50 @@ app.post("/account", isLoggedIn, function(req, res) {
 
 
 
+app.get("/epanadora_kvdikou", function(req, res){
+	res.render("epanadora_kvdikou.ejs");
+});
+
+app.post("/epanadora_kvdikou", function(req, res){
+	
+	var email = req.body.email;
+	
+	User.find({
+		
+		email: email
+		
+	}, function(err, found_user){
+		var k;
+		
+		if(err || found_user.length === 0){
+			k = 1;
+		}else{
+			
+			mailOptions = {};
+			mailOptions.from = email_from;
+			mailOptions.to = found_user[0].email;
+			mailOptions.subject = "Oasa "+" - Υπενθύμιση κωδικού";
+			mailOptions.text = "Ο κωδικός σας είναι:  "+found_user[0].password_again;
+			////////
+			//SendMail(mailOptions);
+			/////////
+			k = 2;
+		}
+		
+		Anakoinoseis.find({}, function(err, anakoinoseis){
+			if(err){
+				console.log(err);
+			}else{
+				if(k === 1){
+					res.render("home.ejs", { error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
+				}else{
+					res.render("home.ejs", { success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
+				}
+			}
+		});
+	});
+});
+
 
 
 
