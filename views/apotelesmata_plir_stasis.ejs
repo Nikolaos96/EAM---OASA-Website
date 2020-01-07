@@ -13,6 +13,7 @@
 				<tr>
 					<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
 					<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+					<th scope="col">ΟΛΕΣ ΟΙ ΣΤΑΣΕΙΣ</th>
 					<th scope="col">ΤΕΡΜΑ</th>
 					<th scope="col">ΕΠΟΜΕΝΟ ΣΕ</th>
 				</tr>
@@ -24,13 +25,14 @@
 					<tr>
 						<td><%= drom.leoforeio %></td>
 						<td><%= drom.afetiria %></td>
+						<td><a target="_blank" rel="noopener noreferrer" href="/_staseis/<%= drom._id %>">Στάσεις</a></td>
 						<td><%= drom.terma %></td>
 						<td><%= drom.epomeno %></td>
 					</tr>
 				 <% })  %>
 			</tbody>
 		</table>
-		<a href="javascript:history.back()">Επιστροφή στην αναζήτηση στάσης</a>
+		<a href="/anazitisi_diadromis">Επιστροφή στην αναζήτηση στάσης</a>
 		<br>
 		<br>
 		<br>
