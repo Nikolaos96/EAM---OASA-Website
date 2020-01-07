@@ -85,14 +85,16 @@ app.use(function(req, res, next) {
 });
 
 
-
+var count = 0 ;
 app.get("/", function(req, res) {
+	count++;
+	
 	
 	Anakoinoseis.find({}, function(err, anakoinoseis){
 		if(err){
 			console.log(err);
 		}else{
-			res.render("home.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+			res.render("home.ejs", { count:count, currentUser : req.user, anakoinoseis: anakoinoseis });
 		}
 	});
 });
@@ -369,7 +371,7 @@ app.get("/parapona", function(req, res){
 
 
 app.post("/parapona/:id", function(req, res){
-	
+	count++;
 	
 	User.find({
 		
@@ -408,7 +410,7 @@ app.post("/parapona/:id", function(req, res){
 			if(err){
 				console.log(err);
 			}else{
-				res.render("home.ejs", { success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
+				res.render("home.ejs", { count:count, success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
 			}
 		});
 	});
@@ -1312,7 +1314,7 @@ app.get("/epanadora_kvdikou", function(req, res){
 });
 
 app.post("/epanadora_kvdikou", function(req, res){
-	
+	count++;
 	var email = req.body.email;
 	
 	User.find({
@@ -1342,9 +1344,9 @@ app.post("/epanadora_kvdikou", function(req, res){
 				console.log(err);
 			}else{
 				if(k === 1){
-					res.render("home.ejs", { error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}else{
-					res.render("home.ejs", { success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}
 			}
 		});
@@ -1360,7 +1362,7 @@ app.get("/epanadora_kvdikou", function(req, res){
 });
 
 app.post("/epanadora_kvdikou", function(req, res){
-	
+	count++;
 	var email = req.body.email;
 	
 	User.find({
@@ -1390,9 +1392,9 @@ app.post("/epanadora_kvdikou", function(req, res){
 				console.log(err);
 			}else{
 				if(k === 1){
-					res.render("home.ejs", { error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}else{
-					res.render("home.ejs", { success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}
 			}
 		});

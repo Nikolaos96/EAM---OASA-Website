@@ -33,20 +33,20 @@
 			
 			
 			if(username == "") {
-				printError("usernameErr", "Please enter your username.");
+				printError("usernameErr", "Πληκτρολογήστε το όνομα χρήστη.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/; 
 
 				
 				if(regex.test(username) === false) {
-					printError("usernameErr", "Please enter a valid username.");
+					printError("usernameErr", "Πληκτρολογήστε ένα έγκυρο όνομα χρήστη.");
 				} else {
 				
 					if(username.length < 4){
-						printError("usernameErr", "The length of the username must be greater than 3.");
+						printError("usernameErr", "Το μήκος απο το όνομα χρήστη πρέπει να είναι μεγαλύτερο απο 3.");
 					}else{
 						if(username.length > 12){
-							printError("usernameErr", "The length of the username must be smaller than 13.");
+							printError("usernameErr", "Το μήκος απο το όνομα χρήστη πρέπει να είναι μικρότερο απο 13.");
 						}else{
 							printError("usernameErr", "");
 							usernameErr = 0;
@@ -59,20 +59,20 @@
 			
 			
 			if(password == "") {
-				printError("passErr", "Please enter your password");
+				printError("passErr", "Πληκτρολογήστε τον κωδικό.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/;     
 
 				
 				if(regex.test(password) === false) {
-					printError("passErr", "Please enter a valid password");
+					printError("passErr", "Πληκτρολογήστε έναν έγκυρο κωδικό.");
 				} else {
 				
 					if(password.length < 4){
-						printError("passErr", "The length of the password must be greater than 3.");
+						printError("passErr", "Το μήκος του κωδικού πρέπει να είναι μεγαλύτερο απο 3.");
 					}else{
 						if(password.length > 12){
-							printError("passErr", "The length of the password must be smaller than 13.");
+							printError("passErr", "Το μήκος του κωδικού πρέπει να είναι μικρότερο απο 13.");
 						}else{
 							printError("passErr", "");
 							passErr = 0;
@@ -84,20 +84,20 @@
 			
 			
 			if(password_again == "") {
-				printError("pass_againErr", "Please enter your password_again");
+				printError("pass_againErr", "Πληκτρολογήστε τον κωδικό.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/;     
 
 				
 				if(regex.test(password_again) === false) {
-					printError("pass_againErr", "Please enter a valid password_again");
+					printError("pass_againErr", "Πληκτρολογήστε έναν έγκυρο κωδικό.");
 				} else {
 				
 					if(password_again.length < 4){
-						printError("pass_againErr", "The length of the password_again must be greater than 3.");
+						printError("pass_againErr", "Το μήκος του κωδικού πρέπει να είναι μεγαλύτερο απο 3.");
 					}else{
 						if(password_again.length > 12){
-							printError("pass_againErr", "The length of the password_again must be smaller than 13.");
+							printError("pass_againErr", "Το μήκος του κωδικού πρέπει να είναι μικρότερο απο 13.");
 						}else{
 							printError("pass_againErr", "");
 							pass_againErr = 0;
@@ -109,14 +109,14 @@
 			
 			
 			if(firstname == "") {
-				printError("nameErr", "Please enter your firstname.");
+				printError("nameErr", "Πληκτρολογήστε το όνομα σας.");
 			} else {
 				printError("nameErr", "");
 				nameErr = 0;
 			}
 			
 			if(lastname == "") {
-				printError("lnameErr", "Please enter your lastname.");
+				printError("lnameErr", "Πληκτρολογήστε το επώνυμο σας.");
 			} else {
 				printError("lnameErr", "");
 				lnameErr = 0;
@@ -125,14 +125,14 @@
 			
 			
 			if(address == "") {
-				printError("addressErr", "Please enter your address.");
+				printError("addressErr", "Πληκτρολογήστε την διεύθυνση σας.");
 			} else {
 				printError("addressErr", "");
 				addressErr = 0;
 			}
 		
 			if(postal_code == "") {
-				printError("postall_codeErr", "Please enter your postal_code.");
+				printError("postall_codeErr", "Πληκτρολογήστε τον ταχυδρομικό κώδικα.");
 			} else {
 				printError("postall_codeErr", "");
 				postall_codeErr = 0;
@@ -140,12 +140,12 @@
 			
 			
 			if(email == "") {
-				printError("emailErr", "Please enter your email address.");
+				printError("emailErr", "Πληκτρολογήστε το email σας.");
 			} else {
 				// Regular expression for basic email validation
 				var regex = /^\S+@\S+\.\S+$/;
 				if(regex.test(email) === false) {
-					printError("emailErr", "Please enter a valid email address.");
+					printError("emailErr", "Πληκτρολογήστε έναν έγκυρο email.");
 				} else{
 					printError("emailErr", "");
 					emailErr = 0;
@@ -154,11 +154,11 @@
 			
 			
 			if(phone == "") {
-				printError("phoneErr", "Please enter your phone number.");
+				printError("phoneErr", "Πληκτρολογήστε το τηλέφωνο σας.");
 			} else {
 				var regex = /^[0-9]\d{9}$/;
 				if(regex.test(phone) === false) {
-					printError("phoneErr", "Please enter a valid 10 digit phone number.");
+					printError("phoneErr", "Πληκτρολογήστε ένα έγκυρο αριθμό τηλεφώνου.");
 				} else{
 					printError("phoneErr", "");
 					phoneErr = 0;

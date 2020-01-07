@@ -31,10 +31,10 @@
 				} else {
 				
 					if(name.length < 4){
-						printError("nameErr", "The length of the username must be greater than 3.");
+						printError("nameErr", "Το μήκος απο το όνομα χρήστη πρέπει να είναι μεγαλύτερο απο 3.");
 					}else{
 						if(name.length > 12){
-							printError("nameErr", "The length of the username must be smaller than 13.");
+							printError("nameErr", "Το μήκος απο το όνομα χρήστη πρέπει να είναι μικρότερο απο 13.");
 						}else{
 							printError("nameErr", "");
 							nameErr = false;
@@ -47,20 +47,20 @@
 			}
 			
 			if(password == "") {
-				printError("passErr", "Please enter your password");
+				printError("passErr", "Πληκτρολογήστε το όνομα χρήστη.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/;     
 
 				
 				if(regex.test(password) === false) {
-					printError("passErr", "Please enter a valid password");
+					printError("passErr", "Πληκτρολογήστε έναν έγκυρο κωδικό.");
 				} else {
 				
 					if(password.length < 4){
-						printError("passErr", "The length of the password must be greater than 3.");
+						printError("passErr", "Το μήκος του κωδικού πρέπει να είναι μεγαλύτερο απο 3.");
 					}else{
 						if(password.length > 12){
-							printError("passErr", "The length of the password must be smaller than 13.");
+							printError("passErr", "Το μήκος του κωδικού πρέπει να είναι μικρότερο απο 13.");
 						}else{
 							printError("passErr", "");
 							passErr = false;
