@@ -69,7 +69,8 @@ app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
-
+	res.locals.cookies = req.flash("cookies");
+	
 	next();
 });
 
@@ -87,17 +88,28 @@ app.use(function(req, res, next) {
 
 var count = 0 ;
 app.get("/", function(req, res) {
-	count++;
+	
 	
 	
 	Anakoinoseis.find({}, function(err, anakoinoseis){
 		if(err){
 			console.log(err);
 		}else{
-			res.render("home.ejs", { count:count, currentUser : req.user, anakoinoseis: anakoinoseis });
+			res.render("home.ejs", { cookies:count , currentUser : req.user, anakoinoseis: anakoinoseis });
 		}
 	});
 });
+
+
+app.get("/alert", function(req, res){
+	count++;
+	
+	res.redirect('back');
+});
+
+
+
+
 
 
 app.get("/home_en", function(req, res) {
@@ -106,7 +118,7 @@ app.get("/home_en", function(req, res) {
 		if(err){
 			console.log(err);
 		}else{
-			res.render("home_en.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+			res.render("home_en.ejs", { cookies:count ,currentUser : req.user, anakoinoseis: anakoinoseis });
 		}
 	});
 });
@@ -114,7 +126,7 @@ app.get("/home_en", function(req, res) {
 
 
 app.get("/error_page", function(req, res){
-	res.render("error_page.ejs");
+	res.render("error_page.ejs" , {cookies:count});
 });
 
 
@@ -142,7 +154,7 @@ app.get("/24wra_leoforeia", function(req, res){
 	
 
 
-	res.render("24wra_leoforeia.ejs", {leoforeia: leoforeia});
+	res.render("24wra_leoforeia.ejs", {cookies:count ,leoforeia: leoforeia});
 });
 
 
@@ -150,7 +162,7 @@ app.get("/24wra_leoforeia", function(req, res){
 // anazitisi diadromis
 /////////////////////////////////////////////////////////////////
 app.get("/anazitisi_diadromis", function(req, res) {
-	res.render("anazitisi_diadromis.ejs");
+	res.render("anazitisi_diadromis.ejs", {cookies:count });
 });
 
 app.post("/anazitisi_diadromis", function(req, res){
@@ -166,12 +178,12 @@ app.post("/anazitisi_diadromis", function(req, res){
 	, function(err, found_dromologio){
 		if(found_dromologio.length === 0){
 			//console.log("Den yparxei to dromologio \n");
-			res.render("anazitisi_diadromis.ejs", { error: "Tο Δρομολόγιο δεν υπάρχει.Εισάγετε νεα στοιχεία." });
+			res.render("anazitisi_diadromis.ejs", { cookies:count ,error: "Tο Δρομολόγιο δεν υπάρχει.Εισάγετε νεα στοιχεία." });
 		}else{
 			//console.log("yparxei tetoio dromologio \n");
 			//console.log(found_dromologio);
 			
-			res.render("apotelesmata_anaz_diadromis.ejs", { dromologia: found_dromologio, arxi: req.body.dromologio.afetiria, telos: req.body.dromologio.terma});
+			res.render("apotelesmata_anaz_diadromis.ejs", { cookies:count ,dromologia: found_dromologio, arxi: req.body.dromologio.afetiria, telos: req.body.dromologio.terma});
 		}
 	});
 });
@@ -182,7 +194,7 @@ app.post("/anazitisi_diadromis", function(req, res){
 // plirofories stasis
 //////////////////////////////////////////////////////////////////////
 app.get("/plirofories_stasis", function(req, res) {
-	res.render("anazitisi_diadromis.ejs");
+	res.render("anazitisi_diadromis.ejs", {cookies:count });
 });
 
 app.post("/plirofories_stasis", function(req, res){
@@ -205,7 +217,7 @@ app.post("/plirofories_stasis", function(req, res){
 	}, function(err, found_dromologio){
 		if(found_dromologio.length === 0){
 			//console.log("Den yparxei to dromologio \n");
-			res.render("anazitisi_diadromis.ejs", { error: "Η στάση δεν υπάρχει.Εισάγεται νεα στοιχεία." });
+			res.render("anazitisi_diadromis.ejs", { cookies:count ,error: "Η στάση δεν υπάρχει.Εισάγεται νεα στοιχεία." });
 		}else{
 			
 			
@@ -219,7 +231,7 @@ app.post("/plirofories_stasis", function(req, res){
 				lng = found_dromologio[0].s2_lng;
 			}
 			
-			res.render("apotelesmata_plir_stasis.ejs", { dromologia: found_dromologio , stasi: req.body.dromologio.stasi, lat: lat, lng:lng });
+			res.render("apotelesmata_plir_stasis.ejs", { cookies:count ,dromologia: found_dromologio , stasi: req.body.dromologio.stasi, lat: lat, lng:lng });
 		}
 	});
 });
@@ -232,7 +244,7 @@ app.get("/plirofories_stasis/:id", function(req, res){
 		_id: req.params.id
 	}, function(err, found_dromologio){
 		
-		res.render("xartis.ejs", {lat: found_dromologio.af_lat, lng: found_dromologio.af_lng ,afetiria: found_dromologio.afetiria ,leof: found_dromologio.leoforeio });
+		res.render("xartis.ejs", {cookies:count ,lat: found_dromologio.af_lat, lng: found_dromologio.af_lng ,afetiria: found_dromologio.afetiria ,leof: found_dromologio.leoforeio });
 	});
 	
 });
@@ -244,7 +256,7 @@ app.get("/_staseis/:id", function(req, res){
 		_id: req.params.id
 	}, function(err, found_dromologio){
 		
-		res.render("oles_oi_staseis.ejs", { dromo: found_dromologio });
+		res.render("oles_oi_staseis.ejs", { cookies:count ,dromo: found_dromologio });
 	});
 	
 });
@@ -257,14 +269,14 @@ app.get("/_staseis/:id", function(req, res){
 // register routes
 /////////////////////////////////////////////////////////////////////////////////////////
 app.get("/register", function(req, res) {
-	res.render("register.ejs");
+	res.render("register.ejs", {cookies:count});
 });
 
 app.post("/register", function(req, res) {
 	
 	if(req.body.password !== req.body.password_again){
 		//console.log("Ta password me to password_again einai diaforetika");
-		res.render("register.ejs", { error: "Οι δύο κωδικοί δεν ταιριάζουν.Εισάγεται ξανά τα στοιχεία σας." });
+		res.render("register.ejs", { cookies:count ,error: "Οι δύο κωδικοί δεν ταιριάζουν.Εισάγεται ξανά τα στοιχεία σας." });
 		return;
 	}
 	
@@ -287,7 +299,7 @@ app.post("/register", function(req, res) {
 	User.register(newUser, req.body.password, function(err, user) {
 		if(err) {
 			//console.log("error is: " + err);
-			return res.render("register.ejs", { error: "Το Όνομα Χρήστη υπάρχει.Εισάγεται ένα διαφορετικό Όνομα Χρήστη." });
+			return res.render("register.ejs", { cookies:count ,error: "Το Όνομα Χρήστη υπάρχει.Εισάγεται ένα διαφορετικό Όνομα Χρήστη." });
 		}
 		passport.authenticate("local")(req, res , function() { 	
 			res.redirect("/");				
@@ -308,7 +320,7 @@ app.get("/anakoinoseis", function(req, res) {
 		if(err){
 			console.log(err);
 		}else{
-			res.render("anakoinoseis.ejs", { currentUser : req.user, anakoinoseis: anakoinoseis });
+			res.render("anakoinoseis.ejs", { cookies:count ,currentUser : req.user, anakoinoseis: anakoinoseis });
 		}
 	});
 });
@@ -317,7 +329,7 @@ app.get("/anakoinoseis", function(req, res) {
 // epikoinonia
 ///////////////////////////////////////////////////////////////////////////////////
 app.get("/epikoinonia", function(req, res){
-	res.render("epikoinonia.ejs");
+	res.render("epikoinonia.ejs", {cookies:count});
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -366,12 +378,11 @@ function SendMail(mailOptions){
 
 
 app.get("/parapona", function(req, res){
-	res.render("parapona.ejs");
+	res.render("parapona.ejs", {cookies:count });
 });
 
 
 app.post("/parapona/:id", function(req, res){
-	count++;
 	
 	User.find({
 		
@@ -410,7 +421,7 @@ app.post("/parapona/:id", function(req, res){
 			if(err){
 				console.log(err);
 			}else{
-				res.render("home.ejs", { count:count, success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
+				res.render("home.ejs", { cookies:count ,count:count, success : "Επιτυχής αποστολή.Σας έχει σταλεί email επιβεβαίωσης.", currentUser : req.user, anakoinoseis: anakoinoseis });
 			}
 		});
 	});
@@ -425,7 +436,7 @@ app.post("/parapona/:id", function(req, res){
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 app.get("/epanafortisi_kartas", function(req, res) {
-	res.render("epanafortisi_kartas.ejs");
+	res.render("epanafortisi_kartas.ejs", {cookies:count });
 });
 
 
@@ -507,7 +518,7 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 		
 		
 		
-		res.render("pliromi.ejs", { p: "1", stoixeia: stoixeia, cost: cost ,currentUser: req.user });
+		res.render("pliromi.ejs", { cookies:count , p: "1", stoixeia: stoixeia, cost: cost ,currentUser: req.user });
 	});
 });
 
@@ -517,7 +528,7 @@ app.post("/epanafortisi_kartas/:id", function(req, res) {
 ////////////////////////////////////////////////////////////////////
 ///////  agora_eisitirion
 app.get("/agora_eisitirion", function(req, res){
-	res.render("agora_eisitirion.ejs");
+	res.render("agora_eisitirion.ejs", {cookies:count});
 });
 
 app.post("/agora_eisitirion/:id", function(req, res) {
@@ -607,7 +618,7 @@ app.post("/agora_eisitirion/:id", function(req, res) {
 			cost += 5.00;
 		}
 		
-		res.render("pliromi.ejs", { p: "2", currentUser:req.user, stoixeia: stoixeia, cost: cost });
+		res.render("pliromi.ejs", { cookies:count , p: "2", currentUser:req.user, stoixeia: stoixeia, cost: cost });
 	});
 });
 
@@ -616,13 +627,13 @@ app.post("/agora_eisitirion/:id", function(req, res) {
 ////////////////////////////////////////////////////////////////////
 ///////  times_eisitirion
 app.get("/times_eisitirion", function(req, res){
-	res.render("times_eisitirion.ejs");
+	res.render("times_eisitirion.ejs", {cookies:count});
 });
 
 ////////////////////////////////////////////////////////////////////
 ///////  dikaiologitika
 app.get("/dikaiologitika", function(req, res){
-	res.render("dikaiologitika.ejs");
+	res.render("dikaiologitika.ejs", {cookies:count});
 });
 
 ////////////////////////////////////////////////////////////////////
@@ -640,7 +651,7 @@ app.get("/stathmoi_ekdosis", function(req, res){
 	
 
 
-	res.render("stathmoi_ekdosis.ejs", {stathmoi: stathmoi});
+	res.render("stathmoi_ekdosis.ejs", {cookies:count , stathmoi: stathmoi});
 });
 
 
@@ -929,7 +940,7 @@ app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	//SendMail(mailOptions);
 	}
 	
-	res.render("epiveveosi_pliromis.ejs");
+	res.render("epiveveosi_pliromis.ejs", {cookies:count});
 });
 
 //////////////////////////////////////////////
@@ -980,7 +991,7 @@ app.get("/oi_agores_mou", isLoggedIn ,function(req, res){
 		
 		
 		
-			res.render("oi_agores_mou.ejs", { currentUser:req.user, agores1: ticks , t1: t1 , agores2:ticks2 , t2: t2 });
+			res.render("oi_agores_mou.ejs", { cookies:count , currentUser:req.user, agores1: ticks , t1: t1 , agores2:ticks2 , t2: t2 });
 		}
 	});
 });
@@ -1056,7 +1067,7 @@ app.get("/oles_oi_grammes", function(req, res){
 				_id: a
 			},function(error, found_user) {
 				if(error){
-					res.render("oles_oi_grammes.ejs", { currentUser: req.user , dromologia: found_dromologio });
+					res.render("oles_oi_grammes.ejs", { cookies:count , currentUser: req.user , dromologia: found_dromologio });
 				}else{
 					var grammes = found_user[0].grammes;
 					
@@ -1079,7 +1090,7 @@ app.get("/oles_oi_grammes", function(req, res){
 					}
 					
 					
-					res.render("oles_oi_grammes.ejs", { currentUser: req.user , dromologia: found_dromologio });
+					res.render("oles_oi_grammes.ejs", { cookies:count , currentUser: req.user , dromologia: found_dromologio });
 				}
 			});
 			
@@ -1169,7 +1180,7 @@ app.get("/dromologia_mou", function(req, res){
 		var grammes = found_user[0].grammes;
 		var a = grammes.length;
 		
-		res.render("dromologia_mou.ejs", {grammes: grammes, a: a });
+		res.render("dromologia_mou.ejs", {cookies:count , grammes: grammes, a: a });
 	});
 	
 });
@@ -1187,7 +1198,7 @@ app.get("/nyxterina_dromologia", function(req, res){
 	
 
 
-	res.render("nyxterina_dromologia.ejs", {leoforeia: leoforeia});
+	res.render("nyxterina_dromologia.ejs", {cookies:count , leoforeia: leoforeia});
 });
 
 app.get("/dromologia_aerodromiou", function(req, res){
@@ -1201,7 +1212,7 @@ app.get("/dromologia_aerodromiou", function(req, res){
 	
 
 
-	res.render("dromologia_aerodromiou.ejs", {leoforeia: leoforeia});
+	res.render("dromologia_aerodromiou.ejs", {cookies:count , leoforeia: leoforeia});
 });
 
 app.get("/staseis_amea", function(req, res){
@@ -1218,17 +1229,17 @@ app.get("/staseis_amea", function(req, res){
 	
 
 
-	res.render("staseis_amea.ejs", {staseis: staseis});
+	res.render("staseis_amea.ejs", {cookies:count , staseis: staseis});
 });
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // help
 app.get("/pws_epanafortizw_karta", function(req, res){
-	res.render("pws_epanafortizw_karta.ejs");
+	res.render("pws_epanafortizw_karta.ejs", {cookies:count });
 });
 app.get("/pws_anazitw_diadromi", function(req, res){
-	res.render("pws_anazitw_diadromi.ejs");
+	res.render("pws_anazitw_diadromi.ejs", {cookies:count });
 });
 
 
@@ -1239,7 +1250,7 @@ app.get("/pws_anazitw_diadromi", function(req, res){
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 app.get("/login", function(req, res) {
-	res.render("login.ejs", { currentUser: req.user });
+	res.render("login.ejs", { cookies:count , currentUser: req.user });
 });
 
 
@@ -1275,12 +1286,12 @@ function isLoggedIn(req, res, next) {
 // acount routes
 /////////////////////////////////////////////////////////////////////////////////
 app.get("/my_account", isLoggedIn, function(req, res) {
-	res.render("my_account.ejs", { currentUser:req.user });
+	res.render("my_account.ejs", { cookies:count , currentUser:req.user });
 });
 
 
 app.get("/account", isLoggedIn, function(req, res) {
-	res.render("account.ejs");
+	res.render("account.ejs", {cookies:count});
 });
 
 app.post("/account", isLoggedIn, function(req, res) {
@@ -1310,11 +1321,10 @@ app.post("/account", isLoggedIn, function(req, res) {
 
 
 app.get("/epanadora_kvdikou", function(req, res){
-	res.render("epanadora_kvdikou.ejs");
+	res.render("epanadora_kvdikou.ejs", {cookies:count});
 });
 
 app.post("/epanadora_kvdikou", function(req, res){
-	count++;
 	var email = req.body.email;
 	
 	User.find({
@@ -1344,9 +1354,9 @@ app.post("/epanadora_kvdikou", function(req, res){
 				console.log(err);
 			}else{
 				if(k === 1){
-					res.render("home.ejs", { count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { cookies:count , count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}else{
-					res.render("home.ejs", { count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { cookies:count , count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}
 			}
 		});
@@ -1358,11 +1368,10 @@ app.post("/epanadora_kvdikou", function(req, res){
 
 
 app.get("/epanadora_kvdikou", function(req, res){
-	res.render("epanadora_kvdikou.ejs");
+	res.render("epanadora_kvdikou.ejs", {cookies:count });
 });
 
 app.post("/epanadora_kvdikou", function(req, res){
-	count++;
 	var email = req.body.email;
 	
 	User.find({
@@ -1392,9 +1401,9 @@ app.post("/epanadora_kvdikou", function(req, res){
 				console.log(err);
 			}else{
 				if(k === 1){
-					res.render("home.ejs", { count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { cookies:count , count:count, error : "Δεν υπάρχει το email που δόθηκε.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}else{
-					res.render("home.ejs", { count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
+					res.render("home.ejs", { cookies:count , count:count, success : "Στάλθηκε o κωδικός σας στο email.", currentUser : req.user, anakoinoseis: anakoinoseis });
 				}
 			}
 		});

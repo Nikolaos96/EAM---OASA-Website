@@ -7,16 +7,6 @@
 
 <br>
 <div class="container">
-
-	<% if( count === 1){ %>
-	<div class="alert warning" id="alt">
-	  <span class="closebtn">&times;</span>  
-	  <font color="black"><strong>ΠΡΟΣΟΧΗ!</strong> Αυτός ο ιστοχώρος χρησιμοποιεί cookies.Συνεχίζοντας συμφωνείτε με την χρήση τους. <small><b><a target="_blank" rel="noopener noreferrer" href="https://automattic.com/cookies/">Cookie Policy</a></small></b></font>
-	  
-	</div>
-	<% } %>
-		
-			
 			
 			
 	<div class="row">
@@ -215,25 +205,7 @@
 	</div>
 </div>
 </div>
-
-
-
 <br>
-
-<script>
-var close = document.getElementsByClassName("closebtn");
-var i;
-
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function(){
-    var div = this.parentElement;
-    div.style.opacity = "0";
-    setTimeout(function(){ div.style.display = "none"; }, 600);
-  }
-}
-</script>
-
-
 
 
 <script>

@@ -12,6 +12,18 @@
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		
+		<script>
+			$(document).ready(function(){   
+				setTimeout(function () {
+					$("#cookieConsent").fadeIn(200);
+				}, 4000);
+				$("#closeCookieConsent, .cookieConsentOK").click(function() {
+					$("#cookieConsent").fadeOut(200);
+				}); 
+			}); 
+		</script>
+		
+		
 		
 		<style>
 			.dropdown-menu {
@@ -30,34 +42,55 @@
 				position: absolute;
 				left: 87px;
 			}
+
+
+			#cookieConsent {
+				background-color: rgba(20,20,20,0.8);
+				min-height: 26px;
+				font-size: 14px;
+				color: #ccc;
+				line-height: 26px;
+				padding: 8px 0 8px 30px;
+				font-family: "Trebuchet MS",Helvetica,sans-serif;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				display: none;
+				z-index: 9999;
+			}
+			#cookieConsent a {
+				color: #4B8EE7;
+				text-decoration: none;
+			}
+			#closeCookieConsent {
+				float: right;
+				display: inline-block;
+				cursor: pointer;
+				height: 20px;
+				width: 20px;
+				margin: -15px 0 0 0;
+				font-weight: bold;
+			}
+			#closeCookieConsent:hover {
+				color: #FFF;
+			}
+			#cookieConsent a.cookieConsentOK {
+				background-color: #F1D600;
+				color: #000;
+				display: inline-block;
+				border-radius: 5px;
+				padding: 0 20px;
+				cursor: pointer;
+				float: right;
+				margin: 0 60px 0 10px;
+			}
+			#cookieConsent a.cookieConsentOK:hover {
+				background-color: #E0C91F;
+			}
 			
-			#alt {
-			  padding: 20px;
-			  background-color: #f44336;
-			  color: white;
-			  opacity: 1;
-			  transition: opacity 0.6s;
-			  margin-bottom: 15px;
-			  background-color: #ff9800;
-			}
-
 			
-			.closebtn {
-			  margin-left: 15px;
-			  color: white;
-			  font-weight: bold;
-			  float: right;
-			  font-size: 22px;
-			  line-height: 20px;
-			  cursor: pointer;
-			  transition: 0.3s;
-			}
-
-			.closebtn:hover {
-			  color: black;
-			}
-
-
+			
 		</style>
 	</head>
 
@@ -252,20 +285,14 @@
 		</nav>
 		
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<% if(cookies === 0) { %>
+		
+		<div id="cookieConsent">
+			<div id="closeCookieConsent">x</div>
+			<strong>ΠΡΟΣΟΧΗ!</strong> Αυτός ο ιστοχώρος χρησιμοποιεί cookies.Συνεχίζοντας συμφωνείτε με την χρήση τους. <small><a href="https://automattic.com/cookies/" target="_blank">Πληροφορίες Cookies</a></small> <a href="/alert" class="cookieConsentOK">Εντάξει</a>
+		</div>
+	
+	<% } %>
 
 
 
@@ -289,17 +316,5 @@
 			</div>
 		</div>
 	<% } %>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
