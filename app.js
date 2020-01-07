@@ -1207,14 +1207,15 @@ app.get("/staseis_amea", function(req, res){
 	res.render("staseis_amea.ejs", {staseis: staseis});
 });
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-//egxeiridio xrisis
-app.get("/egxeiridio", function(req, res){
-	res.render("egxeiridio.ejs");
+// help
+app.get("/pws_epanafortizw_karta", function(req, res){
+	res.render("pws_epanafortizw_karta.ejs");
 });
-
-
-
+app.get("/pws_anazitw_diadromi", function(req, res){
+	res.render("pws_anazitw_diadromi.ejs");
+});
 
 
 
