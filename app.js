@@ -234,6 +234,18 @@ app.get("/plirofories_stasis/:id", function(req, res){
 	});
 	
 });
+
+
+app.get("/_staseis/:id", function(req, res){
+	
+	Dromologia.find({
+		_id: req.params.id
+	}, function(err, found_dromologio){
+		
+		res.render("oles_oi_staseis.ejs", { dromo: found_dromologio });
+	});
+	
+});
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 

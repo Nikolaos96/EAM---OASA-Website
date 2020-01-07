@@ -1,0 +1,94 @@
+<% include partials/header.ejs %>
+
+
+
+
+
+<b>
+	<div class="container">
+		<br>
+			<div class="row">
+			<div class="col">
+			<table class="table">
+					<% dromo.forEach(function(drom){ %>
+						<thead class="thead-dark">
+							<th scope="col">ΣΤΑΣΗ</th>
+							<th scope="col">ΟΝΟΜΑ ΣΤΑΣΗΣ</th>
+						</thead>
+						<tbody style="background-color: #F5F5DC;">
+						  <tr>
+						  
+							<td width="50%">ΑΦΕΤΗΡΙΑ</td>
+							<td ><%= drom.afetiria %></td>
+
+						  </tr>
+						  <tr>
+							<b><td>ΣΤΑΣΗ 1η</td></b>
+							<td><%= drom.stasi1 %></td>
+						  </tr>	
+						  <tr>
+							<td>ΣΤΑΣΗ 2η</td>
+							<td><%= drom.stasi2 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 3η</td>
+							<td><%= drom.stasi3 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 4η</td>
+							<td><%= drom.stasi4 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 5η</td>
+							<td><%= drom.stasi5 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 6η</td>
+							<td><%= drom.stasi6 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 7η</td>
+							<td><%= drom.stasi7 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 8η</td>
+							<td><%= drom.stasi8 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 9η</td>
+							<td><%= drom.stasi9 %></td>
+						  </tr
+						  <tr>
+							<td>ΣΤΑΣΗ 10η</td>
+							<td><%= drom.stasi10 %></td>
+						  </tr
+						  
+						  <tr>
+							<td>ΤΕΡΜΑ</td>
+							<td><%= drom.terma %></td>
+						  </tr
+
+						
+						<tr>
+							<td>ΧΑΡΤΗΣ</td>
+							<td><a target="_blank" rel="noopener noreferrer" href="/plirofories_stasis/<%= drom._id %>">Χάρτης</a></td>
+						</tr>
+						
+						<tbody>
+						
+					<% })  %>
+			</table>
+			</div>
+			
+			<div class="col">
+			</div>
+			</div>
+
+	</div>
+
+
+
+
+
+
+<% include partials/footer.ejs %>
