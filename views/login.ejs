@@ -21,13 +21,13 @@
 			
 			
 			if(name == "") {
-				printError("nameErr", "Please enter your username");
+				printError("nameErr", "Πληκτρολογήστε το όνομα χρήστη.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/; 
 
 				
 				if(regex.test(name) === false) {
-					printError("nameErr", "Please enter a valid username.");
+					printError("nameErr", "Πληκτρολογήστε ένα έγκυρο όνομα χρήστη.");
 				} else {
 				
 					if(name.length < 4){
@@ -47,7 +47,7 @@
 			}
 			
 			if(password == "") {
-				printError("passErr", "Πληκτρολογήστε το όνομα χρήστη.");
+				printError("passErr", "Πληκτρολογήστε τον κωδικό.");
 			} else {
 				var regex = /^[a-zA-Z0-9\s]+$/;     
 
@@ -117,7 +117,7 @@
 
 
 
-		<br><br><br><br><br>
+		<br><br><br><br>
 		<a href="/epanadora_kvdikou">Ξέχασα τον κωδικό μου</a>
 	</div>
 </div>
