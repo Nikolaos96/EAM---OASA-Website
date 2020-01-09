@@ -1,10 +1,6 @@
 <% include partials/header.ejs %>
 
 
-
-
-
-
 <div class="container">
 	<b><h3 class="text-center">Δρομολόγια - Γραμμές.</h3></b>
 	<br><br>
@@ -17,7 +13,7 @@
 					<th scope="col">ΑΦΕΤΗΡΙΑ</th>
 					
 					<th scope="col">ΣΤΑΣΗ 1</th>
-					<th scope="col"> ... </th>
+					<th scope="col">ΟΛΕΣ ΟΙ ΣΤΑΣΕΙΣ</th>
 					<th scope="col">ΣΤΑΣΗ 10</th>
 					
 					<th scope="col">ΤΕΡΜΑ</th>
@@ -39,7 +35,7 @@
 						<td><%= drom.afetiria %></td>
 						
 						<td><%= drom.stasi1 %></td>
-						<td> ... </td>
+						<td><a target="_blank" rel="noopener noreferrer" href="/_staseis/<%= drom._id %>">Στάσεις</a></td>
 						<td><%= drom.stasi10 %></td>
 						
 						<td><%= drom.terma %></td>
@@ -62,13 +58,8 @@
 					</tr>
 				 <% })  %>
 			</tbody>
-		</table>
-
-
+	</table>
 </div>
-
-
-
 
 
 <% include partials/footer.ejs %>
