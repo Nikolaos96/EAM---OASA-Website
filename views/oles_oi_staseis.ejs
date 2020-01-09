@@ -2,11 +2,51 @@
 
 
 
-
-
-<b>
 	<div class="container">
 		<br>
+		<div align="center">
+			<% dromo.forEach(function(drom){ %>
+				<h4>Όλες οι στάσεις για το δρομολόγιο <b><%= drom.leoforeio %></b>.</h4>
+			<% })  %>
+		</div>
+		<br><br>
+		
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">ΛΕΟΦΩΡΕΙΟ</th>
+						<th scope="col">ΑΦΕΤΗΡΙΑ</th>
+	
+						<th scope="col">ΤΕΡΜΑ</th>
+						<th scope="col">ΕΠΟΜΕΝΟ ΣΕ</th>
+						<th scope="col">ΧΑΡΤΗΣ ΑΦΕΤΗΡΙΑΣ</th>
+					</tr>
+				</thead>
+				
+				
+				<tbody style="background-color: #F5F5DC;">
+					<% dromo.forEach(function(drom){ %>
+						<tr>
+							<td><%= drom.leoforeio %></td>
+							<td><%= drom.afetiria %></td>
+							
+							<td><%= drom.terma %></td>
+							<td><%= drom.epomeno %></td>
+							<td><a target="_blank" rel="noopener noreferrer" href="/plirofories_stasis/<%= drom._id %>">Χάρτης</a></td>
+						</tr>
+					 <% })  %>
+				</tbody>
+			</table>
+		
+		
+		
+		
+		
+			<br>
+			<br>
+		
+		
+		
 			<div class="row">
 			<div class="col">
 			<table class="table">
@@ -68,12 +108,6 @@
 							<td><%= drom.terma %></td>
 						  </tr
 
-						
-						<tr>
-							<td>ΧΑΡΤΗΣ</td>
-							<td><a target="_blank" rel="noopener noreferrer" href="/plirofories_stasis/<%= drom._id %>">Χάρτης</a></td>
-						</tr>
-						
 						<tbody>
 						
 					<% })  %>
