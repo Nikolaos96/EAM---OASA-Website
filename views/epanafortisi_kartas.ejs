@@ -1,5 +1,5 @@
 <% include partials/header.ejs %>
-
+<link rel="stylesheet" type="text/css" href="/login.css">
 
 <div class="container">
 	
@@ -154,19 +154,41 @@
 								<div class="form-group">
 									<input type="email" class="form-control" name = "stoixeia[email]" id="exampleInputEmail1" placeholder="email" required>
 								</div>
-								
-								<br>
-								<h4><b>Στοιχεία κάρτας </b><h4>
-								<br>
-								
-								<div class="form-group">
-									<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Κωδικός κάρτας" required>
-								</div>
-							
-							
 						</div>
 						
-						<br> <br><br>
+						
+						<br>
+						<h4><b>Στοιχεία κάρτας </b></h4>
+						
+						
+						<div style="width: 120%;">
+							<div class="row">
+							
+								<br>
+								
+								<div class="col">
+									<label></label>
+									<div class="form-group">
+										<input type="text" class="form-control" name = "stoixeia[kwdikos]" id="exampleInputEmail1" placeholder="Κωδικός κάρτας" required>
+									</div>
+								</div>
+								
+								<div class="col">
+									<br> 
+									<div align="left">
+										<div class="help-tip">
+											<p>Ο κωδικός αποτελείται απο 16 ψηφία τα οποία βρίσκονται κάτω αριστερά στην μπροστινή όψη της κάρτας.</p>
+										</div>
+									</div>
+								</div>
+								<br>
+							
+							
+							</div>
+						</div>
+						
+						
+						<br> <br><p></p>
 						<a href="/">Ακύρωση</a>
 						
 					</div>
