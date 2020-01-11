@@ -24,6 +24,27 @@
 		</script>
 		
 		
+		<script>
+			$(function() {
+  
+			  // contact form animations
+			  $('#contact').click(function() {
+				$('#contactForm').fadeToggle();
+			  })
+			  $(document).mouseup(function (e) {
+				var container = $("#contactForm");
+
+				if (!container.is(e.target) // if the target of the click isn't the container...
+					&& container.has(e.target).length === 0) // ... nor a descendant of the container
+				{
+					container.fadeOut();
+				}
+			  });
+  
+			});
+		</script>
+		
+		
 		
 		<style>
 			.dropdown-menu {
@@ -44,6 +65,29 @@
 			}
 
 
+
+			#contact {
+				position: absolute;
+				left: 100px;
+				bottom: -80px;
+			}
+			
+			#contactForm { 
+			  opacity: 1;
+			  display: none;
+			  padding: 2em;
+			  width: 310px;
+			  text-align: center;
+			  background: #e6e6e6;
+			  border-radius: 8px;
+			  position: fixed;
+			  top:30%;
+			  left:5%;
+			}
+			
+			
+			
+			
 			#cookieConsent {
 				background-color: rgba(20,20,20,0.8);
 				min-height: 26px;
