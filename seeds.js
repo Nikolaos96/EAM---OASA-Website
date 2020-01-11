@@ -332,14 +332,6 @@ var data = [
 
 
 
-/*
-var data2 = [
-	{username: "Nick", password: "1234", password_again: "1234", firstname: "Νικόλας", lastname: "Μακ", email: "sdi1500238@di.uoa.gr", phone: "123", AFM: "321", image: ""},
-	{username: "John", password: "1234", password_again: "1234", firstname: "Γιάννης", lastname: "Ιωα", email: "sdi1600216@di.uoa.gr", phone: "456", AFM: "654", image: ""},
-	{username: "Greg", password: "1234", password_again: "1234", firstname: "Γρηγόρης", lastname: "Γαλ", email: "sdi1600026@di.uoa.gr", phone: "789", AFM: "987", image: ""}
-]
-*/
-
 var data3 = [
 	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής των Λεωφορειακών Γραμμών 725, 726 και Α10."},
 	{ anakoinosi: "Προσωρινή Τροποποίηση της Διαδρομής της Λεωφορειακής Γραμμής 891, λόγω διεξαγωγής αγώνα στο Δημοτικό Στάδιο Περιστεριού."},
@@ -375,14 +367,14 @@ function seedDB(){
 		if(err){
 			console.log(err);
 		}
-		console.log("removed Dromologia");
+		//console.log("removed Dromologia");
 		// add a few Dromologia
 		data.forEach(function(seed){
 			Dromologia.create(seed, function(err, data){
 				if(err){
 					console.log(err);
 				}else{
-					console.log("added a Dromologia");
+					//console.log("added a Dromologia");
 				}
 			});
 		});
@@ -393,7 +385,7 @@ function seedDB(){
 		if(err){
 			console.log(err);
 		}
-		console.log("removed Anakoinoseis");
+		//console.log("removed Anakoinoseis");
 		
 		var count = 0;
 		
@@ -408,7 +400,7 @@ function seedDB(){
 					if(err){
 						console.log(err);
 					}else{
-						console.log("add anakoinosi");
+						//console.log("add anakoinosi");
 					}
 				});
 			}else if(count < 6){
@@ -421,7 +413,7 @@ function seedDB(){
 					if(err){
 						console.log(err);
 					}else{
-						console.log("add anakoinosi");
+						//console.log("add anakoinosi");
 					}
 				});
 			}else {
@@ -434,7 +426,7 @@ function seedDB(){
 					if(err){
 						console.log(err);
 					}else{
-						console.log("add anakoinosi");
+						//console.log("add anakoinosi");
 					}
 				});
 			}
@@ -443,27 +435,7 @@ function seedDB(){
 		});
 	});
 	
-	
-	
-	
-	/*
-	User.remove({}, function(err){
-		if(err){
-			console.log(err);
-		}
-		console.log("removed Users");
-		
-		data2.forEach(function(data){
-			User.create(data, function(err, data2){
-				if(err){
-					console.log(err);
-				}else{
-					console.log("added a User");
-				}
-			});
-		});
-	});
-	*/
+	console.log("Everything okay");
 }
 
 module.exports = seedDB;

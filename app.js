@@ -11,7 +11,7 @@ mongoose.connect("mongodb://localhost/auctions_db", { useNewUrlParser: true } );
 
 
 var seedDB = require("./seeds");
-//seedDB();
+seedDB();
 
 
 
