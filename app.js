@@ -191,6 +191,25 @@ app.post("/anazitisi_diadromis", function(req, res){
 
 
 
+
+app.get("/email_me", function(req, res){
+	// req.body.a
+	// req.body.b
+	// req.body.c
+	
+	
+	Anakoinoseis.find({}, function(err, anakoinoseis){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("home_en.ejs", { success:"To email σας στάλθηκε." ,cookies:count ,currentUser : req.user, anakoinoseis: anakoinoseis });
+		}
+	});
+});
+
+
+
+
 // plirofories stasis
 //////////////////////////////////////////////////////////////////////
 app.get("/plirofories_stasis", function(req, res) {
