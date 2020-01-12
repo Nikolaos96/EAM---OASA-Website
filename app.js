@@ -86,10 +86,10 @@ app.use(function(req, res, next) {
 });
 
 
+
+
 var count = 0 ;
 app.get("/", function(req, res) {
-	
-	
 	
 	Anakoinoseis.find({}, function(err, anakoinoseis){
 		if(err){
@@ -106,8 +106,6 @@ app.get("/alert", function(req, res){
 	
 	res.redirect('back');
 });
-
-
 
 
 
@@ -457,9 +455,6 @@ app.post("/parapona/:id", function(req, res){
 
 // epanafortisi_kartas
 ////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
 app.get("/epanafortisi_kartas", function(req, res) {
 	res.render("epanafortisi_kartas.ejs", {cookies:count });
 });
@@ -655,11 +650,15 @@ app.get("/times_eisitirion", function(req, res){
 	res.render("times_eisitirion.ejs", {cookies:count});
 });
 
+
+
 ////////////////////////////////////////////////////////////////////
 ///////  dikaiologitika
 app.get("/dikaiologitika", function(req, res){
 	res.render("dikaiologitika.ejs", {cookies:count});
 });
+
+
 
 ////////////////////////////////////////////////////////////////////
 ///////  stathmoi_ekdosis
@@ -694,8 +693,9 @@ function date(){
 	return today;
 }
 
-var count = 0;
 
+
+var count = 0;
 app.get("/epiveveosi_pliromis/:stoixeia", function(req, res){
 	count ++;
 	
